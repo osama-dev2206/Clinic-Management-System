@@ -43,7 +43,7 @@ namespace Clinc_Management_System
         {
             if (!String.IsNullOrEmpty(Password) && !String.IsNullOrEmpty(UserName) && clsLogin.CheckLogin(UserName, Password))
             {
-                this.Close(); // will close the login form and open the main form
+                DialogResult = DialogResult.OK;
             }
             else
             {
@@ -55,8 +55,11 @@ namespace Clinc_Management_System
         {
             // check the login info
             CheckLoginInfo();
+
         }
 
 
+
+   
     }
 }

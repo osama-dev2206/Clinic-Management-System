@@ -14,6 +14,7 @@ namespace Clinc_Management_System_Presentation_Layer
         public MainForm()
         {
             InitializeComponent();
+            DialogResult = DialogResult.OK;
             backToDashboard_Click(components, EventArgs.Empty);
         }
 
@@ -30,7 +31,7 @@ namespace Clinc_Management_System_Presentation_Layer
 
         private void labManagePatients_Click(object sender, EventArgs e)
         {
-          frmManagePatients frmManagePatients = new frmManagePatients();
+            frmManagePatients frmManagePatients = new frmManagePatients();
             frmManagePatients.ShowDialog();
         }
 
@@ -50,6 +51,11 @@ namespace Clinc_Management_System_Presentation_Layer
             labNumHeader.Visible = true;
         }
 
+        private void labLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK; // i will sign in with another account 
+            this.Close();
+       }
 
     }
 }

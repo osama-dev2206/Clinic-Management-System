@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            backToDashboard = new Label();
             labManageDoctors = new Label();
             labManagePatients = new Label();
             label2 = new Label();
@@ -38,6 +37,7 @@
             P1gb = new GroupBox();
             P1NumOfAppointements = new Label();
             labNumHeader = new Label();
+            labLogout = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)P1ListAllAppointments).BeginInit();
             P1gb.SuspendLayout();
@@ -46,7 +46,7 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.FromArgb(102, 163, 191);
-            groupBox1.Controls.Add(backToDashboard);
+            groupBox1.Controls.Add(labLogout);
             groupBox1.Controls.Add(labManageDoctors);
             groupBox1.Controls.Add(labManagePatients);
             groupBox1.Controls.Add(label2);
@@ -57,26 +57,13 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             // 
-            // backToDashboard
-            // 
-            backToDashboard.AutoSize = true;
-            backToDashboard.BorderStyle = BorderStyle.FixedSingle;
-            backToDashboard.Font = new Font("Calibri", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            backToDashboard.ForeColor = SystemColors.WindowFrame;
-            backToDashboard.Location = new Point(50, 48);
-            backToDashboard.Name = "backToDashboard";
-            backToDashboard.Size = new Size(144, 37);
-            backToDashboard.TabIndex = 1;
-            backToDashboard.Text = "Dashboard";
-            backToDashboard.Click += backToDashboard_Click;
-            // 
             // labManageDoctors
             // 
             labManageDoctors.AutoSize = true;
             labManageDoctors.BorderStyle = BorderStyle.FixedSingle;
             labManageDoctors.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labManageDoctors.ForeColor = Color.SaddleBrown;
-            labManageDoctors.Location = new Point(49, 146);
+            labManageDoctors.Location = new Point(49, 118);
             labManageDoctors.Name = "labManageDoctors";
             labManageDoctors.Size = new Size(151, 27);
             labManageDoctors.TabIndex = 1;
@@ -89,7 +76,7 @@
             labManagePatients.BorderStyle = BorderStyle.FixedSingle;
             labManagePatients.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labManagePatients.ForeColor = Color.SaddleBrown;
-            labManagePatients.Location = new Point(48, 102);
+            labManagePatients.Location = new Point(49, 58);
             labManagePatients.Name = "labManagePatients";
             labManagePatients.Size = new Size(153, 27);
             labManagePatients.TabIndex = 1;
@@ -161,6 +148,18 @@
             labNumHeader.TabIndex = 0;
             labNumHeader.Text = "Num Of Appointments";
             // 
+            // labLogout
+            // 
+            labLogout.AutoSize = true;
+            labLogout.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labLogout.ForeColor = Color.Red;
+            labLogout.Location = new Point(64, 389);
+            labLogout.Name = "labLogout";
+            labLogout.Size = new Size(118, 41);
+            labLogout.TabIndex = 2;
+            labLogout.Text = "Logout";
+            labLogout.Click += labLogout_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -189,10 +188,10 @@
         private Label label2;
         private Label labManagePatients;
         private Label labManageDoctors;
-        private Label backToDashboard;
         private DataGridView P1ListAllAppointments;
         private GroupBox P1gb;
         private Label labNumHeader;
         private Label P1NumOfAppointements;
+        private Label labLogout;
     }
 }

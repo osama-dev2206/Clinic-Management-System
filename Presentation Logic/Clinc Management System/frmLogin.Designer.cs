@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            label3 = new Label();
             label1 = new Label();
             tbUser = new TextBox();
             tbPassword = new TextBox();
             label2 = new Label();
             label4 = new Label();
             btnLogin = new Button();
-            label3 = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -50,6 +50,17 @@
             groupBox1.Size = new Size(289, 383);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Georgia", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(36, 9);
+            label3.Name = "label3";
+            label3.Size = new Size(209, 24);
+            label3.TabIndex = 1;
+            label3.Text = "Clinic Management";
             // 
             // label1
             // 
@@ -120,17 +131,6 @@
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Georgia", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.Black;
-            label3.Location = new Point(36, 9);
-            label3.Name = "label3";
-            label3.Size = new Size(209, 24);
-            label3.TabIndex = 1;
-            label3.Text = "Clinic Management";
-            // 
             // frmLogin
             // 
             AcceptButton = btnLogin;
@@ -148,6 +148,8 @@
             Name = "frmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
+
+
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);

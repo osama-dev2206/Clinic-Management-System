@@ -17,9 +17,27 @@ namespace Clinc_Management_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
-            // After Login in success 
-            Application.Run(new MainForm());
+
+            frmLogin loginForm ;
+            MainForm Main = new MainForm();
+            while ( Main.DialogResult == DialogResult.OK)
+            {
+
+                loginForm = new frmLogin();
+                loginForm.ShowDialog();
+                if (loginForm.DialogResult == DialogResult.Cancel) break; 
+                
+                else if (loginForm.DialogResult == DialogResult.OK)
+                { 
+                    Main.ShowDialog();
+                    loginForm.Dispose();
+                }
+
+            }
+
+
         }
+
+
     }
 }
