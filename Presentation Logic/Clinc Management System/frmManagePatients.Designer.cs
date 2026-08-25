@@ -53,6 +53,10 @@
             textBox2 = new TextBox();
             textBox1 = new TextBox();
             groupBox3 = new GroupBox();
+            label6 = new Label();
+            tbPhone = new TextBox();
+            mtbEmail = new MaskedTextBox();
+            label12 = new Label();
             label11 = new Label();
             label5 = new Label();
             label4 = new Label();
@@ -284,6 +288,10 @@
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(label6);
+            groupBox3.Controls.Add(tbPhone);
+            groupBox3.Controls.Add(mtbEmail);
+            groupBox3.Controls.Add(label12);
             groupBox3.Controls.Add(label11);
             groupBox3.Controls.Add(label5);
             groupBox3.Controls.Add(label4);
@@ -300,6 +308,43 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "Add New Patient";
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(317, 150);
+            label6.Name = "label6";
+            label6.Size = new Size(53, 20);
+            label6.TabIndex = 12;
+            label6.Text = "Phone";
+            // 
+            // tbPhone
+            // 
+            tbPhone.Location = new Point(320, 172);
+            tbPhone.MaxLength = 11;
+            tbPhone.Name = "tbPhone";
+            tbPhone.Size = new Size(204, 27);
+            tbPhone.TabIndex = 11;
+            tbPhone.TextChanged += tbPhone_TextChanged;
+            // 
+            // mtbEmail
+            // 
+            mtbEmail.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            mtbEmail.Location = new Point(38, 172);
+            mtbEmail.Mask = "AAAAAAAAAA@AAaaa.com";
+            mtbEmail.Name = "mtbEmail";
+            mtbEmail.Size = new Size(211, 27);
+            mtbEmail.TabIndex = 10;
+            mtbEmail.TextChanged += tbEmail_TextChanged;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(41, 150);
+            label12.Name = "label12";
+            label12.Size = new Size(46, 20);
+            label12.TabIndex = 9;
+            label12.Text = "Email";
+            // 
             // label11
             // 
             label11.AutoSize = true;
@@ -312,7 +357,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(41, 124);
+            label5.Location = new Point(38, 89);
             label5.Name = "label5";
             label5.Size = new Size(63, 20);
             label5.TabIndex = 5;
@@ -330,7 +375,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(320, 124);
+            label3.Location = new Point(317, 93);
             label3.Name = "label3";
             label3.Size = new Size(113, 20);
             label3.TabIndex = 3;
@@ -340,7 +385,7 @@
             // 
             cbGender.DropDownStyle = ComboBoxStyle.DropDownList;
             cbGender.Items.AddRange(new object[] { "Male", "Female" });
-            cbGender.Location = new Point(320, 146);
+            cbGender.Location = new Point(320, 116);
             cbGender.Name = "cbGender";
             cbGender.Size = new Size(204, 28);
             cbGender.TabIndex = 2;
@@ -360,7 +405,7 @@
             // 
             // tbAddress
             // 
-            tbAddress.Location = new Point(41, 147);
+            tbAddress.Location = new Point(41, 113);
             tbAddress.Name = "tbAddress";
             tbAddress.PlaceholderText = "Enter Address";
             tbAddress.Size = new Size(204, 27);
@@ -390,7 +435,8 @@
             Controls.Add(GrdPatient);
             Controls.Add(groupBox1);
             Name = "frmManagePatients";
-            Text = "frmManagePatients";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "ManagePatients";
             FormClosing += frmManagePatients_FormClosing;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -425,7 +471,6 @@
         private GroupBox groupBox3;
         private ComboBox cbGender;
         private DateTimePicker dtDatefBirth;
-        private TextBox tbAddress;
         private TextBox tbFullName;
         private Label label3;
         private Label label4;
@@ -440,5 +485,10 @@
         private TextBox textBox3;
         private TextBox textBox4;
         private Label label11;
+        private Label label12;
+        private MaskedTextBox mtbEmail;
+        private TextBox tbAddress;
+        private Label label6;
+        private TextBox tbPhone;
     }
 }

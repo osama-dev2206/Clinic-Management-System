@@ -17,6 +17,10 @@ namespace Bussiness_Logic_Layer
 
         public int Id { get; private set; }
 
+        public string Phone { get; set; }
+
+        public string Email { get; set; }
+
         enum enObjectStatus : byte   {enAdd=1 , enUpdate = 2  }
         enObjectStatus Status; 
 
@@ -32,7 +36,7 @@ namespace Bussiness_Logic_Layer
 
         private bool AddNewPatient()
         {
-            int ID = clsInsertNewPatient.InsertNewPatient(this.Name, this.DateOfBirth, this.Address, this.Gender);
+            int ID = clsInsertNewPatient.InsertNewPatient(this.Name, this.DateOfBirth, this.Address, this.Gender,this.Phone,this.Email);
             return (ID != -1); 
         }
 

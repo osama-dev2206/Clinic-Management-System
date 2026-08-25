@@ -54,17 +54,23 @@ namespace Clinc_Management_System_Presentation_Layer
             }
         }
 
+        private void tbEmail_TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(mtbEmail.Text) && mtbEmail.MaskCompleted)
+                Patient.Email = mtbEmail.Text;
+        }
+
+        private void tbPhone_TextChanged(object sender, EventArgs e)
+        {
+            if(!String.IsNullOrWhiteSpace(tbPhone.Text) )
+                Patient.Phone = tbPhone.Text;
+        }
+
         // return true if there is error 
         bool CheckObjBeforeSave()
         {
-            if (String.IsNullOrEmpty(Patient.Name) || String.IsNullOrEmpty(this.Patient.Address) || String.IsNullOrEmpty(this.Patient.Gender) || (this.Patient.DateOfBirth == null))
-                return true;
-            else return false;
-        }
-
-        bool CheckObjBeforeUpdate()
-        {
-            if (String.IsNullOrEmpty(tbAddress.Text) || String.IsNullOrEmpty(tbFullName.Text) || String.IsNullOrEmpty(cbGender.SelectedItem.ToString()) || (dtDatefBirth.Value == null))
+            if (String.IsNullOrEmpty(Patient.Name) || String.IsNullOrEmpty(this.Patient.Address) || String.IsNullOrEmpty(this.Patient.Gender) || (this.Patient.DateOfBirth == null)
+               || String.IsNullOrEmpty(mtbEmail.Text) || String.IsNullOrEmpty(tbPhone.Text) )
                 return true;
             else return false;
         }
@@ -76,7 +82,7 @@ namespace Clinc_Management_System_Presentation_Layer
 
         private void AddpictureBox_Click(object sender, EventArgs e)
         {
-            if (CheckObjBeforeSave() || CheckObjBeforeUpdate())
+            if (CheckObjBeforeSave())
             {
                 MessageBox.Show("Please fill all the required fields before saving.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -101,12 +107,17 @@ namespace Clinc_Management_System_Presentation_Layer
             if (e.ClickedItem.Text == "Delete" &&
              (DialogResult.OK == MessageBox.Show($"Are You Sure You Want To Delete  {this.SelectedPatientId} ?", "Warn", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)))
             {
-                if (clsPatient.Delete(this.SelectedPatientId))
+                if (clsPatient.Delete(this.SelectedPatientId) && SelectedPatientId !=-1 )
                 {
                     MessageBox.Show("Patient deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     RefreshGrid();
                 }
+                else
+                {
+                    MessageBox.Show("Failed to delete patient. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
             else if (e.ClickedItem.Text == "Update")
             {
@@ -123,10 +134,10 @@ namespace Clinc_Management_System_Presentation_Layer
             }
         }
 
-        // Later 
+
         private void frmManagePatients_FormClosing(object sender, FormClosingEventArgs e)
         {
-           DialogResult = DialogResult.OK;
+            // DialogResult = DialogResult.OK;
         }
 
 
