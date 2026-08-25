@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bussiness_Logic_Layer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,11 +14,28 @@ namespace Clinc_Management_System_Presentation_Layer
         public MainForm()
         {
             InitializeComponent();
+            backToDashboard_Click(components, EventArgs.Empty);
         }
 
         private void labManagePatients_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void labManageDoctors_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void backToDashboard_Click(object sender, EventArgs e)
+        {
+            P1gb.Visible = true;
+            this.labDashboard.Visible = true;
+            P1ListAllAppointments.Visible = true;
+            P1ListAllAppointments.DataSource = clsDasboard.ListAllAppointments();
+            P1NumOfAppointements.Visible = true;
+            P1NumOfAppointements.Text = clsDasboard.GetNumOfAppointments().ToString();
+            label1.Visible = true;
         }
 
 

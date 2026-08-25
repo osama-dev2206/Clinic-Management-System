@@ -125,7 +125,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Georgia", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(35, 29);
+            label3.Location = new Point(36, 9);
             label3.Name = "label3";
             label3.Size = new Size(209, 24);
             label3.TabIndex = 1;
