@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="../../BussinessLogicLayer/Bussiness_Logic_Layer.csproj" />
+  <Project Path="../../DataAccessLayer/Data Access Layer.csproj" />
+  <Project Path="Clinc Management System Presentation Layer.csproj" Id="766f4afd-61b8-44bb-b17e-b3ea020c9356" />
+</Solution>

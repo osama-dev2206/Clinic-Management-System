@@ -7,3 +7,5 @@ obj/
 *.suo
 *.shpush.sh
 push.sh
+appsettings.json
+*.user
