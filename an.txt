@@ -1,0 +1,5 @@
+payment will be ignored 
+Medical Record will be ignored 
+Persription will be ignored 
+------------------------------------------------
+the system will handle only the person details (doctor,patient) and appointments 

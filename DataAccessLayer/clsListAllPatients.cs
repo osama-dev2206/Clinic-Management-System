@@ -7,11 +7,11 @@ using System.Text;
 
 namespace Data_Access_Layer
 {
-    public static class clsListAllAppointments
+    public static class clsListAllPatients
     {
-        static string query = @" Select * from AppointmentDetails;";
+        static string query = " Select * From PatientFullDetails;";
 
-        public static DataTable ListAllAppointments()
+        public static DataTable ListAllPatients()
         {
             DataTable dt = new DataTable();
             SqlConnection connection = dbSettings.DbConnection();
@@ -19,22 +19,23 @@ namespace Data_Access_Layer
             {
                 connection.Open();
                 SqlCommand cmd = new SqlCommand(query, connection);
-                
-                SqlDataReader reader = cmd.ExecuteReader();
-             
-                    dt.Load(reader);
- 
+                var Reader = cmd.ExecuteReader();
+
+                dt.Load(Reader);
+
+                Reader.Close();
             }
-            catch 
+            catch
             {
+
             }
-            finally 
+            finally
             {
                 connection.Close();
             }
-            return dt; 
+
+            return dt;
         }
 
     }
-
 }

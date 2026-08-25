@@ -37,7 +37,7 @@
             P1ListAllAppointments = new DataGridView();
             P1gb = new GroupBox();
             P1NumOfAppointements = new Label();
-            label1 = new Label();
+            labNumHeader = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)P1ListAllAppointments).BeginInit();
             P1gb.SuspendLayout();
@@ -134,8 +134,8 @@
             // P1gb
             // 
             P1gb.Controls.Add(P1NumOfAppointements);
-            P1gb.Controls.Add(label1);
-            P1gb.Location = new Point(331, 102);
+            P1gb.Controls.Add(labNumHeader);
+            P1gb.Location = new Point(428, 102);
             P1gb.Name = "P1gb";
             P1gb.Size = new Size(169, 105);
             P1gb.TabIndex = 3;
@@ -151,15 +151,15 @@
             P1NumOfAppointements.TabIndex = 1;
             P1NumOfAppointements.Text = "0";
             // 
-            // label1
+            // labNumHeader
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(-1, 7);
-            label1.Name = "label1";
-            label1.Size = new Size(170, 20);
-            label1.TabIndex = 0;
-            label1.Text = "Num Of Appointments";
+            labNumHeader.AutoSize = true;
+            labNumHeader.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labNumHeader.Location = new Point(-1, 7);
+            labNumHeader.Name = "labNumHeader";
+            labNumHeader.Size = new Size(170, 20);
+            labNumHeader.TabIndex = 0;
+            labNumHeader.Text = "Num Of Appointments";
             // 
             // MainForm
             // 
@@ -172,6 +172,7 @@
             Controls.Add(labDashboard);
             Controls.Add(groupBox1);
             Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -191,7 +192,7 @@
         private Label backToDashboard;
         private DataGridView P1ListAllAppointments;
         private GroupBox P1gb;
-        private Label label1;
+        private Label labNumHeader;
         private Label P1NumOfAppointements;
     }
 }
