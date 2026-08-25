@@ -1,0 +1,9 @@
+ConsoleApp1/
+push/
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.shpush.sh
+push.sh
