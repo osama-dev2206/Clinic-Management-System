@@ -36,9 +36,10 @@ namespace Clinc_Management_System_Presentation_Layer
 
         private void labManageDoctors_Click(object sender, EventArgs e)
         {
-         
+            frmManageDoctors Doctors = new frmManageDoctors();
+            Doctors.ShowDialog();
+            Doctors.Dispose();
         }
-
 
 
         private void labLogout_Click(object sender, EventArgs e)

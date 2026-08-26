@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            labLogout = new Label();
             labManageDoctors = new Label();
             labManagePatients = new Label();
             label2 = new Label();
@@ -37,7 +38,8 @@
             P1gb = new GroupBox();
             P1NumOfAppointements = new Label();
             labNumHeader = new Label();
-            labLogout = new Label();
+            btnManagePatients = new Button();
+            btnManageDoctors = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)P1ListAllAppointments).BeginInit();
             P1gb.SuspendLayout();
@@ -46,6 +48,8 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.FromArgb(102, 163, 191);
+            groupBox1.Controls.Add(btnManageDoctors);
+            groupBox1.Controls.Add(btnManagePatients);
             groupBox1.Controls.Add(labLogout);
             groupBox1.Controls.Add(labManageDoctors);
             groupBox1.Controls.Add(labManagePatients);
@@ -56,6 +60,18 @@
             groupBox1.Size = new Size(250, 450);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
+            // 
+            // labLogout
+            // 
+            labLogout.AutoSize = true;
+            labLogout.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labLogout.ForeColor = Color.Red;
+            labLogout.Location = new Point(64, 389);
+            labLogout.Name = "labLogout";
+            labLogout.Size = new Size(118, 41);
+            labLogout.TabIndex = 2;
+            labLogout.Text = "Logout";
+            labLogout.Click += labLogout_Click;
             // 
             // labManageDoctors
             // 
@@ -148,17 +164,33 @@
             labNumHeader.TabIndex = 0;
             labNumHeader.Text = "Num Of Appointments";
             // 
-            // labLogout
+            // btnManagePatients
             // 
-            labLogout.AutoSize = true;
-            labLogout.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labLogout.ForeColor = Color.Red;
-            labLogout.Location = new Point(64, 389);
-            labLogout.Name = "labLogout";
-            labLogout.Size = new Size(118, 41);
-            labLogout.TabIndex = 2;
-            labLogout.Text = "Logout";
-            labLogout.Click += labLogout_Click;
+            btnManagePatients.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 192, 128);
+            btnManagePatients.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 128, 255);
+            btnManagePatients.FlatStyle = FlatStyle.Flat;
+            btnManagePatients.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnManagePatients.ForeColor = Color.FromArgb(51, 104, 160);
+            btnManagePatients.Location = new Point(22, 204);
+            btnManagePatients.Name = "btnManagePatients";
+            btnManagePatients.Size = new Size(191, 40);
+            btnManagePatients.TabIndex = 3;
+            btnManagePatients.Text = "Manage Patients";
+            btnManagePatients.UseVisualStyleBackColor = true;
+            // 
+            // btnManageDoctors
+            // 
+            btnManageDoctors.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 192, 128);
+            btnManageDoctors.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 128, 255);
+            btnManageDoctors.FlatStyle = FlatStyle.Flat;
+            btnManageDoctors.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnManageDoctors.ForeColor = Color.FromArgb(51, 104, 160);
+            btnManageDoctors.Location = new Point(22, 250);
+            btnManageDoctors.Name = "btnManageDoctors";
+            btnManageDoctors.Size = new Size(191, 40);
+            btnManageDoctors.TabIndex = 4;
+            btnManageDoctors.Text = "Manage Doctors";
+            btnManageDoctors.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -193,5 +225,7 @@
         private Label labNumHeader;
         private Label P1NumOfAppointements;
         private Label labLogout;
+        private Button btnManagePatients;
+        private Button btnManageDoctors;
     }
 }
