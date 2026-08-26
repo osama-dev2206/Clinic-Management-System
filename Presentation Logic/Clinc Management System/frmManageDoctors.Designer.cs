@@ -38,7 +38,9 @@
             tbAddress = new TextBox();
             groupBox4 = new GroupBox();
             label14 = new Label();
+            label15 = new Label();
             tbPhone = new TextBox();
+            mtbEmail = new MaskedTextBox();
             label7 = new Label();
             tbSpecialization = new TextBox();
             label1 = new Label();
@@ -54,8 +56,6 @@
             pbAddDoctor = new PictureBox();
             label2 = new Label();
             groupBox1 = new GroupBox();
-            label15 = new Label();
-            mtbEmail = new MaskedTextBox();
             groupBox4.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDoctor).BeginInit();
@@ -153,6 +153,15 @@
             label14.TabIndex = 14;
             label14.Text = "Phone";
             // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(364, 136);
+            label15.Name = "label15";
+            label15.Size = new Size(46, 20);
+            label15.TabIndex = 15;
+            label15.Text = "Email";
+            // 
             // tbPhone
             // 
             tbPhone.Font = new Font("Arial Narrow", 10.8F, FontStyle.Bold);
@@ -162,6 +171,16 @@
             tbPhone.Size = new Size(251, 28);
             tbPhone.TabIndex = 13;
             tbPhone.TextChanged += tbPhone_TextChanged;
+            // 
+            // mtbEmail
+            // 
+            mtbEmail.Font = new Font("Arial Narrow", 10.8F, FontStyle.Bold);
+            mtbEmail.Location = new Point(357, 159);
+            mtbEmail.Mask = "AAAAAAAAAA@AAaaa.com";
+            mtbEmail.Name = "mtbEmail";
+            mtbEmail.Size = new Size(211, 28);
+            mtbEmail.TabIndex = 12;
+            mtbEmail.TextChanged += mtbEmail_TextChanged;
             // 
             // label7
             // 
@@ -317,27 +336,6 @@
             groupBox1.Size = new Size(257, 487);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Location = new Point(364, 136);
-            label15.Name = "label15";
-            label15.Size = new Size(46, 20);
-            label15.TabIndex = 15;
-            label15.Text = "Email";
-
-            // 
-            // mtbEmail
-            // 
-            mtbEmail.Font = new Font("Arial Narrow", 10.8F, FontStyle.Bold);
-            mtbEmail.Location = new Point(357, 159);
-            mtbEmail.Mask = "AAAAAAAAAA@AAaaa.com";
-            mtbEmail.Name = "mtbEmail";
-            mtbEmail.Size = new Size(211, 28);
-            mtbEmail.TabIndex = 12;
-
-
             // 
             // frmManageDoctors
             // 

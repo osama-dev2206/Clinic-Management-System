@@ -12,6 +12,7 @@ namespace Clinc_Management_System_Presentation_Layer
     public partial class frmManageDoctors : Form
     {
         int SelectedPersonId = -1; // to store the selected doctor  id for update or delete
+
         public frmManageDoctors()
         {
             InitializeComponent();
@@ -19,6 +20,7 @@ namespace Clinc_Management_System_Presentation_Layer
         }
 
         clsDoctor doctor = new clsDoctor();
+
         void RefershDoctorGridView()
         {
             this.dgvDoctor.DataSource = clsDoctor.ListAllDoctors();
@@ -40,7 +42,7 @@ namespace Clinc_Management_System_Presentation_Layer
 
         }
 
-        // To Set Doctor Object Properties when the user change the values in the textboxes
+        // To Set Doctor Object Properties when the user change the values in the textboxes //////////////////////////////////
         private void tbFullName_TextChanged(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(this.tbFullName.Text))
@@ -100,6 +102,9 @@ namespace Clinc_Management_System_Presentation_Layer
             }
         }
 
+        
+        /// //////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         bool CheckBeforeSave()
         {
             return !((String.IsNullOrEmpty(doctor.Name) || String.IsNullOrEmpty(this.doctor.Address) || String.IsNullOrEmpty(this.doctor.Gender) || (this.doctor.DateOfBirth == null)
@@ -117,22 +122,23 @@ namespace Clinc_Management_System_Presentation_Layer
 
         }
 
+        // Update
         void FillFormForEditing()
         {
-            //this.doctor = null;
-            //if (doctor != null)
-            //{
-            //    this.tbFullName.Text = doctor.Name;
-            //    this.tbPhone.Text = doctor.Phone;
-            //    this.tbAddress.Text = doctor.Address;
-            //    this.mtbEmail.Text = doctor.Email;
-            //    this.dtDatefBirth.Text = doctor.DateOfBirth.ToString();
-            //    if (doctor.Gender.Trim() == "F") this.cbGender.Text = "Female";
-            //    else if (doctor.Gender.Trim() == "M")
-            //        this.cbGender.Text = "Male";
-
+            this.doctor = null; // find doctor by id and get the doctor object
+            if (doctor != null)
+            {
+                this.tbFullName.Text = doctor.Name;
+                this.tbPhone.Text = doctor.Phone;
+                this.tbAddress.Text = doctor.Address;
+                this.mtbEmail.Text = doctor.Email;
+                this.dtDateOfBirth.Text = doctor.DateOfBirth.ToString();
+                if (doctor.Gender.Trim() == "F") this.cbGender.Text = "Female";
+                else if (doctor.Gender.Trim() == "M")
+                    this.cbGender.Text = "Male";
+                this.tbSpecialization.Text = doctor.Specialization;
+            }
         }
-
 
         private void dgvDoctor_SelectionChanged(object sender, EventArgs e)
         {
@@ -167,7 +173,7 @@ namespace Clinc_Management_System_Presentation_Layer
 
         }
 
-
+        // Update , Delete 
         private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             //if (e.ClickedItem.Text == "Delete" &&
