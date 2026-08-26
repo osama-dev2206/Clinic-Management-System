@@ -7,17 +7,14 @@ namespace Bussiness_Logic_Layer
 {
     public interface IDoctor
     {
-        DataTable GetDoctorRecordFromDb(int PersonID);
+        
+        protected bool AddNewDoctor();
 
-        DataTable ListAllDoctors();
+        public  bool DeleteDoctor(int PersonDoctorId);
 
-        bool AddNewDoctor();
+        protected  bool UpdateDoctor();
 
-        bool DeleteDoctor(int PersonDoctorId);
-
-        bool UpdateDoctor();
-
-        bool Save();
+        public bool Save();
 
 
     }

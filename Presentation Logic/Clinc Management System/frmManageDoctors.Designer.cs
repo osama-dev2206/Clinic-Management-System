@@ -61,19 +61,19 @@
             tsDelete = new ToolStripMenuItem();
             tsEdit = new ToolStripMenuItem();
             contextMenuStrip1 = new ContextMenuStrip(components);
-            GrdPatient = new DataGridView();
+            dgvDoctor = new DataGridView();
             btnSaveEditing = new Button();
-            tbSearchPatientByPersonId = new TextBox();
+            tbSearchDoctorByPersonId = new TextBox();
             label13 = new Label();
-            pbAddPatient = new PictureBox();
+            pbAddDoctor = new PictureBox();
             label2 = new Label();
             groupBox1 = new GroupBox();
             groupBox3.SuspendLayout();
             groupBox4.SuspendLayout();
             groupBox2.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)GrdPatient).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pbAddPatient).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDoctor).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbAddDoctor).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -164,7 +164,7 @@
             groupBox3.Size = new Size(558, 207);
             groupBox3.TabIndex = 8;
             groupBox3.TabStop = false;
-            groupBox3.Text = "Add New Patient";
+            groupBox3.Text = "Add New Doctor";
             // 
             // label6
             // 
@@ -370,18 +370,18 @@
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(127, 56);
             // 
-            // GrdPatient
+            // dgvDoctor
             // 
-            GrdPatient.AllowUserToAddRows = false;
-            GrdPatient.AllowUserToDeleteRows = false;
-            GrdPatient.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GrdPatient.Dock = DockStyle.Bottom;
-            GrdPatient.Location = new Point(240, 268);
-            GrdPatient.Name = "GrdPatient";
-            GrdPatient.ReadOnly = true;
-            GrdPatient.RowHeadersWidth = 51;
-            GrdPatient.Size = new Size(560, 182);
-            GrdPatient.TabIndex = 6;
+            dgvDoctor.AllowUserToAddRows = false;
+            dgvDoctor.AllowUserToDeleteRows = false;
+            dgvDoctor.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDoctor.Dock = DockStyle.Bottom;
+            dgvDoctor.Location = new Point(240, 268);
+            dgvDoctor.Name = "dgvDoctor";
+            dgvDoctor.ReadOnly = true;
+            dgvDoctor.RowHeadersWidth = 51;
+            dgvDoctor.Size = new Size(560, 182);
+            dgvDoctor.TabIndex = 6;
             // 
             // btnSaveEditing
             // 
@@ -398,12 +398,13 @@
             btnSaveEditing.UseVisualStyleBackColor = false;
             btnSaveEditing.Visible = false;
             // 
-            // tbSearchPatientByPersonId
+            // tbSearchDoctorByPersonId
             // 
-            tbSearchPatientByPersonId.Location = new Point(35, 312);
-            tbSearchPatientByPersonId.Name = "tbSearchPatientByPersonId";
-            tbSearchPatientByPersonId.Size = new Size(162, 27);
-            tbSearchPatientByPersonId.TabIndex = 5;
+            tbSearchDoctorByPersonId.Location = new Point(35, 312);
+            tbSearchDoctorByPersonId.Name = "tbSearchDoctorByPersonId";
+            tbSearchDoctorByPersonId.Size = new Size(162, 27);
+            tbSearchDoctorByPersonId.TabIndex = 5;
+            tbSearchDoctorByPersonId.TextChanged += tbSearchDoctorByPersonId_TextChanged;
             // 
             // label13
             // 
@@ -411,19 +412,19 @@
             label13.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label13.Location = new Point(35, 289);
             label13.Name = "label13";
-            label13.Size = new Size(169, 20);
+            label13.Size = new Size(167, 20);
             label13.TabIndex = 4;
-            label13.Text = "Search Using Patinet ID";
+            label13.Text = "Search Using Person ID";
             // 
-            // pbAddPatient
+            // pbAddDoctor
             // 
-            pbAddPatient.Image = (Image)resources.GetObject("pbAddPatient.Image");
-            pbAddPatient.Location = new Point(38, 64);
-            pbAddPatient.Name = "pbAddPatient";
-            pbAddPatient.Size = new Size(156, 114);
-            pbAddPatient.SizeMode = PictureBoxSizeMode.Zoom;
-            pbAddPatient.TabIndex = 2;
-            pbAddPatient.TabStop = false;
+            pbAddDoctor.Image = (Image)resources.GetObject("pbAddDoctor.Image");
+            pbAddDoctor.Location = new Point(38, 64);
+            pbAddDoctor.Name = "pbAddDoctor";
+            pbAddDoctor.Size = new Size(156, 114);
+            pbAddDoctor.SizeMode = PictureBoxSizeMode.Zoom;
+            pbAddDoctor.TabIndex = 2;
+            pbAddDoctor.TabStop = false;
             // 
             // label2
             // 
@@ -439,9 +440,9 @@
             // 
             groupBox1.BackColor = Color.FromArgb(102, 163, 191);
             groupBox1.Controls.Add(btnSaveEditing);
-            groupBox1.Controls.Add(tbSearchPatientByPersonId);
+            groupBox1.Controls.Add(tbSearchDoctorByPersonId);
             groupBox1.Controls.Add(label13);
-            groupBox1.Controls.Add(pbAddPatient);
+            groupBox1.Controls.Add(pbAddDoctor);
             groupBox1.Controls.Add(label2);
             groupBox1.Dock = DockStyle.Left;
             groupBox1.ForeColor = Color.Black;
@@ -459,7 +460,7 @@
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(labFormName);
-            Controls.Add(GrdPatient);
+            Controls.Add(dgvDoctor);
             Controls.Add(groupBox1);
             Name = "frmManageDoctors";
             StartPosition = FormStartPosition.CenterScreen;
@@ -471,8 +472,8 @@
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             contextMenuStrip1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)GrdPatient).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pbAddPatient).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDoctor).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbAddDoctor).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
@@ -512,11 +513,11 @@
         private ToolStripMenuItem tsDelete;
         private ToolStripMenuItem tsEdit;
         private ContextMenuStrip contextMenuStrip1;
-        private DataGridView GrdPatient;
+        private DataGridView dgvDoctor;
         private Button btnSaveEditing;
-        private TextBox tbSearchPatientByPersonId;
+        private TextBox tbSearchDoctorByPersonId;
         private Label label13;
-        private PictureBox pbAddPatient;
+        private PictureBox pbAddDoctor;
         private Label label2;
         private GroupBox groupBox1;
     }

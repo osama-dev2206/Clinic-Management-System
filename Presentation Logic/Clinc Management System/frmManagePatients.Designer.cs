@@ -123,9 +123,9 @@
             label13.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label13.Location = new Point(35, 289);
             label13.Name = "label13";
-            label13.Size = new Size(169, 20);
+            label13.Size = new Size(167, 20);
             label13.TabIndex = 4;
-            label13.Text = "Search Using Patinet ID";
+            label13.Text = "Search Using Person ID";
             // 
             // pbAddPatient
             // 

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Data_Access_Layer
 {
-    public static class clsListAllDoctorscs
+    public static class clsListAllDoctors
     {
         static string Query = @"Select * From DoctorsFullDetails; ";
 
