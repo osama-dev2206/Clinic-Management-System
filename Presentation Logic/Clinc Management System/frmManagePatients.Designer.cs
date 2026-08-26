@@ -31,6 +31,8 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManagePatients));
             groupBox1 = new GroupBox();
+            btnSaveEditing = new Button();
+            tbSearchPatientByPersonId = new TextBox();
             label13 = new Label();
             pbAddPatient = new PictureBox();
             label2 = new Label();
@@ -38,7 +40,7 @@
             contextMenuStrip1 = new ContextMenuStrip(components);
             tsEdit = new ToolStripMenuItem();
             tsDelete = new ToolStripMenuItem();
-            label1 = new Label();
+            labFormName = new Label();
             groupBox2 = new GroupBox();
             groupBox4 = new GroupBox();
             label7 = new Label();
@@ -66,7 +68,6 @@
             dtDatefBirth = new DateTimePicker();
             tbAddress = new TextBox();
             tbFullName = new TextBox();
-            tbSearchPatientByPersonId = new TextBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbAddPatient).BeginInit();
             ((System.ComponentModel.ISupportInitialize)GrdPatient).BeginInit();
@@ -79,6 +80,7 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.FromArgb(102, 163, 191);
+            groupBox1.Controls.Add(btnSaveEditing);
             groupBox1.Controls.Add(tbSearchPatientByPersonId);
             groupBox1.Controls.Add(label13);
             groupBox1.Controls.Add(pbAddPatient);
@@ -90,6 +92,27 @@
             groupBox1.Size = new Size(240, 450);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
+            // 
+            // btnSaveEditing
+            // 
+            btnSaveEditing.BackColor = Color.RosyBrown;
+            btnSaveEditing.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSaveEditing.Location = new Point(43, 220);
+            btnSaveEditing.Name = "btnSaveEditing";
+            btnSaveEditing.Size = new Size(153, 42);
+            btnSaveEditing.TabIndex = 6;
+            btnSaveEditing.Text = "Save Changes ?";
+            btnSaveEditing.UseVisualStyleBackColor = false;
+            btnSaveEditing.Visible = false;
+            btnSaveEditing.Click += btnSaveEditing_Click;
+            // 
+            // tbSearchPatientByPersonId
+            // 
+            tbSearchPatientByPersonId.Location = new Point(50, 312);
+            tbSearchPatientByPersonId.Name = "tbSearchPatientByPersonId";
+            tbSearchPatientByPersonId.Size = new Size(162, 27);
+            tbSearchPatientByPersonId.TabIndex = 5;
+            tbSearchPatientByPersonId.TextChanged += tbSearchPatient_TextChanged;
             // 
             // label13
             // 
@@ -158,15 +181,15 @@
             tsDelete.Size = new Size(126, 26);
             tsDelete.Text = "Delete";
             // 
-            // label1
+            // labFormName
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(369, 10);
-            label1.Name = "label1";
-            label1.Size = new Size(277, 46);
-            label1.TabIndex = 3;
-            label1.Text = "Manage Patients";
+            labFormName.AutoSize = true;
+            labFormName.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labFormName.Location = new Point(369, 10);
+            labFormName.Name = "labFormName";
+            labFormName.Size = new Size(277, 46);
+            labFormName.TabIndex = 3;
+            labFormName.Text = "Manage Patients";
             // 
             // groupBox2
             // 
@@ -436,14 +459,6 @@
             tbFullName.TabIndex = 0;
             tbFullName.TextChanged += tbFullName_TextChanged;
             // 
-            // tbSearchPatient
-            // 
-            tbSearchPatientByPersonId.Location = new Point(50, 312);
-            tbSearchPatientByPersonId.Name = "tbSearchPatient";
-            tbSearchPatientByPersonId.Size = new Size(162, 27);
-            tbSearchPatientByPersonId.TabIndex = 5;
-            tbSearchPatientByPersonId.TextChanged += tbSearchPatient_TextChanged;
-            // 
             // frmManagePatients
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -453,7 +468,7 @@
             ContextMenuStrip = contextMenuStrip1;
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
-            Controls.Add(label1);
+            Controls.Add(labFormName);
             Controls.Add(GrdPatient);
             Controls.Add(groupBox1);
             Name = "frmManagePatients";
@@ -482,7 +497,7 @@
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem tsEdit;
         private ToolStripMenuItem tsDelete;
-        private Label label1;
+        private Label labFormName;
         private Label label2;
         private PictureBox pbAddPatient;
         private GroupBox groupBox2;
@@ -514,5 +529,6 @@
         private TextBox tbPhone;
         private Label label13;
         private TextBox tbSearchPatientByPersonId;
+        private Button btnSaveEditing;
     }
 }

@@ -43,25 +43,27 @@ namespace Bussiness_Logic_Layer
         }
 
 
-        public clsPatient ? FindPatientByID(int PersonID)
+        public static clsPatient ? FindPatientByPersonID(int PersonID)
         {
             if (!int.TryParse(PersonID.ToString(), out _)) return null;
 
             DataTable dt = clsFindPatientByID.FindPatinetByPersonID(PersonID); // get record of patient from database as DataTable
 
-            DateTime dateTime = Convert.ToDateTime(dt.Columns["DateOFBirth"].ToString() + " 1:1:1 PM" ) ;
-            DateOnly dateonly = DateOnly.FromDateTime(dateTime);
+          
 
-            return new clsPatient(
-                Convert.ToInt32(dt.Columns["PersonId"]) ,
-                dt.Columns["Name"].ToString() ,
-                dt.Columns["Email"].ToString(),
-                dt.Columns["PhoneNumber"].ToString(),
-               dt.Columns["Gender"].ToString(),
-                 dateonly, // date of birth
-               dt.Columns["Address"].ToString()
-          );
 
+            clsPatient patient =null;
+            foreach (DataRow R in dt.Rows)
+           {
+                DateTime datetime = Convert.ToDateTime(R["DateOfBirth"]);
+                DateOnly dateonly  = DateOnly.FromDateTime(datetime);
+
+                patient = new clsPatient(
+                Convert.ToInt32(R["PersonId"]),R["Name"].ToString(), R["Email"].ToString(), R["PhoneNumber"].ToString(), R["Gender"].ToString(), 
+                dateonly, R["Address"].ToString());
+            }
+
+            return patient;
         }
 
         public static  DataTable GetPatientRecordFromDb(int PersonID)
@@ -89,6 +91,9 @@ namespace Bussiness_Logic_Layer
             return clsDeletePatient.DeletePatient(PersonPatinetId);
         }
 
+         private partial bool UpdatePatient();
+
+
         public bool Save()
         {
             switch(this.Status)
@@ -96,6 +101,10 @@ namespace Bussiness_Logic_Layer
                 case  enObjectStatus.enAdd:
                     if (AddNewPatient()) return true;
                     Status = enObjectStatus.enUpdate; 
+                    break;
+
+                case enObjectStatus.enUpdate:
+                    UpdatePatient();
                     break;
             }
 
