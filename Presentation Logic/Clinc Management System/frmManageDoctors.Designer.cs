@@ -30,33 +30,19 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManageDoctors));
-            comboBox1 = new ComboBox();
-            textBox2 = new TextBox();
-            label7 = new Label();
             label8 = new Label();
             label9 = new Label();
             label10 = new Label();
-            comboBox3 = new ComboBox();
-            textBox1 = new TextBox();
-            groupBox3 = new GroupBox();
-            label6 = new Label();
-            tbPhone = new TextBox();
-            mtbEmail = new MaskedTextBox();
-            label12 = new Label();
-            label11 = new Label();
-            label5 = new Label();
-            label4 = new Label();
-            label3 = new Label();
             cbGender = new ComboBox();
-            dtDatefBirth = new DateTimePicker();
+            dtDateOfBirth = new DateTimePicker();
             tbAddress = new TextBox();
-            tbFullName = new TextBox();
-            dateTimePicker1 = new DateTimePicker();
-            dateTimePicker2 = new DateTimePicker();
-            textBox3 = new TextBox();
             groupBox4 = new GroupBox();
-            textBox4 = new TextBox();
-            groupBox2 = new GroupBox();
+            label14 = new Label();
+            tbPhone = new TextBox();
+            label7 = new Label();
+            tbSpecialization = new TextBox();
+            label1 = new Label();
+            tbFullName = new TextBox();
             labFormName = new Label();
             tsDelete = new ToolStripMenuItem();
             tsEdit = new ToolStripMenuItem();
@@ -68,43 +54,19 @@
             pbAddDoctor = new PictureBox();
             label2 = new Label();
             groupBox1 = new GroupBox();
-            groupBox3.SuspendLayout();
+            label15 = new Label();
+            mtbEmail = new MaskedTextBox();
             groupBox4.SuspendLayout();
-            groupBox2.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDoctor).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbAddDoctor).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(286, 112);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(251, 28);
-            comboBox1.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(66, 88);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(161, 27);
-            textBox2.TabIndex = 0;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(248, 93);
-            label7.Name = "label7";
-            label7.Size = new Size(63, 20);
-            label7.TabIndex = 6;
-            label7.Text = "Address";
-            // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(41, 124);
+            label8.Location = new Point(20, 148);
             label8.Name = "label8";
             label8.Size = new Size(63, 20);
             label8.TabIndex = 5;
@@ -113,7 +75,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(297, 23);
+            label9.Location = new Point(357, 23);
             label9.Name = "label9";
             label9.Size = new Size(98, 20);
             label9.TabIndex = 4;
@@ -122,228 +84,129 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(297, 123);
+            label10.Location = new Point(357, 76);
             label10.Name = "label10";
             label10.Size = new Size(113, 20);
             label10.TabIndex = 3;
             label10.Text = "Choose Gender";
             // 
-            // comboBox3
-            // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Items.AddRange(new object[] { "Male", "Female" });
-            comboBox3.Location = new Point(297, 146);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(251, 28);
-            comboBox3.TabIndex = 2;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(66, 44);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(161, 27);
-            textBox1.TabIndex = 0;
-            // 
-            // groupBox3
-            // 
-            groupBox3.Controls.Add(label6);
-            groupBox3.Controls.Add(tbPhone);
-            groupBox3.Controls.Add(mtbEmail);
-            groupBox3.Controls.Add(label12);
-            groupBox3.Controls.Add(label11);
-            groupBox3.Controls.Add(label5);
-            groupBox3.Controls.Add(label4);
-            groupBox3.Controls.Add(label3);
-            groupBox3.Controls.Add(cbGender);
-            groupBox3.Controls.Add(dtDatefBirth);
-            groupBox3.Controls.Add(tbAddress);
-            groupBox3.Controls.Add(tbFullName);
-            groupBox3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox3.Location = new Point(240, 63);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(558, 207);
-            groupBox3.TabIndex = 8;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "Add New Doctor";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(317, 150);
-            label6.Name = "label6";
-            label6.Size = new Size(53, 20);
-            label6.TabIndex = 12;
-            label6.Text = "Phone";
-            // 
-            // tbPhone
-            // 
-            tbPhone.Location = new Point(320, 172);
-            tbPhone.MaxLength = 11;
-            tbPhone.Name = "tbPhone";
-            tbPhone.Size = new Size(204, 27);
-            tbPhone.TabIndex = 11;
-            // 
-            // mtbEmail
-            // 
-            mtbEmail.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            mtbEmail.Location = new Point(38, 172);
-            mtbEmail.Mask = "AAAAAAAAAA@AAaaa.com";
-            mtbEmail.Name = "mtbEmail";
-            mtbEmail.Size = new Size(211, 27);
-            mtbEmail.TabIndex = 10;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Location = new Point(41, 150);
-            label12.Name = "label12";
-            label12.Size = new Size(46, 20);
-            label12.TabIndex = 9;
-            label12.Text = "Email";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(41, 32);
-            label11.Name = "label11";
-            label11.Size = new Size(79, 20);
-            label11.TabIndex = 7;
-            label11.Text = "Full Name";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(38, 89);
-            label5.Name = "label5";
-            label5.Size = new Size(63, 20);
-            label5.TabIndex = 5;
-            label5.Text = "Address";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(297, 32);
-            label4.Name = "label4";
-            label4.Size = new Size(98, 20);
-            label4.TabIndex = 4;
-            label4.Text = "Date Of Birth";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(317, 93);
-            label3.Name = "label3";
-            label3.Size = new Size(113, 20);
-            label3.TabIndex = 3;
-            label3.Text = "Choose Gender";
-            // 
             // cbGender
             // 
             cbGender.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbGender.Font = new Font("Arial Narrow", 10.8F, FontStyle.Bold);
+            cbGender.FormattingEnabled = true;
             cbGender.Items.AddRange(new object[] { "Male", "Female" });
-            cbGender.Location = new Point(320, 116);
+            cbGender.Location = new Point(357, 99);
             cbGender.Name = "cbGender";
-            cbGender.Size = new Size(204, 28);
+            cbGender.Size = new Size(251, 30);
             cbGender.TabIndex = 2;
+            cbGender.SelectedIndexChanged += cbGender_SelectedIndexChanged;
             // 
-            // dtDatefBirth
+            // dtDateOfBirth
             // 
-            dtDatefBirth.Format = DateTimePickerFormat.Short;
-            dtDatefBirth.Location = new Point(297, 55);
-            dtDatefBirth.MaxDate = new DateTime(2026, 8, 25, 0, 0, 0, 0);
-            dtDatefBirth.MinDate = new DateTime(1930, 1, 28, 0, 0, 0, 0);
-            dtDatefBirth.Name = "dtDatefBirth";
-            dtDatefBirth.Size = new Size(251, 27);
-            dtDatefBirth.TabIndex = 1;
-            dtDatefBirth.Value = new DateTime(2026, 8, 25, 0, 0, 0, 0);
+            dtDateOfBirth.Format = DateTimePickerFormat.Short;
+            dtDateOfBirth.Location = new Point(357, 44);
+            dtDateOfBirth.Name = "dtDateOfBirth";
+            dtDateOfBirth.Size = new Size(251, 27);
+            dtDateOfBirth.TabIndex = 1;
+            dtDateOfBirth.ValueChanged += dtDatefBirth_ValueChanged;
             // 
             // tbAddress
             // 
-            tbAddress.Location = new Point(41, 113);
+            tbAddress.Location = new Point(20, 171);
             tbAddress.Name = "tbAddress";
             tbAddress.PlaceholderText = "Enter Address";
-            tbAddress.Size = new Size(204, 27);
+            tbAddress.Size = new Size(251, 27);
             tbAddress.TabIndex = 0;
-            // 
-            // tbFullName
-            // 
-            tbFullName.Location = new Point(41, 55);
-            tbFullName.MaxLength = 100;
-            tbFullName.Name = "tbFullName";
-            tbFullName.PlaceholderText = "Enter Patient Full Name";
-            tbFullName.Size = new Size(204, 27);
-            tbFullName.TabIndex = 0;
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new Point(286, 42);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(251, 27);
-            dateTimePicker1.TabIndex = 1;
-            // 
-            // dateTimePicker2
-            // 
-            dateTimePicker2.Format = DateTimePickerFormat.Short;
-            dateTimePicker2.Location = new Point(297, 42);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(251, 27);
-            dateTimePicker2.TabIndex = 1;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(41, 147);
-            textBox3.Name = "textBox3";
-            textBox3.PlaceholderText = "Enter Address";
-            textBox3.Size = new Size(204, 27);
-            textBox3.TabIndex = 0;
+            tbAddress.TextChanged += tbAddress_TextChanged;
             // 
             // groupBox4
             // 
+            groupBox4.Controls.Add(label14);
+            groupBox4.Controls.Add(label15);
+            groupBox4.Controls.Add(tbPhone);
+            groupBox4.Controls.Add(mtbEmail);
             groupBox4.Controls.Add(label7);
+            groupBox4.Controls.Add(tbSpecialization);
+            groupBox4.Controls.Add(label1);
             groupBox4.Controls.Add(label8);
             groupBox4.Controls.Add(label9);
             groupBox4.Controls.Add(label10);
-            groupBox4.Controls.Add(comboBox3);
-            groupBox4.Controls.Add(dateTimePicker2);
-            groupBox4.Controls.Add(textBox3);
-            groupBox4.Controls.Add(textBox4);
+            groupBox4.Controls.Add(cbGender);
+            groupBox4.Controls.Add(dtDateOfBirth);
+            groupBox4.Controls.Add(tbAddress);
+            groupBox4.Controls.Add(tbFullName);
             groupBox4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox4.Location = new Point(-2, 0);
+            groupBox4.Location = new Point(257, 49);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(558, 207);
+            groupBox4.Size = new Size(636, 260);
             groupBox4.TabIndex = 4;
             groupBox4.TabStop = false;
-            groupBox4.Text = "Add New Patient";
+            groupBox4.Text = "Add New Doctor";
             // 
-            // textBox4
+            // label14
             // 
-            textBox4.Location = new Point(41, 44);
-            textBox4.MaxLength = 100;
-            textBox4.Name = "textBox4";
-            textBox4.PlaceholderText = "Enter Patient Full Name";
-            textBox4.Size = new Size(204, 27);
-            textBox4.TabIndex = 0;
+            label14.AutoSize = true;
+            label14.Location = new Point(357, 200);
+            label14.Name = "label14";
+            label14.Size = new Size(53, 20);
+            label14.TabIndex = 14;
+            label14.Text = "Phone";
             // 
-            // groupBox2
+            // tbPhone
             // 
-            groupBox2.Controls.Add(groupBox4);
-            groupBox2.Controls.Add(comboBox1);
-            groupBox2.Controls.Add(dateTimePicker1);
-            groupBox2.Controls.Add(textBox2);
-            groupBox2.Controls.Add(textBox1);
-            groupBox2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox2.Location = new Point(242, 63);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(558, 207);
-            groupBox2.TabIndex = 9;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Add New Patient";
+            tbPhone.Font = new Font("Arial Narrow", 10.8F, FontStyle.Bold);
+            tbPhone.Location = new Point(357, 223);
+            tbPhone.MaxLength = 11;
+            tbPhone.Name = "tbPhone";
+            tbPhone.Size = new Size(251, 28);
+            tbPhone.TabIndex = 13;
+            tbPhone.TextChanged += tbPhone_TextChanged;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(24, 23);
+            label7.Name = "label7";
+            label7.Size = new Size(79, 20);
+            label7.TabIndex = 8;
+            label7.Text = "Full Name";
+            // 
+            // tbSpecialization
+            // 
+            tbSpecialization.Font = new Font("Arial Narrow", 10.8F, FontStyle.Bold);
+            tbSpecialization.Location = new Point(20, 107);
+            tbSpecialization.Name = "tbSpecialization";
+            tbSpecialization.PlaceholderText = "Enter Specialization";
+            tbSpecialization.Size = new Size(227, 28);
+            tbSpecialization.TabIndex = 7;
+            tbSpecialization.TextChanged += tbSpecialization_TextChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(20, 84);
+            label1.Name = "label1";
+            label1.Size = new Size(103, 20);
+            label1.TabIndex = 6;
+            label1.Text = "Specialization";
+            // 
+            // tbFullName
+            // 
+            tbFullName.Font = new Font("Arial Narrow", 10.8F, FontStyle.Bold);
+            tbFullName.Location = new Point(20, 44);
+            tbFullName.MaxLength = 100;
+            tbFullName.Name = "tbFullName";
+            tbFullName.PlaceholderText = "Enter Patient Full Name";
+            tbFullName.Size = new Size(204, 28);
+            tbFullName.TabIndex = 0;
+            tbFullName.TextChanged += tbFullName_TextChanged;
             // 
             // labFormName
             // 
             labFormName.AutoSize = true;
             labFormName.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labFormName.Location = new Point(369, 10);
+            labFormName.Location = new Point(424, 0);
             labFormName.Name = "labFormName";
             labFormName.Size = new Size(274, 46);
             labFormName.TabIndex = 7;
@@ -369,6 +232,7 @@
             contextMenuStrip1.Items.AddRange(new ToolStripItem[] { tsEdit, tsDelete });
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(127, 56);
+            contextMenuStrip1.ItemClicked += contextMenuStrip1_ItemClicked;
             // 
             // dgvDoctor
             // 
@@ -376,12 +240,13 @@
             dgvDoctor.AllowUserToDeleteRows = false;
             dgvDoctor.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDoctor.Dock = DockStyle.Bottom;
-            dgvDoctor.Location = new Point(240, 268);
+            dgvDoctor.Location = new Point(257, 305);
             dgvDoctor.Name = "dgvDoctor";
             dgvDoctor.ReadOnly = true;
             dgvDoctor.RowHeadersWidth = 51;
-            dgvDoctor.Size = new Size(560, 182);
+            dgvDoctor.Size = new Size(636, 182);
             dgvDoctor.TabIndex = 6;
+            dgvDoctor.SelectionChanged += dgvDoctor_SelectionChanged;
             // 
             // btnSaveEditing
             // 
@@ -425,6 +290,7 @@
             pbAddDoctor.SizeMode = PictureBoxSizeMode.Zoom;
             pbAddDoctor.TabIndex = 2;
             pbAddDoctor.TabStop = false;
+            pbAddDoctor.Click += pbAddDoctor_Click;
             // 
             // label2
             // 
@@ -448,29 +314,46 @@
             groupBox1.ForeColor = Color.Black;
             groupBox1.Location = new Point(0, 0);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(240, 450);
+            groupBox1.Size = new Size(257, 487);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(364, 136);
+            label15.Name = "label15";
+            label15.Size = new Size(46, 20);
+            label15.TabIndex = 15;
+            label15.Text = "Email";
+
+            // 
+            // mtbEmail
+            // 
+            mtbEmail.Font = new Font("Arial Narrow", 10.8F, FontStyle.Bold);
+            mtbEmail.Location = new Point(357, 159);
+            mtbEmail.Mask = "AAAAAAAAAA@AAaaa.com";
+            mtbEmail.Name = "mtbEmail";
+            mtbEmail.Size = new Size(211, 28);
+            mtbEmail.TabIndex = 12;
+
+
             // 
             // frmManageDoctors
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(groupBox3);
-            Controls.Add(groupBox2);
+            ClientSize = new Size(893, 487);
+            ContextMenuStrip = contextMenuStrip1;
+            Controls.Add(groupBox4);
             Controls.Add(labFormName);
             Controls.Add(dgvDoctor);
             Controls.Add(groupBox1);
             Name = "frmManageDoctors";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Manage Doctors";
-            groupBox3.ResumeLayout(false);
-            groupBox3.PerformLayout();
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
             contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvDoctor).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbAddDoctor).EndInit();
@@ -481,34 +364,14 @@
         }
 
         #endregion
-
-        private ComboBox comboBox1;
-        private TextBox textBox2;
-        private Label label7;
         private Label label8;
         private Label label9;
         private Label label10;
-        private ComboBox comboBox3;
-        private TextBox textBox1;
-        private GroupBox groupBox3;
-        private Label label6;
-        private TextBox tbPhone;
-        private MaskedTextBox mtbEmail;
-        private Label label12;
-        private Label label11;
-        private Label label5;
-        private Label label4;
-        private Label label3;
         private ComboBox cbGender;
-        private DateTimePicker dtDatefBirth;
+        private DateTimePicker dtDateOfBirth;
         private TextBox tbAddress;
-        private TextBox tbFullName;
-        private DateTimePicker dateTimePicker1;
-        private DateTimePicker dateTimePicker2;
-        private TextBox textBox3;
         private GroupBox groupBox4;
-        private TextBox textBox4;
-        private GroupBox groupBox2;
+        private TextBox tbFullName;
         private Label labFormName;
         private ToolStripMenuItem tsDelete;
         private ToolStripMenuItem tsEdit;
@@ -520,5 +383,12 @@
         private PictureBox pbAddDoctor;
         private Label label2;
         private GroupBox groupBox1;
+        private Label label1;
+        private Label label7;
+        private TextBox tbSpecialization;
+        private Label label14;
+        private TextBox tbPhone;
+        private Label label15;
+        private MaskedTextBox mtbEmail;
     }
 }

@@ -5,16 +5,12 @@ using System.Text;
 
 namespace Bussiness_Logic_Layer
 {
+    // Interface for Doctor Entity
     public interface IDoctor
     {
-        
-        protected bool AddNewDoctor();
+        public abstract bool DeleteDoctor(int PersonDoctorId);
 
-        public  bool DeleteDoctor(int PersonDoctorId);
-
-        protected  bool UpdateDoctor();
-
-        public bool Save();
+        public abstract bool Save();
 
 
     }

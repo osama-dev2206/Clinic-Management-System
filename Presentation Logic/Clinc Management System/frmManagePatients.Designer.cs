@@ -41,20 +41,6 @@
             tsEdit = new ToolStripMenuItem();
             tsDelete = new ToolStripMenuItem();
             labFormName = new Label();
-            groupBox2 = new GroupBox();
-            groupBox4 = new GroupBox();
-            label7 = new Label();
-            label8 = new Label();
-            label9 = new Label();
-            label10 = new Label();
-            comboBox3 = new ComboBox();
-            dateTimePicker2 = new DateTimePicker();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            comboBox1 = new ComboBox();
-            dateTimePicker1 = new DateTimePicker();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
             groupBox3 = new GroupBox();
             label6 = new Label();
             tbPhone = new TextBox();
@@ -72,8 +58,6 @@
             ((System.ComponentModel.ISupportInitialize)pbAddPatient).BeginInit();
             ((System.ComponentModel.ISupportInitialize)GrdPatient).BeginInit();
             contextMenuStrip1.SuspendLayout();
-            groupBox2.SuspendLayout();
-            groupBox4.SuspendLayout();
             groupBox3.SuspendLayout();
             SuspendLayout();
             // 
@@ -194,138 +178,6 @@
             labFormName.TabIndex = 3;
             labFormName.Text = "Manage Patients";
             // 
-            // groupBox2
-            // 
-            groupBox2.Controls.Add(groupBox4);
-            groupBox2.Controls.Add(comboBox1);
-            groupBox2.Controls.Add(dateTimePicker1);
-            groupBox2.Controls.Add(textBox2);
-            groupBox2.Controls.Add(textBox1);
-            groupBox2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox2.Location = new Point(242, 63);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(558, 207);
-            groupBox2.TabIndex = 4;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Add New Patient";
-            // 
-            // groupBox4
-            // 
-            groupBox4.Controls.Add(label7);
-            groupBox4.Controls.Add(label8);
-            groupBox4.Controls.Add(label9);
-            groupBox4.Controls.Add(label10);
-            groupBox4.Controls.Add(comboBox3);
-            groupBox4.Controls.Add(dateTimePicker2);
-            groupBox4.Controls.Add(textBox3);
-            groupBox4.Controls.Add(textBox4);
-            groupBox4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox4.Location = new Point(-2, 0);
-            groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(558, 207);
-            groupBox4.TabIndex = 4;
-            groupBox4.TabStop = false;
-            groupBox4.Text = "Add New Patient";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(248, 93);
-            label7.Name = "label7";
-            label7.Size = new Size(63, 20);
-            label7.TabIndex = 6;
-            label7.Text = "Address";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(41, 124);
-            label8.Name = "label8";
-            label8.Size = new Size(63, 20);
-            label8.TabIndex = 5;
-            label8.Text = "Address";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(297, 23);
-            label9.Name = "label9";
-            label9.Size = new Size(98, 20);
-            label9.TabIndex = 4;
-            label9.Text = "Date Of Birth";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(297, 123);
-            label10.Name = "label10";
-            label10.Size = new Size(113, 20);
-            label10.TabIndex = 3;
-            label10.Text = "Choose Gender";
-            // 
-            // comboBox3
-            // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Items.AddRange(new object[] { "Male", "Female" });
-            comboBox3.Location = new Point(297, 146);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(251, 28);
-            comboBox3.TabIndex = 2;
-            // 
-            // dateTimePicker2
-            // 
-            dateTimePicker2.Format = DateTimePickerFormat.Short;
-            dateTimePicker2.Location = new Point(297, 42);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(251, 27);
-            dateTimePicker2.TabIndex = 1;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(41, 147);
-            textBox3.Name = "textBox3";
-            textBox3.PlaceholderText = "Enter Address";
-            textBox3.Size = new Size(204, 27);
-            textBox3.TabIndex = 0;
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(41, 44);
-            textBox4.MaxLength = 100;
-            textBox4.Name = "textBox4";
-            textBox4.PlaceholderText = "Enter Patient Full Name";
-            textBox4.Size = new Size(204, 27);
-            textBox4.TabIndex = 0;
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(286, 112);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(251, 28);
-            comboBox1.TabIndex = 2;
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new Point(286, 42);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(251, 27);
-            dateTimePicker1.TabIndex = 1;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(66, 88);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(161, 27);
-            textBox2.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(66, 44);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(161, 27);
-            textBox1.TabIndex = 0;
-            // 
             // groupBox3
             // 
             groupBox3.Controls.Add(label6);
@@ -341,7 +193,7 @@
             groupBox3.Controls.Add(tbAddress);
             groupBox3.Controls.Add(tbFullName);
             groupBox3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox3.Location = new Point(240, 63);
+            groupBox3.Location = new Point(240, 55);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(558, 207);
             groupBox3.TabIndex = 4;
@@ -470,7 +322,6 @@
             ClientSize = new Size(800, 450);
             ContextMenuStrip = contextMenuStrip1;
             Controls.Add(groupBox3);
-            Controls.Add(groupBox2);
             Controls.Add(labFormName);
             Controls.Add(GrdPatient);
             Controls.Add(groupBox1);
@@ -482,10 +333,6 @@
             ((System.ComponentModel.ISupportInitialize)pbAddPatient).EndInit();
             ((System.ComponentModel.ISupportInitialize)GrdPatient).EndInit();
             contextMenuStrip1.ResumeLayout(false);
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
-            groupBox4.ResumeLayout(false);
-            groupBox4.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             ResumeLayout(false);
@@ -502,11 +349,6 @@
         private Label labFormName;
         private Label label2;
         private PictureBox pbAddPatient;
-        private GroupBox groupBox2;
-        private TextBox textBox2;
-        private TextBox textBox1;
-        private DateTimePicker dateTimePicker1;
-        private ComboBox comboBox1;
         private GroupBox groupBox3;
         private ComboBox cbGender;
         private DateTimePicker dtDatefBirth;
@@ -514,15 +356,6 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        private GroupBox groupBox4;
-        private Label label7;
-        private Label label8;
-        private Label label9;
-        private Label label10;
-        private ComboBox comboBox3;
-        private DateTimePicker dateTimePicker2;
-        private TextBox textBox3;
-        private TextBox textBox4;
         private Label label11;
         private Label label12;
         private MaskedTextBox mtbEmail;
