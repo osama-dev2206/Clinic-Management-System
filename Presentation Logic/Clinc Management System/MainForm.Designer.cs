@@ -29,17 +29,14 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            labLogout = new Label();
-            labManageDoctors = new Label();
-            labManagePatients = new Label();
+            button1 = new Button();
+            btnManageDoctors = new Button();
+            btnManagePatients = new Button();
             label2 = new Label();
             labDashboard = new Label();
             P1ListAllAppointments = new DataGridView();
             P1gb = new GroupBox();
             P1NumOfAppointements = new Label();
-            labNumHeader = new Label();
-            btnManagePatients = new Button();
-            btnManageDoctors = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)P1ListAllAppointments).BeginInit();
             P1gb.SuspendLayout();
@@ -48,11 +45,9 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.FromArgb(102, 163, 191);
+            groupBox1.Controls.Add(button1);
             groupBox1.Controls.Add(btnManageDoctors);
             groupBox1.Controls.Add(btnManagePatients);
-            groupBox1.Controls.Add(labLogout);
-            groupBox1.Controls.Add(labManageDoctors);
-            groupBox1.Controls.Add(labManagePatients);
             groupBox1.Controls.Add(label2);
             groupBox1.Dock = DockStyle.Left;
             groupBox1.Location = new Point(0, 0);
@@ -61,58 +56,71 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             // 
-            // labLogout
+            // button1
             // 
-            labLogout.AutoSize = true;
-            labLogout.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labLogout.ForeColor = Color.Red;
-            labLogout.Location = new Point(64, 389);
-            labLogout.Name = "labLogout";
-            labLogout.Size = new Size(118, 41);
-            labLogout.TabIndex = 2;
-            labLogout.Text = "Logout";
-            labLogout.Click += labLogout_Click;
+            button1.BackColor = Color.Transparent;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.Red;
+            button1.Location = new Point(41, 368);
+            button1.Name = "button1";
+            button1.Size = new Size(169, 55);
+            button1.TabIndex = 5;
+            button1.Text = "Logout";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += btnLogout_Click;
             // 
-            // labManageDoctors
+            // btnManageDoctors
             // 
-            labManageDoctors.AutoSize = true;
-            labManageDoctors.BorderStyle = BorderStyle.FixedSingle;
-            labManageDoctors.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labManageDoctors.ForeColor = Color.SaddleBrown;
-            labManageDoctors.Location = new Point(49, 118);
-            labManageDoctors.Name = "labManageDoctors";
-            labManageDoctors.Size = new Size(151, 27);
-            labManageDoctors.TabIndex = 1;
-            labManageDoctors.Text = "Manage Doctors";
-            labManageDoctors.Click += labManageDoctors_Click;
+            btnManageDoctors.BackColor = Color.Transparent;
+            btnManageDoctors.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 192, 128);
+            btnManageDoctors.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 128, 255);
+            btnManageDoctors.FlatStyle = FlatStyle.Flat;
+            btnManageDoctors.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnManageDoctors.ForeColor = Color.FromArgb(246, 231, 188);
+            btnManageDoctors.Location = new Point(30, 118);
+            btnManageDoctors.Name = "btnManageDoctors";
+            btnManageDoctors.Size = new Size(191, 40);
+            btnManageDoctors.TabIndex = 4;
+            btnManageDoctors.Text = "Manage Doctors";
+            btnManageDoctors.UseVisualStyleBackColor = false;
+            btnManageDoctors.Click += btnManageDoctors_Click;
             // 
-            // labManagePatients
+            // btnManagePatients
             // 
-            labManagePatients.AutoSize = true;
-            labManagePatients.BorderStyle = BorderStyle.FixedSingle;
-            labManagePatients.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labManagePatients.ForeColor = Color.SaddleBrown;
-            labManagePatients.Location = new Point(49, 58);
-            labManagePatients.Name = "labManagePatients";
-            labManagePatients.Size = new Size(153, 27);
-            labManagePatients.TabIndex = 1;
-            labManagePatients.Text = "Manage Patients";
-            labManagePatients.Click += labManagePatients_Click;
+            btnManagePatients.BackColor = Color.Transparent;
+            btnManagePatients.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 192, 128);
+            btnManagePatients.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 128, 255);
+            btnManagePatients.FlatStyle = FlatStyle.Flat;
+            btnManagePatients.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnManagePatients.ForeColor = Color.FromArgb(246, 231, 188);
+            btnManagePatients.Location = new Point(30, 57);
+            btnManagePatients.Name = "btnManagePatients";
+            btnManagePatients.Size = new Size(191, 40);
+            btnManagePatients.TabIndex = 3;
+            btnManagePatients.Text = "Manage Patients";
+            btnManagePatients.UseVisualStyleBackColor = false;
+            btnManagePatients.Click += btnManagePatients_Click;
             // 
             // label2
             // 
-            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Dock = DockStyle.Top;
             label2.Font = new Font("Georgia", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(22, 9);
+            label2.ForeColor = Color.MidnightBlue;
+            label2.Location = new Point(3, 23);
             label2.Name = "label2";
-            label2.Size = new Size(209, 24);
+            label2.Size = new Size(244, 24);
             label2.TabIndex = 0;
             label2.Text = "Clinic Management";
+            label2.TextAlign = ContentAlignment.TopCenter;
             // 
             // labDashboard
             // 
+            labDashboard.BackColor = Color.Transparent;
             labDashboard.Dock = DockStyle.Top;
             labDashboard.Font = new Font("Segoe UI Semibold", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labDashboard.ForeColor = Color.Black;
             labDashboard.Location = new Point(250, 0);
             labDashboard.Name = "labDashboard";
             labDashboard.Size = new Size(550, 85);
@@ -124,7 +132,7 @@
             // 
             P1ListAllAppointments.AllowUserToAddRows = false;
             P1ListAllAppointments.AllowUserToDeleteRows = false;
-            P1ListAllAppointments.BackgroundColor = SystemColors.AppWorkspace;
+            P1ListAllAppointments.BackgroundColor = Color.FromArgb(242, 239, 231);
             P1ListAllAppointments.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             P1ListAllAppointments.Dock = DockStyle.Bottom;
             P1ListAllAppointments.Location = new Point(250, 232);
@@ -137,66 +145,33 @@
             // P1gb
             // 
             P1gb.Controls.Add(P1NumOfAppointements);
-            P1gb.Controls.Add(labNumHeader);
-            P1gb.Location = new Point(428, 102);
+            P1gb.FlatStyle = FlatStyle.Flat;
+            P1gb.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            P1gb.ForeColor = Color.Black;
+            P1gb.Location = new Point(436, 101);
             P1gb.Name = "P1gb";
-            P1gb.Size = new Size(169, 105);
+            P1gb.Size = new Size(149, 108);
             P1gb.TabIndex = 3;
             P1gb.TabStop = false;
+            P1gb.Text = "Num Of Current Appointments";
             // 
             // P1NumOfAppointements
             // 
             P1NumOfAppointements.AutoSize = true;
+            P1NumOfAppointements.BackColor = Color.Transparent;
             P1NumOfAppointements.Font = new Font("Unispace", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            P1NumOfAppointements.Location = new Point(60, 51);
+            P1NumOfAppointements.ForeColor = Color.Black;
+            P1NumOfAppointements.Location = new Point(62, 67);
             P1NumOfAppointements.Name = "P1NumOfAppointements";
             P1NumOfAppointements.Size = new Size(19, 20);
             P1NumOfAppointements.TabIndex = 1;
             P1NumOfAppointements.Text = "0";
             // 
-            // labNumHeader
-            // 
-            labNumHeader.AutoSize = true;
-            labNumHeader.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labNumHeader.Location = new Point(-1, 7);
-            labNumHeader.Name = "labNumHeader";
-            labNumHeader.Size = new Size(170, 20);
-            labNumHeader.TabIndex = 0;
-            labNumHeader.Text = "Num Of Appointments";
-            // 
-            // btnManagePatients
-            // 
-            btnManagePatients.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 192, 128);
-            btnManagePatients.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 128, 255);
-            btnManagePatients.FlatStyle = FlatStyle.Flat;
-            btnManagePatients.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnManagePatients.ForeColor = Color.FromArgb(51, 104, 160);
-            btnManagePatients.Location = new Point(22, 204);
-            btnManagePatients.Name = "btnManagePatients";
-            btnManagePatients.Size = new Size(191, 40);
-            btnManagePatients.TabIndex = 3;
-            btnManagePatients.Text = "Manage Patients";
-            btnManagePatients.UseVisualStyleBackColor = true;
-            // 
-            // btnManageDoctors
-            // 
-            btnManageDoctors.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 192, 128);
-            btnManageDoctors.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 128, 255);
-            btnManageDoctors.FlatStyle = FlatStyle.Flat;
-            btnManageDoctors.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnManageDoctors.ForeColor = Color.FromArgb(51, 104, 160);
-            btnManageDoctors.Location = new Point(22, 250);
-            btnManageDoctors.Name = "btnManageDoctors";
-            btnManageDoctors.Size = new Size(191, 40);
-            btnManageDoctors.TabIndex = 4;
-            btnManageDoctors.Text = "Manage Doctors";
-            btnManageDoctors.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(242, 239, 231);
+            BackColor = Color.FromArgb(200, 223, 208);
             ClientSize = new Size(800, 450);
             Controls.Add(P1gb);
             Controls.Add(P1ListAllAppointments);
@@ -206,7 +181,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
             groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)P1ListAllAppointments).EndInit();
             P1gb.ResumeLayout(false);
             P1gb.PerformLayout();
@@ -218,14 +192,11 @@
         private GroupBox groupBox1;
         private Label labDashboard;
         private Label label2;
-        private Label labManagePatients;
-        private Label labManageDoctors;
         private DataGridView P1ListAllAppointments;
         private GroupBox P1gb;
-        private Label labNumHeader;
         private Label P1NumOfAppointements;
-        private Label labLogout;
         private Button btnManagePatients;
         private Button btnManageDoctors;
+        private Button button1;
     }
 }

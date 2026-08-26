@@ -54,8 +54,8 @@
             tbSearchDoctorByPersonId = new TextBox();
             label13 = new Label();
             pbAddDoctor = new PictureBox();
-            label2 = new Label();
             groupBox1 = new GroupBox();
+            label2 = new Label();
             groupBox4.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDoctor).BeginInit();
@@ -122,6 +122,7 @@
             // 
             // groupBox4
             // 
+            groupBox4.BackColor = Color.FromArgb(200, 223, 208);
             groupBox4.Controls.Add(label14);
             groupBox4.Controls.Add(label15);
             groupBox4.Controls.Add(tbPhone);
@@ -257,6 +258,7 @@
             // 
             dgvDoctor.AllowUserToAddRows = false;
             dgvDoctor.AllowUserToDeleteRows = false;
+            dgvDoctor.BackgroundColor = Color.FromArgb(242, 239, 231);
             dgvDoctor.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDoctor.Dock = DockStyle.Bottom;
             dgvDoctor.Location = new Point(257, 305);
@@ -294,7 +296,7 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label13.Location = new Point(35, 289);
+            label13.Location = new Point(33, 289);
             label13.Name = "label13";
             label13.Size = new Size(167, 20);
             label13.TabIndex = 4;
@@ -311,24 +313,14 @@
             pbAddDoctor.TabStop = false;
             pbAddDoctor.Click += pbAddDoctor_Click;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Georgia", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(12, 9);
-            label2.Name = "label2";
-            label2.Size = new Size(209, 24);
-            label2.TabIndex = 1;
-            label2.Text = "Clinic Management";
-            // 
             // groupBox1
             // 
             groupBox1.BackColor = Color.FromArgb(102, 163, 191);
+            groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(btnSaveEditing);
             groupBox1.Controls.Add(tbSearchDoctorByPersonId);
             groupBox1.Controls.Add(label13);
             groupBox1.Controls.Add(pbAddDoctor);
-            groupBox1.Controls.Add(label2);
             groupBox1.Dock = DockStyle.Left;
             groupBox1.ForeColor = Color.Black;
             groupBox1.Location = new Point(0, 0);
@@ -337,10 +329,24 @@
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             // 
+            // label2
+            // 
+            label2.BackColor = Color.Transparent;
+            label2.Dock = DockStyle.Top;
+            label2.Font = new Font("Georgia", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.MidnightBlue;
+            label2.Location = new Point(3, 23);
+            label2.Name = "label2";
+            label2.Size = new Size(251, 24);
+            label2.TabIndex = 7;
+            label2.Text = "Clinic Management";
+            label2.TextAlign = ContentAlignment.TopCenter;
+            // 
             // frmManageDoctors
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(200, 223, 208);
             ClientSize = new Size(893, 487);
             ContextMenuStrip = contextMenuStrip1;
             Controls.Add(groupBox4);
@@ -379,7 +385,6 @@
         private TextBox tbSearchDoctorByPersonId;
         private Label label13;
         private PictureBox pbAddDoctor;
-        private Label label2;
         private GroupBox groupBox1;
         private Label label1;
         private Label label7;
@@ -388,5 +393,6 @@
         private TextBox tbPhone;
         private Label label15;
         private MaskedTextBox mtbEmail;
+        private Label label2;
     }
 }

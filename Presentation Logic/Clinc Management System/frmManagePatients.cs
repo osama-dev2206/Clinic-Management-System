@@ -104,6 +104,7 @@ namespace Clinc_Management_System_Presentation_Layer
                 if (Patient.Save())
                 {
                     MessageBox.Show("Patient added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RestForm();
                     RefreshGrid();
                 }
                 else

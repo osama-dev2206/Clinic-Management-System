@@ -31,11 +31,11 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManagePatients));
             groupBox1 = new GroupBox();
+            label2 = new Label();
             btnSaveEditing = new Button();
             tbSearchPatientByPersonId = new TextBox();
             label13 = new Label();
             pbAddPatient = new PictureBox();
-            label2 = new Label();
             GrdPatient = new DataGridView();
             contextMenuStrip1 = new ContextMenuStrip(components);
             tsEdit = new ToolStripMenuItem();
@@ -64,11 +64,11 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.FromArgb(102, 163, 191);
+            groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(btnSaveEditing);
             groupBox1.Controls.Add(tbSearchPatientByPersonId);
             groupBox1.Controls.Add(label13);
             groupBox1.Controls.Add(pbAddPatient);
-            groupBox1.Controls.Add(label2);
             groupBox1.Dock = DockStyle.Left;
             groupBox1.ForeColor = Color.Black;
             groupBox1.Location = new Point(0, 0);
@@ -76,6 +76,19 @@
             groupBox1.Size = new Size(240, 450);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
+            // 
+            // label2
+            // 
+            label2.BackColor = Color.Transparent;
+            label2.Dock = DockStyle.Top;
+            label2.Font = new Font("Georgia", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.MidnightBlue;
+            label2.Location = new Point(3, 23);
+            label2.Name = "label2";
+            label2.Size = new Size(234, 24);
+            label2.TabIndex = 7;
+            label2.Text = "Clinic Management";
+            label2.TextAlign = ContentAlignment.TopCenter;
             // 
             // btnSaveEditing
             // 
@@ -122,27 +135,18 @@
             pbAddPatient.TabStop = false;
             pbAddPatient.Click += AddpictureBox_Click;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Georgia", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(12, 9);
-            label2.Name = "label2";
-            label2.Size = new Size(209, 24);
-            label2.TabIndex = 1;
-            label2.Text = "Clinic Management";
-            // 
             // GrdPatient
             // 
             GrdPatient.AllowUserToAddRows = false;
             GrdPatient.AllowUserToDeleteRows = false;
+            GrdPatient.BackgroundColor = Color.FromArgb(242, 239, 231);
             GrdPatient.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             GrdPatient.Dock = DockStyle.Bottom;
             GrdPatient.Location = new Point(240, 268);
             GrdPatient.Name = "GrdPatient";
             GrdPatient.ReadOnly = true;
             GrdPatient.RowHeadersWidth = 51;
-            GrdPatient.Size = new Size(560, 182);
+            GrdPatient.Size = new Size(607, 182);
             GrdPatient.TabIndex = 1;
             GrdPatient.SelectionChanged += GrdPatient_SelectionChanged;
             // 
@@ -172,7 +176,7 @@
             // 
             labFormName.AutoSize = true;
             labFormName.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labFormName.Location = new Point(369, 10);
+            labFormName.Location = new Point(402, 9);
             labFormName.Name = "labFormName";
             labFormName.Size = new Size(277, 46);
             labFormName.TabIndex = 3;
@@ -195,7 +199,7 @@
             groupBox3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox3.Location = new Point(240, 55);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(558, 207);
+            groupBox3.Size = new Size(607, 207);
             groupBox3.TabIndex = 4;
             groupBox3.TabStop = false;
             groupBox3.Text = "Add New Patient";
@@ -318,8 +322,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlDark;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.FromArgb(200, 223, 208);
+            ClientSize = new Size(847, 450);
             ContextMenuStrip = contextMenuStrip1;
             Controls.Add(groupBox3);
             Controls.Add(labFormName);
@@ -347,7 +351,6 @@
         private ToolStripMenuItem tsEdit;
         private ToolStripMenuItem tsDelete;
         private Label labFormName;
-        private Label label2;
         private PictureBox pbAddPatient;
         private GroupBox groupBox3;
         private ComboBox cbGender;
@@ -365,5 +368,6 @@
         private Label label13;
         private TextBox tbSearchPatientByPersonId;
         private Button btnSaveEditing;
+        private Label label2;
     }
 }

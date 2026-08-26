@@ -27,14 +27,20 @@ namespace Clinc_Management_System_Presentation_Layer
 
         }
 
-        private void labManagePatients_Click(object sender, EventArgs e)
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK; // i will sign in with another account 
+            this.Close();
+        }
+
+        private void btnManagePatients_Click(object sender, EventArgs e)
         {
             frmManagePatients frmManagePatients = new frmManagePatients();
             frmManagePatients.ShowDialog();
             frmManagePatients.Dispose();
         }
 
-        private void labManageDoctors_Click(object sender, EventArgs e)
+        private void btnManageDoctors_Click(object sender, EventArgs e)
         {
             frmManageDoctors Doctors = new frmManageDoctors();
             Doctors.ShowDialog();
@@ -42,11 +48,6 @@ namespace Clinc_Management_System_Presentation_Layer
         }
 
 
-        private void labLogout_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.OK; // i will sign in with another account 
-            this.Close();
-       }
 
 
     }
