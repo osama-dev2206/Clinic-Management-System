@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManagePatients));
             groupBox1 = new GroupBox();
+            label13 = new Label();
             pbAddPatient = new PictureBox();
             label2 = new Label();
             GrdPatient = new DataGridView();
@@ -65,6 +66,7 @@
             dtDatefBirth = new DateTimePicker();
             tbAddress = new TextBox();
             tbFullName = new TextBox();
+            tbSearchPatient = new TextBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbAddPatient).BeginInit();
             ((System.ComponentModel.ISupportInitialize)GrdPatient).BeginInit();
@@ -77,6 +79,8 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.FromArgb(102, 163, 191);
+            groupBox1.Controls.Add(tbSearchPatient);
+            groupBox1.Controls.Add(label13);
             groupBox1.Controls.Add(pbAddPatient);
             groupBox1.Controls.Add(label2);
             groupBox1.Dock = DockStyle.Left;
@@ -87,10 +91,20 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label13.Location = new Point(43, 289);
+            label13.Name = "label13";
+            label13.Size = new Size(169, 20);
+            label13.TabIndex = 4;
+            label13.Text = "Search Using Patinet ID";
+            // 
             // pbAddPatient
             // 
             pbAddPatient.Image = (Image)resources.GetObject("pbAddPatient.Image");
-            pbAddPatient.Location = new Point(36, 182);
+            pbAddPatient.Location = new Point(43, 64);
             pbAddPatient.Name = "pbAddPatient";
             pbAddPatient.Size = new Size(156, 114);
             pbAddPatient.SizeMode = PictureBoxSizeMode.Zoom;
@@ -422,6 +436,14 @@
             tbFullName.TabIndex = 0;
             tbFullName.TextChanged += tbFullName_TextChanged;
             // 
+            // tbSearchPatient
+            // 
+            tbSearchPatient.Location = new Point(50, 312);
+            tbSearchPatient.Name = "tbSearchPatient";
+            tbSearchPatient.Size = new Size(162, 27);
+            tbSearchPatient.TabIndex = 5;
+            tbSearchPatient.TextChanged += tbSearchPatient_TextChanged;
+            // 
             // frmManagePatients
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -490,5 +512,7 @@
         private TextBox tbAddress;
         private Label label6;
         private TextBox tbPhone;
+        private Label label13;
+        private TextBox tbSearchPatient;
     }
 }

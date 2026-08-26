@@ -62,7 +62,7 @@ namespace Clinc_Management_System_Presentation_Layer
 
         private void tbPhone_TextChanged(object sender, EventArgs e)
         {
-            if(!String.IsNullOrWhiteSpace(tbPhone.Text) )
+            if (!String.IsNullOrWhiteSpace(tbPhone.Text))
                 Patient.Phone = tbPhone.Text;
         }
 
@@ -70,7 +70,7 @@ namespace Clinc_Management_System_Presentation_Layer
         bool CheckObjBeforeSave()
         {
             if (String.IsNullOrEmpty(Patient.Name) || String.IsNullOrEmpty(this.Patient.Address) || String.IsNullOrEmpty(this.Patient.Gender) || (this.Patient.DateOfBirth == null)
-               || String.IsNullOrEmpty(mtbEmail.Text) || String.IsNullOrEmpty(tbPhone.Text) )
+               || String.IsNullOrEmpty(mtbEmail.Text) || String.IsNullOrEmpty(tbPhone.Text))
                 return true;
             else return false;
         }
@@ -79,6 +79,19 @@ namespace Clinc_Management_System_Presentation_Layer
         {
             this.GrdPatient.DataSource = clsPatient.ListAllPatients();
         }
+
+        private void tbSearchPatient_TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(tbSearchPatient.Text) && int.TryParse(tbSearchPatient.Text, out int ID))
+            {
+                GrdPatient.DataSource = clsPatient.GetPatientRecordFromDb(ID);
+            }
+            else if (String.IsNullOrEmpty(tbSearchPatient.Text))
+            {
+                RefreshGrid();
+            }
+        }
+
 
         private void AddpictureBox_Click(object sender, EventArgs e)
         {
@@ -107,7 +120,7 @@ namespace Clinc_Management_System_Presentation_Layer
             if (e.ClickedItem.Text == "Delete" &&
              (DialogResult.OK == MessageBox.Show($"Are You Sure You Want To Delete  {this.SelectedPatientId} ?", "Warn", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)))
             {
-                if (clsPatient.Delete(this.SelectedPatientId) && SelectedPatientId !=-1 )
+                if (clsPatient.Delete(this.SelectedPatientId) && SelectedPatientId != -1)
                 {
                     MessageBox.Show("Patient deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -119,7 +132,7 @@ namespace Clinc_Management_System_Presentation_Layer
                 }
 
             }
-            else if (e.ClickedItem.Text == "Update")
+            else if (e.ClickedItem.Text == "Update") /// <---- 
             {
 
             }

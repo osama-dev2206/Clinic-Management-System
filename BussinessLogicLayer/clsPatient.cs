@@ -29,6 +29,46 @@ namespace Bussiness_Logic_Layer
             this.Status = enObjectStatus.enAdd;
         }
 
+        // To Get Patient As DataTable  From Db 
+        private clsPatient(int PatinetID,string Name , string Email ,string Phone , string Gender , DateOnly dateOfBirth , string Address)
+        {
+            this.Id = PatinetID;
+            this.Name = Name;
+            this.Email = Email;
+            this.Phone = Phone;
+            this.Gender = Gender;
+            this.DateOfBirth = dateOfBirth;
+            this.Address = Address;
+            this.Status = enObjectStatus.enUpdate;
+        }
+
+
+        public clsPatient ? FindPatientByID(int PatientId)
+        {
+            if (!int.TryParse(PatientId.ToString(), out _)) return null;
+
+            DataTable dt = clsFindPatientByID.FindPatinetByID(PatientId); // get record of patient from database as DataTable
+
+            DateTime dateTime = Convert.ToDateTime(dt.Columns["DateOFBirth"].ToString() + " 1:1:1 PM" ) ;
+            DateOnly dateonly = DateOnly.FromDateTime(dateTime);
+
+            return new clsPatient(
+                Convert.ToInt32(dt.Columns["PatientId"]) ,
+                dt.Columns["Name"].ToString() ,
+                dt.Columns["Email"].ToString(),
+                dt.Columns["PhoneNumber"].ToString(),
+               dt.Columns["Gender"].ToString(),
+                 dateonly,
+               dt.Columns["Address"].ToString()
+          );
+
+        }
+
+        public static  DataTable GetPatientRecordFromDb(int PatinetID)
+        {
+            return clsFindPatientByID.FindPatinetByID(PatinetID);
+        }
+
         public static DataTable ListAllPatients()
         {
             return clsListAllPatients.ListAllPatients();
