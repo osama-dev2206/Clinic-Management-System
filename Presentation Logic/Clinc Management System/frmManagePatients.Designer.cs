@@ -66,7 +66,7 @@
             dtDatefBirth = new DateTimePicker();
             tbAddress = new TextBox();
             tbFullName = new TextBox();
-            tbSearchPatient = new TextBox();
+            tbSearchPatientByPersonId = new TextBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbAddPatient).BeginInit();
             ((System.ComponentModel.ISupportInitialize)GrdPatient).BeginInit();
@@ -79,7 +79,7 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.FromArgb(102, 163, 191);
-            groupBox1.Controls.Add(tbSearchPatient);
+            groupBox1.Controls.Add(tbSearchPatientByPersonId);
             groupBox1.Controls.Add(label13);
             groupBox1.Controls.Add(pbAddPatient);
             groupBox1.Controls.Add(label2);
@@ -438,11 +438,11 @@
             // 
             // tbSearchPatient
             // 
-            tbSearchPatient.Location = new Point(50, 312);
-            tbSearchPatient.Name = "tbSearchPatient";
-            tbSearchPatient.Size = new Size(162, 27);
-            tbSearchPatient.TabIndex = 5;
-            tbSearchPatient.TextChanged += tbSearchPatient_TextChanged;
+            tbSearchPatientByPersonId.Location = new Point(50, 312);
+            tbSearchPatientByPersonId.Name = "tbSearchPatient";
+            tbSearchPatientByPersonId.Size = new Size(162, 27);
+            tbSearchPatientByPersonId.TabIndex = 5;
+            tbSearchPatientByPersonId.TextChanged += tbSearchPatient_TextChanged;
             // 
             // frmManagePatients
             // 
@@ -513,6 +513,6 @@
         private Label label6;
         private TextBox tbPhone;
         private Label label13;
-        private TextBox tbSearchPatient;
+        private TextBox tbSearchPatientByPersonId;
     }
 }

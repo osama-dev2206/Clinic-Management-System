@@ -10,9 +10,9 @@ namespace Data_Access_Layer
     public static class clsFindPatientByID
     {
         private static string Query = @"Select * From PatientDetailsForFinding
-       Where PatientDetailsForFinding.PatientId = @ID ; ";
+       Where PatientDetailsForFinding.PersonId = @ID ; ";
 
-        public static DataTable FindPatinetByID(int PatientId)
+        public static DataTable FindPatinetByPersonID(int PersonID)
         {
             DataTable table = new DataTable();
             SqlConnection Connection = dbSettings.DbConnection();
@@ -20,7 +20,7 @@ namespace Data_Access_Layer
             {
                 Connection.Open();
                 SqlCommand Command = new SqlCommand(Query, Connection);
-                Command.Parameters.AddWithValue("@ID", PatientId);
+                Command.Parameters.AddWithValue("@ID", PersonID);
 
                 SqlDataReader reader = Command.ExecuteReader();
 

@@ -15,7 +15,7 @@ namespace Bussiness_Logic_Layer
 
         public string Address { get; set; }
 
-        public int Id { get; private set; }
+        public int Id { get; private set; } // please note we depend on person id to get all patient details 
 
         public string Phone { get; set; }
 
@@ -30,9 +30,9 @@ namespace Bussiness_Logic_Layer
         }
 
         // To Get Patient As DataTable  From Db 
-        private clsPatient(int PatinetID,string Name , string Email ,string Phone , string Gender , DateOnly dateOfBirth , string Address)
+        private clsPatient(int PersonID,string Name , string Email ,string Phone , string Gender , DateOnly dateOfBirth , string Address)
         {
-            this.Id = PatinetID;
+            this.Id = PersonID;
             this.Name = Name;
             this.Email = Email;
             this.Phone = Phone;
@@ -43,30 +43,30 @@ namespace Bussiness_Logic_Layer
         }
 
 
-        public clsPatient ? FindPatientByID(int PatientId)
+        public clsPatient ? FindPatientByID(int PersonID)
         {
-            if (!int.TryParse(PatientId.ToString(), out _)) return null;
+            if (!int.TryParse(PersonID.ToString(), out _)) return null;
 
-            DataTable dt = clsFindPatientByID.FindPatinetByID(PatientId); // get record of patient from database as DataTable
+            DataTable dt = clsFindPatientByID.FindPatinetByPersonID(PersonID); // get record of patient from database as DataTable
 
             DateTime dateTime = Convert.ToDateTime(dt.Columns["DateOFBirth"].ToString() + " 1:1:1 PM" ) ;
             DateOnly dateonly = DateOnly.FromDateTime(dateTime);
 
             return new clsPatient(
-                Convert.ToInt32(dt.Columns["PatientId"]) ,
+                Convert.ToInt32(dt.Columns["PersonId"]) ,
                 dt.Columns["Name"].ToString() ,
                 dt.Columns["Email"].ToString(),
                 dt.Columns["PhoneNumber"].ToString(),
                dt.Columns["Gender"].ToString(),
-                 dateonly,
+                 dateonly, // date of birth
                dt.Columns["Address"].ToString()
           );
 
         }
 
-        public static  DataTable GetPatientRecordFromDb(int PatinetID)
+        public static  DataTable GetPatientRecordFromDb(int PersonID)
         {
-            return clsFindPatientByID.FindPatinetByID(PatinetID);
+            return clsFindPatientByID.FindPatinetByPersonID(PersonID);
         }
 
         public static DataTable ListAllPatients()

@@ -80,13 +80,14 @@ namespace Clinc_Management_System_Presentation_Layer
             this.GrdPatient.DataSource = clsPatient.ListAllPatients();
         }
 
+        // Search patient by person id
         private void tbSearchPatient_TextChanged(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(tbSearchPatient.Text) && int.TryParse(tbSearchPatient.Text, out int ID))
+            if (!String.IsNullOrEmpty(tbSearchPatientByPersonId.Text) && int.TryParse(tbSearchPatientByPersonId.Text, out int ID))
             {
                 GrdPatient.DataSource = clsPatient.GetPatientRecordFromDb(ID);
             }
-            else if (String.IsNullOrEmpty(tbSearchPatient.Text))
+            else if (String.IsNullOrEmpty(tbSearchPatientByPersonId.Text))
             {
                 RefreshGrid();
             }
