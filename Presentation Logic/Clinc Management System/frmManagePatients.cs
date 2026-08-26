@@ -104,7 +104,10 @@ namespace Clinc_Management_System_Presentation_Layer
                 this.tbAddress.Text = Patient.Address;
                 this.mtbEmail.Text = Patient.Email;
                 this.dtDatefBirth.Text = Patient.DateOfBirth.ToString();
-                this.cbGender.Text = Patient.Gender.Trim();
+                if (Patient.Gender.Trim() == "F") this.cbGender.Text = "Female";
+                else if (Patient.Gender.Trim() == "M")
+                    this.cbGender.Text = "Male";
+
             }
         }
 
@@ -112,13 +115,13 @@ namespace Clinc_Management_System_Presentation_Layer
         {
             if (Patient != null)
             {
-                DialogResult res = MessageBox.Show("Are You Sure About Saving This New Changes", "Warn", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                DialogResult res = MessageBox.Show("Are You Sure About Saving This New Changes ?", "Warn", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (res == DialogResult.OK)
                 {
                     if (Patient.Save()) // to save the new changes 
-                        MessageBox.Show("The Changes Have Saved Successfully!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else 
-                        MessageBox.Show("Failed To Save New Change(s)","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        MessageBox.Show("The Changes Have Saved Successfully !", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("Failed To Save New Change(s)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -188,12 +191,12 @@ namespace Clinc_Management_System_Presentation_Layer
 
         void RestForm()
         {
-            this.tbFullName.Text ="";
+            this.tbFullName.Text = "";
             this.tbPhone.Text = "";
-            this.tbAddress.Text ="";
+            this.tbAddress.Text = "";
             this.mtbEmail.Text = "";
-            this.dtDatefBirth =null;
-            this.cbGender.Text = "";
+            this.dtDatefBirth.Text = "";
+            this.cbGender = null;
         }
 
         private void btnSaveEditing_Click(object sender, EventArgs e)
@@ -206,5 +209,6 @@ namespace Clinc_Management_System_Presentation_Layer
             RefreshGrid();
         }
 
+   
     }
 }

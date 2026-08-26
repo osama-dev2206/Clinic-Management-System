@@ -49,9 +49,6 @@ namespace Bussiness_Logic_Layer
 
             DataTable dt = clsFindPatientByID.FindPatinetByPersonID(PersonID); // get record of patient from database as DataTable
 
-          
-
-
             clsPatient patient =null;
             foreach (DataRow R in dt.Rows)
            {
@@ -91,7 +88,11 @@ namespace Bussiness_Logic_Layer
             return clsDeletePatient.DeletePatient(PersonPatinetId);
         }
 
-         private partial bool UpdatePatient();
+         private  bool UpdatePatient()
+        {
+            return clsUpdatePatient.UpdatePatientByPersonID(this.Id , Name:this.Name , Gender: this.Gender ,
+                Address: this.Address , DateOfBirth: this.DateOfBirth , Email : this.Email , Phone: this.Phone   );
+        }
 
 
         public bool Save()
@@ -104,7 +105,7 @@ namespace Bussiness_Logic_Layer
                     break;
 
                 case enObjectStatus.enUpdate:
-                    UpdatePatient();
+                   if (UpdatePatient() ) return true;
                     break;
             }
 

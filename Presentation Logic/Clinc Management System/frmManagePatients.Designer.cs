@@ -144,6 +144,7 @@
             label2.Size = new Size(209, 24);
             label2.TabIndex = 1;
             label2.Text = "Clinic Management";
+
             // 
             // GrdPatient
             // 
