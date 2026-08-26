@@ -15,17 +15,15 @@ namespace Clinc_Management_System_Presentation_Layer
         {
             InitializeComponent();
             DialogResult = DialogResult.OK;
-            backToDashboard_Click(components, EventArgs.Empty);
+            StartDashboard();
         }
 
-        void DisableAllControls()
+        private void StartDashboard()
         {
-            // P1 
-            P1gb.Visible = false;
-            this.labDashboard.Visible = false;
-            P1ListAllAppointments.Visible = false;
-            P1NumOfAppointements.Visible = false;
-            labNumHeader.Visible = false;
+
+            P1ListAllAppointments.DataSource = clsDasboard.ListAllAppointments();
+
+            P1NumOfAppointements.Text = clsDasboard.GetNumOfAppointments().ToString();
 
         }
 
@@ -33,29 +31,22 @@ namespace Clinc_Management_System_Presentation_Layer
         {
             frmManagePatients frmManagePatients = new frmManagePatients();
             frmManagePatients.ShowDialog();
+            frmManagePatients.Dispose();
         }
 
         private void labManageDoctors_Click(object sender, EventArgs e)
         {
-            DisableAllControls();
+         
         }
 
-        private void backToDashboard_Click(object sender, EventArgs e)
-        {
-            P1gb.Visible = true;
-            this.labDashboard.Visible = true;
-            P1ListAllAppointments.Visible = true;
-            P1ListAllAppointments.DataSource = clsDasboard.ListAllAppointments();
-            P1NumOfAppointements.Visible = true;
-            P1NumOfAppointements.Text = clsDasboard.GetNumOfAppointments().ToString();
-            labNumHeader.Visible = true;
-        }
+
 
         private void labLogout_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK; // i will sign in with another account 
             this.Close();
        }
+
 
     }
 }

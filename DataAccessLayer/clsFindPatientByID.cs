@@ -9,8 +9,8 @@ namespace Data_Access_Layer
 {
     public static class clsFindPatientByID
     {
-        private static string Query = @"Select * From PatientDetailsForFinding
-       Where PatientDetailsForFinding.PersonId = @ID ; ";
+        private static string Query = @"Select * From PatientFullDetails
+       Where PatientFullDetails.PersonId = @ID ; ";
 
         public static DataTable FindPatinetByPersonID(int PersonID)
         {

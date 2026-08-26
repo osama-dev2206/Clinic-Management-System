@@ -96,8 +96,11 @@
             // btnSaveEditing
             // 
             btnSaveEditing.BackColor = Color.RosyBrown;
+            btnSaveEditing.FlatAppearance.MouseDownBackColor = Color.Gainsboro;
+            btnSaveEditing.FlatAppearance.MouseOverBackColor = Color.Red;
+            btnSaveEditing.FlatStyle = FlatStyle.Flat;
             btnSaveEditing.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSaveEditing.Location = new Point(43, 220);
+            btnSaveEditing.Location = new Point(40, 220);
             btnSaveEditing.Name = "btnSaveEditing";
             btnSaveEditing.Size = new Size(153, 42);
             btnSaveEditing.TabIndex = 6;
@@ -108,7 +111,7 @@
             // 
             // tbSearchPatientByPersonId
             // 
-            tbSearchPatientByPersonId.Location = new Point(50, 312);
+            tbSearchPatientByPersonId.Location = new Point(35, 312);
             tbSearchPatientByPersonId.Name = "tbSearchPatientByPersonId";
             tbSearchPatientByPersonId.Size = new Size(162, 27);
             tbSearchPatientByPersonId.TabIndex = 5;
@@ -118,7 +121,7 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label13.Location = new Point(43, 289);
+            label13.Location = new Point(35, 289);
             label13.Name = "label13";
             label13.Size = new Size(169, 20);
             label13.TabIndex = 4;
@@ -127,7 +130,7 @@
             // pbAddPatient
             // 
             pbAddPatient.Image = (Image)resources.GetObject("pbAddPatient.Image");
-            pbAddPatient.Location = new Point(43, 64);
+            pbAddPatient.Location = new Point(38, 64);
             pbAddPatient.Name = "pbAddPatient";
             pbAddPatient.Size = new Size(156, 114);
             pbAddPatient.SizeMode = PictureBoxSizeMode.Zoom;
@@ -139,12 +142,11 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Georgia", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(12, 23);
+            label2.Location = new Point(12, 9);
             label2.Name = "label2";
             label2.Size = new Size(209, 24);
             label2.TabIndex = 1;
             label2.Text = "Clinic Management";
-
             // 
             // GrdPatient
             // 
@@ -475,7 +477,6 @@
             Name = "frmManagePatients";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ManagePatients";
-            FormClosing += frmManagePatients_FormClosing;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbAddPatient).EndInit();

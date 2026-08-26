@@ -93,7 +93,40 @@ namespace Clinc_Management_System_Presentation_Layer
             }
         }
 
+        private void AddpictureBox_Click(object sender, EventArgs e)
+        {
+            if (CheckObjBeforeSave())
+            {
+                MessageBox.Show("Please fill all the required fields before saving.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                if (Patient.Save())
+                {
+                    MessageBox.Show("Patient added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshGrid();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to add patient. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+
+        }
+
         // We will fill controls with object data to edit 
+        // Update Section ////////////////////////
+        void RestForm()
+        {
+            this.tbFullName.Text = "";
+            this.tbPhone.Text = "";
+            this.tbAddress.Text = "";
+            this.mtbEmail.Text = "";
+            //this.dtDatefBirth = null;
+           // this.cbGender = null;
+        }
+
         void FillFormForEditing()
         {
             this.Patient = clsPatient.FindPatientByPersonID(SelectedPersonId);
@@ -126,27 +159,17 @@ namespace Clinc_Management_System_Presentation_Layer
             }
         }
 
-        private void AddpictureBox_Click(object sender, EventArgs e)
+        private void btnSaveEditing_Click(object sender, EventArgs e)
         {
-            if (CheckObjBeforeSave())
-            {
-                MessageBox.Show("Please fill all the required fields before saving.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                if (Patient.Save())
-                {
-                    MessageBox.Show("Patient added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RefreshGrid();
-                }
-                else
-                {
-                    MessageBox.Show("Failed to add patient. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-            }
-
+            SaveUpdatedPatient();
+            RestForm();
+            this.labFormName.Text = "Manage Patients";
+            this.pbAddPatient.Visible = true;
+            this.btnSaveEditing.Visible = false;
+            RefreshGrid();
         }
+
+        ////////////////////////
 
         private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -184,31 +207,5 @@ namespace Clinc_Management_System_Presentation_Layer
         }
 
 
-        private void frmManagePatients_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            // DialogResult = DialogResult.OK;
-        }
-
-        void RestForm()
-        {
-            this.tbFullName.Text = "";
-            this.tbPhone.Text = "";
-            this.tbAddress.Text = "";
-            this.mtbEmail.Text = "";
-            this.dtDatefBirth.Text = "";
-            this.cbGender = null;
-        }
-
-        private void btnSaveEditing_Click(object sender, EventArgs e)
-        {
-            SaveUpdatedPatient();
-            RestForm();
-            this.labFormName.Text = "Manage Patients";
-            this.pbAddPatient.Visible = true;
-            this.btnSaveEditing.Visible = false;
-            RefreshGrid();
-        }
-
-   
     }
 }
