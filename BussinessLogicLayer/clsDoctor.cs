@@ -4,8 +4,10 @@ using System.Text;
 
 namespace Bussiness_Logic_Layer
 {
-    public class clsDoctor : abPerson
-    {
 
-    }
+    //public class clsDoctor : IDoctor,abPerson 
+    //{
+    //    enObjectStatus Status;
+
+    //}
 }

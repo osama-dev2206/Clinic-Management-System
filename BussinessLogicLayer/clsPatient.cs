@@ -8,7 +8,6 @@ namespace Bussiness_Logic_Layer
 {
     public  class clsPatient : abPerson
     {
-
         enObjectStatus Status; 
 
         public clsPatient() // Add New Patient Constructor
