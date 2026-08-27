@@ -15,6 +15,18 @@ namespace Bussiness_Logic_Layer
             this.Status = enMode.Add; 
         }
 
+        private clsAppointment(int AppointmentID, int DoctorID, int PatientID, DateTime AppointmentDateTime, string AppointmentStatus)
+        {
+            this.AppointmentId = AppointmentID;
+            this.ADoctorId = DoctorID;
+            this.APatientId = PatientID;
+            this.AppointmentDateTime = AppointmentDateTime;
+            this.AppointmentStatus = AppointmentStatus;
+
+            this.Status = enMode.Update;
+        }
+
+
         public static DataTable ListAllAppointments()
         {
             return clsListAllAppointments.ListAllAppointments();
@@ -31,6 +43,28 @@ namespace Bussiness_Logic_Layer
             return clsAddNewAppointment.AddNewAppointment(this.ADoctorId, this.APatientId, this.AppointmentDateTime, this.AppointmentStatus);
         }
 
+        public  static clsAppointment FindAppointmentByID(int AppointmentID)
+        {
+            DataTable dt = clsFindAppointmentByID.FindAppointmentByID(AppointmentID);
+            if (!int.TryParse(AppointmentID.ToString(), out _) || dt == null ) return null; 
+
+         
+            clsAppointment appointment = null;
+
+            foreach (DataRow R in dt.Rows)
+            {
+                appointment = new clsAppointment(
+                    Convert.ToInt32(R["AppointmentId"]) ,
+                   Convert.ToInt32(R["ADoctorId"] ,
+                   Convert.ToInt32(R["APatientId"] ,
+                   Convert.ToDateTime(R["AppointmentDateTime"] ,
+                   R["AppoitmentStatus"].ToString()
+                   );
+            }
+
+            return appointment;
+
+        }
 
         public bool Save()
         {
@@ -46,7 +80,7 @@ namespace Bussiness_Logic_Layer
                     else return false;
                 }
 
-                    case enMode.Update:
+                    case enMode.Update: // not implemented yet
                     {
                         return false; 
                     }

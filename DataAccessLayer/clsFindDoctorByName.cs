@@ -24,9 +24,9 @@ namespace Data_Access_Layer
                 SqlCommand cmd = new SqlCommand(Query, connection);
                 cmd.Parameters.AddWithValue("@Name", Name);
 
-                SqlDataReader sqlData = cmd.ExecuteReader();
-                dataTable.Load(sqlData);
-
+                SqlDataReader DataReader = cmd.ExecuteReader();
+               if(DataReader.HasRows) dataTable.Load(DataReader);
+                DataReader.Close();
             }
             catch
             { }

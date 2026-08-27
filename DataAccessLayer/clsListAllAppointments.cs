@@ -22,7 +22,8 @@ namespace Data_Access_Layer
                 
                 SqlDataReader reader = cmd.ExecuteReader();
              
-                    dt.Load(reader);
+                   if(reader.HasRows) dt.Load(reader);
+                   reader.Close();
  
             }
             catch 

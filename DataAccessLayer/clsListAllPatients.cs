@@ -21,7 +21,7 @@ namespace Data_Access_Layer
                 SqlCommand cmd = new SqlCommand(query, connection);
                 var Reader = cmd.ExecuteReader();
 
-                dt.Load(Reader);
+                if(Reader.HasRows) dt.Load(Reader);
 
                 Reader.Close();
             }

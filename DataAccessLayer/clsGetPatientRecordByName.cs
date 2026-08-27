@@ -24,7 +24,8 @@ namespace Data_Access_Layer
                 cmd.Parameters.AddWithValue("@Name", Name);
 
                 SqlDataReader dataReader = cmd.ExecuteReader();
-                dt.Load(dataReader);
+               if(dataReader.HasRows) dt.Load(dataReader);
+                dataReader.Close(); 
 
             }
             catch { }

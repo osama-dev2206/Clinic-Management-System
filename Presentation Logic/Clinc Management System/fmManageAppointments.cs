@@ -33,6 +33,8 @@ namespace Clinc_Management_System_Presentation_Layer
             else
             {
                 Status = enFormOption.EditAppointment;
+                this.appointment = clsAppointment.
+                FillFormWithAppointmentData();
                 this.labManageFormMainText.Text = "Edit Appointment";
                 this.btnAddEdit.Text = "Save Changes";
             }
@@ -104,6 +106,17 @@ namespace Clinc_Management_System_Presentation_Layer
 
         /// ///// /// /////// /// ///// /// ////// /// ////// /// ///// /// ///// /// ///// /// ///// /// ///// /// /////
 
+        private void FillFormWithAppointmentData()
+        {
+            if (this.Status == enFormOption.EditAppointment)
+            {
+                this.dtDateTime.Value = this.appointment.AppointmentDateTime;
+                this.cbAppointmentStatus.Text = this.appointment.AppointmentStatus;
+                this.cbDoctor.Text = clsDoctor.GetDoctorRecordFromDbAsObject(this.appointment.ADoctorId).Name; 
+                this.cbPatient.Text = clsPatient.FindPatientByPersonID(this.appointment.APatientId).Name;
+            }
+        }
+
         private bool CheckBeforeSaving()
         {
             return !(
@@ -112,6 +125,7 @@ namespace Clinc_Management_System_Presentation_Layer
                 );
         }
 
+        // Button to add or edit appointment
         private void btnAddEdit_Click(object sender, EventArgs e)
         {
 
@@ -134,8 +148,19 @@ namespace Clinc_Management_System_Presentation_Layer
 
                 }
 
-                if(this.Status== enFormOption.EditAppointment) // Not Implemented Yet
+                if(this.Status== enFormOption.EditAppointment) 
                 {
+                    if (appointment.Save())
+                    {
+                        MessageBox.Show("Appointment Edited Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        this.Close();
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Failed to Edit Appointment", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
 
                 }
 

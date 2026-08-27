@@ -7,32 +7,34 @@ using System.Text;
 
 namespace Data_Access_Layer
 {
-    public static class clsGetDoctorRecordByPersonId
+    public static class clsFindAppointmentByID
     {
-        static string Query = @"Select * From DoctorsFullDetails
-      where DoctorsFullDetails.PersonId = @ID ";
+        readonly static string Query = @"select * from AppointmentDoctorPatient   -- Main table
+       where AppointmentId = @ID ;  ";
 
-        public static DataTable GetDoctorByPersonID(int PersonID)
+        public static DataTable  FindAppointmentByID(int AppointmentID)
         {
-              DataTable table = new DataTable();
+
+            DataTable table =  new DataTable();
+
             SqlConnection connection = dbSettings.DbConnection();
             try
             {
-                connection.Open();
+                connection.Open(); 
                 SqlCommand command = new SqlCommand(Query, connection);
-                command.Parameters.AddWithValue("@ID", PersonID);
+                command.Parameters.AddWithValue("@ID", AppointmentID);
 
                 SqlDataReader reader = command.ExecuteReader();
 
-              if(reader.HasRows)  table.Load(reader);
-              reader.Close();
+                if(reader.HasRows ) table.Load(reader);
+                reader.Close();
             }
             catch { }
             finally
             {
                 connection.Close();
             }
-
+            
             return table;
         }
 
