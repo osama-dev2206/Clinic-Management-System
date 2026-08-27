@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Data_Access_Layer
 {
-    public static class clsGetDoctorRecordByPersonId
+    public static class clsGetDoctorRecord
     {
         readonly static string QueryGetByPersonID = @"Select * From DoctorsFullDetails
       where DoctorsFullDetails.PersonId = @ID ";

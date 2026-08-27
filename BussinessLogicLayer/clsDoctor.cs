@@ -46,7 +46,7 @@ namespace Bussiness_Logic_Layer
 
         public static DataTable GetDoctorRecordFromDbByPersonID(int PersonID)
         {
-            return clsGetDoctorRecordByPersonId.GetDoctorByPersonID(PersonID) ; 
+            return clsGetDoctorRecord.GetDoctorByPersonID(PersonID) ; 
         }
 
         public static clsDoctor GetDoctorRecordFromDbAsObjectByPersonID(int PersonID)
@@ -68,6 +68,27 @@ namespace Bussiness_Logic_Layer
 
             return doctor;
         }
+
+        public static clsDoctor GetDoctorRecordFromDbAsObjByDoctorID(int DoctorID)
+        {
+            DataTable table = clsGetDoctorRecord.GetDoctorByDoctorID(DoctorID);
+
+            clsDoctor? doctor = null;
+
+            foreach (DataRow R in table.Rows)
+            {
+                DateTime datetime = Convert.ToDateTime(R["DateOfBirth"]);
+                DateOnly dateonly = DateOnly.FromDateTime(datetime);
+
+                doctor = new clsDoctor(Convert.ToInt32(R["PersonId"]), R["DoctorName"].ToString(),
+                    dateonly,
+                    R["Gender"].ToString(), R["Address"].ToString(), R["Specialization"].ToString(), R["Email"].ToString(),
+                    R["PhoneNumber"].ToString(), Convert.ToInt32(R["DoctorId"]));
+            }
+
+            return doctor;
+        }
+
 
          bool AddNewDoctor()
         {

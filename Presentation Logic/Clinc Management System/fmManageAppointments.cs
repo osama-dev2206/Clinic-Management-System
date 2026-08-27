@@ -118,8 +118,8 @@ namespace Clinc_Management_System_Presentation_Layer
                 this.cbAppointmentStatus.Text = this.appointment.AppointmentStatus;
 
                 // WRONG - You MUST Get Person id
-            //    this.cbDoctor.Text = clsDoctor.GetDoctorRecordFromDbAsObject(this.appointment).Name;
-              //  this.cbPatient.Text = clsPatient.FindPatientByPersonID(this.appointment.PatientPersonId).Name;
+               this.cbDoctor.Text = clsDoctor.GetDoctorRecordFromDbAsObjByDoctorID(this.appointment.ADoctorId).Name;
+              // this.cbPatient.Text = clsPatient.FindPatientByPersonID(this.appointment.PatientPersonId).Name;
             }
             else
             {
