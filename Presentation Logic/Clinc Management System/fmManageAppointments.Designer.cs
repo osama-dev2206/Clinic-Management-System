@@ -71,6 +71,7 @@
             cbDoctor.Name = "cbDoctor";
             cbDoctor.Size = new Size(198, 28);
             cbDoctor.TabIndex = 2;
+            cbDoctor.SelectedIndexChanged += cbDoctor_SelectedIndexChanged;
             // 
             // label1
             // 

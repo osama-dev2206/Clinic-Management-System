@@ -107,5 +107,31 @@ namespace Bussiness_Logic_Layer
             return false;
         }
 
+
+        public  static clsPatient FindPatientByName(string Name)
+        {
+
+            if (String.IsNullOrEmpty(Name)) return null;
+
+            DataTable dt = clsGetPatientRecordByName.GetPatientRecordByName(Name); // get record of patient from database as DataTable
+
+            clsPatient patient = null;
+            foreach (DataRow R in dt.Rows)
+            {
+                DateTime datetime = Convert.ToDateTime(R["DateOfBirth"]);
+                DateOnly dateonly = DateOnly.FromDateTime(datetime);
+
+                patient = new clsPatient(
+                Convert.ToInt32(R["PersonId"]), R["Name"].ToString(), R["Email"].ToString(), R["PhoneNumber"].ToString(), R["Gender"].ToString(),
+                dateonly, R["Address"].ToString());
+            }
+
+            return patient;
+
+        }
+
+
+
+
     }
 }

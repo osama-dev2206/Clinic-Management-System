@@ -15,6 +15,8 @@ namespace Clinc_Management_System_Presentation_Layer
         int AppointmentID { set; get; }
         enum enFormOption : byte { AddNewAppointment = 1, EditAppointment = 2, }
         enFormOption Status;
+        clsPatient Patient;
+        clsDoctor doctor;
 
         public fmManageAppointments(int AppointmentID)
         {
@@ -47,7 +49,7 @@ namespace Clinc_Management_System_Presentation_Layer
 
             foreach (DataRow R in dt.Rows)
             {
-                cbPatient.Items.Add(clsPatient.GetPatientRecordFromDb(Convert.ToInt32 (R["PersonId"]) ));
+                cbPatient.Items.Add(R["Name"].ToString());
             }
         }
 
@@ -63,8 +65,24 @@ namespace Clinc_Management_System_Presentation_Layer
 
         private void cbPatient_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cbPatient != null && cbPatient.SelectedIndex != -1 && !String.IsNullOrEmpty(cbPatient.SelectedItem.ToString()))
+            {
+                Patient = clsPatient.FindPatientByName(cbPatient.Text);
+
+            }
 
         }
+
+        private void cbDoctor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbDoctor != null && cbDoctor.SelectedIndex != -1 && !String.IsNullOrEmpty(cbDoctor.SelectedItem.ToString()))
+            {
+                this.doctor = clsDoctor.FindDoctorByName(cbDoctor.Text);
+         
+            }
+
+        }
+
 
 
 

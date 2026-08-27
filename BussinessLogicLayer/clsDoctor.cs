@@ -118,7 +118,26 @@ namespace Bussiness_Logic_Layer
         }
 
 
+        public static clsDoctor FindDoctorByName(string Name)
+        {
+            DataTable table = clsFindDoctorByName.FindDoctorByName(Name);
 
+            clsDoctor? doctor = null;
+
+            foreach (DataRow R in table.Rows)
+            {
+                DateTime datetime = Convert.ToDateTime(R["DateOfBirth"]);
+                DateOnly dateonly = DateOnly.FromDateTime(datetime);
+
+                doctor = new clsDoctor(Convert.ToInt32(R["PersonId"]), R["DoctorName"].ToString(),
+                    dateonly,
+                    R["Gender"].ToString(), R["Address"].ToString(), R["Specialization"].ToString(), R["Email"].ToString(),
+                    R["PhoneNumber"].ToString());
+            }
+
+            return doctor;
+
+        }
 
     }
 
