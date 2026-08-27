@@ -16,6 +16,8 @@ namespace Clinc_Management_System_Presentation_Layer
         enum enFormOption : byte { AddNewAppointment = 1, EditAppointment = 2, }
 
         enFormOption Status;
+        clsDoctor doctor;
+        clsPatient Patient; 
 
         clsAppointment appointment = new clsAppointment(); // paramter-less constructor = add new 
 
@@ -72,7 +74,8 @@ namespace Clinc_Management_System_Presentation_Layer
         {
             if (cbPatient != null && cbPatient.SelectedIndex != -1 && !String.IsNullOrEmpty(cbPatient.SelectedItem.ToString()))
             {
-                this.appointment.APatientId = clsPatient.FindPatientByName(cbPatient.Text).PatinetId;
+                this.Patient = clsPatient.FindPatientByName(cbPatient.Text);
+                this.appointment.APatientId = this.Patient.PatinetId;
             }
 
         }
@@ -81,7 +84,8 @@ namespace Clinc_Management_System_Presentation_Layer
         {
             if (cbDoctor != null && cbDoctor.SelectedIndex != -1 && !String.IsNullOrEmpty(cbDoctor.SelectedItem.ToString()))
             {
-                this.appointment.ADoctorId = clsDoctor.FindDoctorByName(cbDoctor.Text).DoctorId;
+                this.doctor = clsDoctor.FindDoctorByName(cbDoctor.Text);
+                this.appointment.ADoctorId = doctor.DoctorId;
             }
 
         }
@@ -113,9 +117,9 @@ namespace Clinc_Management_System_Presentation_Layer
                 this.dtDateTime.Value = this.appointment.AppointmentDateTime;
                 this.cbAppointmentStatus.Text = this.appointment.AppointmentStatus;
 
-                // WRONG - You MUST Get Doctor From Appoitments NOT Doctors Table
-                this.cbDoctor.Text = clsDoctor.GetDoctorRecordFromDbAsObject(this.appointment.ADoctorId).Name;
-                this.cbPatient.Text = clsPatient.FindPatientByPersonID(this.appointment.APatientId).Name;
+                // WRONG - You MUST Get Person id
+            //    this.cbDoctor.Text = clsDoctor.GetDoctorRecordFromDbAsObject(this.appointment).Name;
+              //  this.cbPatient.Text = clsPatient.FindPatientByPersonID(this.appointment.PatientPersonId).Name;
             }
             else
             {

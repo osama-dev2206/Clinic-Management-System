@@ -44,14 +44,14 @@ namespace Bussiness_Logic_Layer
           return clsListAllDoctors.ListAllDoctors();
         }
 
-        public static DataTable GetDoctorRecordFromDb(int PersonID)
+        public static DataTable GetDoctorRecordFromDbByPersonID(int PersonID)
         {
             return clsGetDoctorRecordByPersonId.GetDoctorByPersonID(PersonID) ; 
         }
 
-        public static clsDoctor GetDoctorRecordFromDbAsObject(int PersonID)
+        public static clsDoctor GetDoctorRecordFromDbAsObjectByPersonID(int PersonID)
         {
-            DataTable table = GetDoctorRecordFromDb(PersonID);
+            DataTable table = GetDoctorRecordFromDbByPersonID(PersonID);
             
             clsDoctor? doctor = null;
 

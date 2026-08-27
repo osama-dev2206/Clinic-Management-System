@@ -34,8 +34,8 @@ namespace Clinc_Management_System_Presentation_Layer
             if (!String.IsNullOrEmpty(this.tbSearchDoctorByPersonId.Text) &&
                 int.TryParse(tbSearchDoctorByPersonId.Text.ToString(), out int id))
             {
-                clsDoctor.GetDoctorRecordFromDb(id);
-                this.dgvDoctor.DataSource = clsDoctor.GetDoctorRecordFromDb(id);
+                clsDoctor.GetDoctorRecordFromDbByPersonID(id);
+                this.dgvDoctor.DataSource = clsDoctor.GetDoctorRecordFromDbByPersonID(id);
             }
             else if (String.IsNullOrEmpty(tbSearchDoctorByPersonId.Text))
             {
@@ -130,7 +130,7 @@ namespace Clinc_Management_System_Presentation_Layer
         // Update
         void FillFormForEditing()
         {
-            this.doctor = clsDoctor.GetDoctorRecordFromDbAsObject(this.SelectedPersonId); // find doctor by id and get the doctor object
+            this.doctor = clsDoctor.GetDoctorRecordFromDbAsObjectByPersonID(this.SelectedPersonId); // find doctor by id and get the doctor object
             if (doctor != null)
             {
                 this.tbFullName.Text = doctor.Name;

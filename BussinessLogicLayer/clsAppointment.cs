@@ -15,16 +15,14 @@ namespace Bussiness_Logic_Layer
             this.Status = enMode.Add; 
         }
 
-        private clsAppointment(int AppointmentID, int DoctorID, int PatientID, DateTime AppointmentDateTime, string AppointmentStatus,
-            int PatientPersonId , int DoctorPersonId )
+        private clsAppointment(int AppointmentID, int DoctorID, int PatientID, DateTime AppointmentDateTime, string AppointmentStatus)
         {
             this.AppointmentId = AppointmentID;
             this.ADoctorId = DoctorID;
             this.APatientId = PatientID;
             this.AppointmentDateTime = AppointmentDateTime;
             this.AppointmentStatus = AppointmentStatus;
-            this.PatientPersonId = PatientPersonId;
-            this.DoctorPersonId = DoctorPersonId;
+
 
             this.Status = enMode.Update;
         }
@@ -62,9 +60,8 @@ namespace Bussiness_Logic_Layer
                      Convert.ToInt32(R["ADoctorId"] ),
                      Convert.ToInt32(R["APatientId"]) ,
                 Convert.ToDateTime(R["AppointmentDateTime"] ),
-                     R["AppoitmentStatus"].ToString() ,
-                     Convert.ToInt32(R["PatientPersonId"]) ,
-                        Convert.ToInt32(R["DoctorPersonId"])
+                     R["AppoitmentStatus"].ToString() 
+ 
                    );
             }
 

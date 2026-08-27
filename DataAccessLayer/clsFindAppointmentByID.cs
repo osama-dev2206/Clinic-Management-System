@@ -9,7 +9,7 @@ namespace Data_Access_Layer
 {
     public static class clsFindAppointmentByID
     {
-        readonly static string Query = @"select * from AppointmentDoctorPatient   -- Main table
+        readonly static string Query = @"select * from AppointmentDoctorPatient   
        where AppointmentId = @ID ;  ";
 
         public static DataTable  FindAppointmentByID(int AppointmentID)

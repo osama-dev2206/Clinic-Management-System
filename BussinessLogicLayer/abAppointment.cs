@@ -17,8 +17,6 @@ namespace Bussiness_Logic_Layer
 
         public string  AppointmentStatus { get; set; }
 
-        public int PatientPersonId { get; set; }
 
-        public int DoctorPersonId { get; set; }
     }
 }
