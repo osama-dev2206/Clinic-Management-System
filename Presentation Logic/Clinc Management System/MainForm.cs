@@ -75,7 +75,20 @@ namespace Clinc_Management_System_Presentation_Layer
 
         void DeleteAppointemts()
         {
+            if (DialogResult.OK == MessageBox.Show("Are you sure you want to delete this appointment?", "Delete Appointment", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning))
+            {
+                if (clsAppointment.DeleteAppointment(this.AppointmentID))
+                {
+                    MessageBox.Show("Appointment deleted successfully.", "Delete Appointment", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshAppointments();
 
+                }
+                else
+                {
+                    MessageBox.Show("Failed to delete the appointment. Please try again.", "Delete Appointment", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+            }
         }
 
         private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)

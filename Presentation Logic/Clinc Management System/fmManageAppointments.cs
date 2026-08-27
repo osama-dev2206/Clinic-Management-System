@@ -102,7 +102,7 @@ namespace Clinc_Management_System_Presentation_Layer
         }
 
 
-        /// ///// /// /////v /// ///// /// /////v /// /////v /// ///// /// ///// /// ///// /// ///// /// ///// /// /////
+        /// ///// /// /////// /// ///// /// ////// /// ////// /// ///// /// ///// /// ///// /// ///// /// ///// /// /////
 
         private bool CheckBeforeSaving()
         {
@@ -134,7 +134,7 @@ namespace Clinc_Management_System_Presentation_Layer
 
                 }
 
-                if(this.Status== enFormOption.EditAppointment)
+                if(this.Status== enFormOption.EditAppointment) // Not Implemented Yet
                 {
 
                 }

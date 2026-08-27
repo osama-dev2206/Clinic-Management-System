@@ -55,6 +55,10 @@ namespace Bussiness_Logic_Layer
             return false;
         }
 
+        public static bool DeleteAppointment(int AppointmentID)
+        {
+            return clsDeleteAppointment.DeleteAppointment(AppointmentID);
+        }
 
 
     }
