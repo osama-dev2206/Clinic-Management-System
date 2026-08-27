@@ -33,7 +33,7 @@ namespace Clinc_Management_System_Presentation_Layer
             else
             {
                 Status = enFormOption.EditAppointment;
-                this.appointment = clsAppointment.
+                this.appointment = clsAppointment.FindAppointmentByID(AppointmentID);
                 FillFormWithAppointmentData();
                 this.labManageFormMainText.Text = "Edit Appointment";
                 this.btnAddEdit.Text = "Save Changes";
@@ -108,14 +108,23 @@ namespace Clinc_Management_System_Presentation_Layer
 
         private void FillFormWithAppointmentData()
         {
-            if (this.Status == enFormOption.EditAppointment)
+            if (this.Status == enFormOption.EditAppointment && appointment != null)
             {
                 this.dtDateTime.Value = this.appointment.AppointmentDateTime;
                 this.cbAppointmentStatus.Text = this.appointment.AppointmentStatus;
-                this.cbDoctor.Text = clsDoctor.GetDoctorRecordFromDbAsObject(this.appointment.ADoctorId).Name; 
+
+                // WRONG - You MUST Get Doctor From Appoitments NOT Doctors Table
+                this.cbDoctor.Text = clsDoctor.GetDoctorRecordFromDbAsObject(this.appointment.ADoctorId).Name;
                 this.cbPatient.Text = clsPatient.FindPatientByPersonID(this.appointment.APatientId).Name;
             }
+            else
+            {
+                MessageBox.Show("Failed to Load Appointment Data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
         }
+
 
         private bool CheckBeforeSaving()
         {

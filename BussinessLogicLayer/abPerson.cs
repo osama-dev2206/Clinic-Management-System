@@ -13,7 +13,7 @@ namespace Bussiness_Logic_Layer
 
         public string Address { get; set; }
 
-        public int Id { get; protected set; } // please note we depend on person id to get all patient details 
+        public int PersonID { get; protected set; } // please note we depend on person id to get all patient details 
 
         public string Phone { get; set; }
 

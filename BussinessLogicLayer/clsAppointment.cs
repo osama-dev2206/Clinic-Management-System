@@ -15,13 +15,16 @@ namespace Bussiness_Logic_Layer
             this.Status = enMode.Add; 
         }
 
-        private clsAppointment(int AppointmentID, int DoctorID, int PatientID, DateTime AppointmentDateTime, string AppointmentStatus)
+        private clsAppointment(int AppointmentID, int DoctorID, int PatientID, DateTime AppointmentDateTime, string AppointmentStatus,
+            int PatientPersonId , int DoctorPersonId )
         {
             this.AppointmentId = AppointmentID;
             this.ADoctorId = DoctorID;
             this.APatientId = PatientID;
             this.AppointmentDateTime = AppointmentDateTime;
             this.AppointmentStatus = AppointmentStatus;
+            this.PatientPersonId = PatientPersonId;
+            this.DoctorPersonId = DoctorPersonId;
 
             this.Status = enMode.Update;
         }
@@ -53,12 +56,15 @@ namespace Bussiness_Logic_Layer
 
             foreach (DataRow R in dt.Rows)
             {
-                appointment = new clsAppointment(
-                    Convert.ToInt32(R["AppointmentId"]) ,
-                   Convert.ToInt32(R["ADoctorId"] ,
-                   Convert.ToInt32(R["APatientId"] ,
-                   Convert.ToDateTime(R["AppointmentDateTime"] ,
-                   R["AppoitmentStatus"].ToString()
+                appointment = new clsAppointment
+                    (
+                     Convert.ToInt32(R["AppointmentId"]),
+                     Convert.ToInt32(R["ADoctorId"] ),
+                     Convert.ToInt32(R["APatientId"]) ,
+                Convert.ToDateTime(R["AppointmentDateTime"] ),
+                     R["AppoitmentStatus"].ToString() ,
+                     Convert.ToInt32(R["PatientPersonId"]) ,
+                        Convert.ToInt32(R["DoctorPersonId"])
                    );
             }
 
@@ -82,7 +88,7 @@ namespace Bussiness_Logic_Layer
 
                     case enMode.Update: // not implemented yet
                     {
-                        return false; 
+                       throw  new Exception ("Not Implemented Yet") ; 
                     }
             }
 

@@ -16,14 +16,16 @@ namespace Bussiness_Logic_Layer
         enObjectStatus Status;
        public string Specialization {  get; set; }
 
+        public int DoctorId { get; private set; }
+
         public clsDoctor()  // Constructor for Adding New Doctor
         {
             this.Status = enObjectStatus.enAdd;
         }
 
-        private clsDoctor(int PersonID, string Name, DateOnly DateOfBirth, string Gender, string Address, string Specialization, string Email, string Phone) // Constructor for Updating Doctor
+        private clsDoctor(int PersonID, string Name, DateOnly DateOfBirth, string Gender, string Address, string Specialization, string Email, string Phone , int DoctorId) // Constructor for Updating Doctor
         {
-            this.Id = PersonID;
+            this.PersonID = PersonID;
             this.Name = Name;
             this.DateOfBirth = DateOfBirth;
             this.Gender = Gender;
@@ -31,26 +33,10 @@ namespace Bussiness_Logic_Layer
             this.Email = Email;
             this.Phone = Phone;
             this.Specialization = Specialization;
-
-            this.Status = enObjectStatus.enUpdate;
-        }
-
-        public int DoctorId {  get; private set; }
-        // To Get Object Which Has Doctor Id Instead Of PersonId 
-        private clsDoctor( string Name, int DoctorId, DateOnly DateOfBirth, string Gender, string Address, string Specialization, string Email, string Phone) // Constructor for Updating Doctor
-        {
             this.DoctorId = DoctorId;
-            this.Name = Name;
-            this.DateOfBirth = DateOfBirth;
-            this.Gender = Gender;
-            this.Address = Address;
-            this.Email = Email;
-            this.Phone = Phone;
-            this.Specialization = Specialization;
 
             this.Status = enObjectStatus.enUpdate;
         }
-
 
 
         public static DataTable ListAllDoctors()
@@ -77,7 +63,7 @@ namespace Bussiness_Logic_Layer
                 doctor = new clsDoctor(Convert.ToInt32(R["PersonId"]), R["DoctorName"].ToString(),
                     dateonly ,
                     R["Gender"].ToString(), R["Address"].ToString(), R["Specialization"].ToString(),  R["Email"].ToString(),
-                    R["PhoneNumber"].ToString());
+                    R["PhoneNumber"].ToString() , Convert.ToInt32 (R["DoctorId"] )  );
             }
 
             return doctor;
@@ -92,14 +78,14 @@ namespace Bussiness_Logic_Layer
            
         }
 
-        public static bool DeleteDoctor(int PersonDoctorId)
+        public static bool DeleteDoctor(int PersonId)
         {
-            return clsDeleteDoctor.DeleteDoctor(PersonDoctorId) ; // Not Implemented Yet
+            return clsDeleteDoctor.DeleteDoctor(PersonId) ; // Not Implemented Yet
         }
 
         bool UpdateDoctor()
         {
-            return ( clsUpdateDoctor.UpdateDoctor(this.Id, 
+            return ( clsUpdateDoctor.UpdateDoctor(this.PersonID, 
                 new clsUpdateDoctor.DoctorInfo { Name=this.Name , Gender = this.Gender ,
                     Address = this.Address , DateOfBirth= this.DateOfBirth , 
                     Email = this.Email , Phone=this.Phone , Specialization = this.Specialization} )  );
@@ -147,10 +133,10 @@ namespace Bussiness_Logic_Layer
                 DateTime datetime = Convert.ToDateTime(R["DateOfBirth"]);
                 DateOnly dateonly = DateOnly.FromDateTime(datetime);
 
-                doctor = new clsDoctor( R["DoctorName"].ToString(), Convert.ToInt32(R["DoctorId"]),
-                    dateonly,
-                    R["Gender"].ToString(), R["Address"].ToString(), R["Specialization"].ToString(), R["Email"].ToString(),
-                    R["PhoneNumber"].ToString());
+                doctor = new clsDoctor(Convert.ToInt32(R["PersonId"]), R["DoctorName"].ToString(),
+                     dateonly,
+                     R["Gender"].ToString(), R["Address"].ToString(), R["Specialization"].ToString(), R["Email"].ToString(),
+                     R["PhoneNumber"].ToString(), Convert.ToInt32(R["DoctorId"]));
             }
 
             return doctor;

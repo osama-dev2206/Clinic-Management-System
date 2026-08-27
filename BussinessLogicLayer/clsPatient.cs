@@ -21,7 +21,7 @@ namespace Bussiness_Logic_Layer
         private clsPatient(int PatinetId , int PersonID,string Name , string Email ,string Phone , string Gender , DateOnly dateOfBirth , string Address)
         {
             this.PatinetId = PatinetId;
-            this.Id = PersonID;
+            this.PersonID = PersonID;
             this.Name = Name;
             this.Email = Email;
             this.Phone = Phone;
@@ -79,7 +79,7 @@ namespace Bussiness_Logic_Layer
 
          private  bool UpdatePatient()
         {
-            return clsUpdatePatient.UpdatePatientByPersonID(this.Id , Name:this.Name , Gender: this.Gender ,
+            return clsUpdatePatient.UpdatePatientByPersonID(this.PersonID , Name:this.Name , Gender: this.Gender ,
                 Address: this.Address , DateOfBirth: this.DateOfBirth , Email : this.Email , Phone: this.Phone   );
         }
 
