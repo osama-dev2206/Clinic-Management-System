@@ -102,7 +102,7 @@ namespace Clinc_Management_System_Presentation_Layer
             }
         }
 
-        
+
         /// //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         bool CheckBeforeSave()
@@ -125,7 +125,7 @@ namespace Clinc_Management_System_Presentation_Layer
         // Update
         void FillFormForEditing()
         {
-            this.doctor = null; // find doctor by id and get the doctor object
+            this.doctor = clsDoctor.GetDoctorRecordFromDbAsObject(this.SelectedPersonId); // find doctor by id and get the doctor object
             if (doctor != null)
             {
                 this.tbFullName.Text = doctor.Name;
@@ -176,31 +176,50 @@ namespace Clinc_Management_System_Presentation_Layer
         // Update , Delete 
         private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            //if (e.ClickedItem.Text == "Delete" &&
-            //(DialogResult.OK == MessageBox.Show($"Are You Sure You Want To Delete  {this.SelectedPersonId} ?", "Warn", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)))
-            //           {
-            //               if (clsDoctor.Delete(this.SelectedPersonId) && SelectedPersonId != -1)
-            //               {
-            //                   MessageBox.Show("Patient deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (e.ClickedItem.Text == "Delete" &&
+            (DialogResult.OK == MessageBox.Show($"Are You Sure You Want To Delete  {this.SelectedPersonId} ?", "Warn", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)))
+            {
+                if (clsDoctor.DeleteDoctor(this.SelectedPersonId) && SelectedPersonId != -1)
+                {
+                    MessageBox.Show("Patient deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            //                   this.RefershDoctorGridView();
-            //               }
-            //               else
-            //               {
-            //                   MessageBox.Show("Failed to delete patient. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //               }
+                    this.RefershDoctorGridView();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to delete patient. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
-            //           }
-            //           else if (e.ClickedItem.Text == "Edit") /// <---- 
-            //           {
-            //               FillFormForEditing();
-            //               this.pbAddDoctor.Visible = false;
-            //               this.btnSaveEditing.Visible = true;
-            //               this.labFormName.Text = "Editing Exist Patient";
-            //           }
+            }
+
+            else if (e.ClickedItem.Text == "Edit") /// <---- 
+            {
+                FillFormForEditing();
+                this.pbAddDoctor.Visible = false;
+                this.btnSaveEditing.Visible = true;
+                this.labFormName.Text = "Editing Exist Patient";
+            }
         }
 
+        private void btnSaveEditing_Click(object sender, EventArgs e)
+        {
+            if(DialogResult.OK == MessageBox.Show($"Are You Sure You Want To Update  {this.SelectedPersonId} ?", "Warn", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning))
+            { 
+                if (doctor.Save())
+                {
+                    MessageBox.Show("The New Edits Applied Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefershDoctorGridView();
+                    RestForm();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to update doctor. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
+            }
+      
+
+        }
 
 
     }

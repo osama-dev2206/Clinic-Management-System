@@ -283,6 +283,7 @@
             btnSaveEditing.Text = "Save Changes ?";
             btnSaveEditing.UseVisualStyleBackColor = false;
             btnSaveEditing.Visible = false;
+            btnSaveEditing.Click += btnSaveEditing_Click;
             // 
             // tbSearchDoctorByPersonId
             // 

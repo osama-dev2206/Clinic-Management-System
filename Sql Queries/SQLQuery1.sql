@@ -190,7 +190,48 @@ values('011231444',(Select Person.PersonId from Person where Person.Name = 'Osam
 Update AdminLogin
 set AdminPersonId = (Select Person.PersonId from Person where Person.Name = 'Osama-Dev' ) ;
 
+
+Select * from Doctor;
+
 -------------------------------- Doctors ----------------------------------------
 -- # please note we handle doctors with person id 
 
-Select * From DoctorsFullDetails; 
+Select * From DoctorsFullDetails
+where DoctorsFullDetails.PersonId = 2; 
+
+------ Insert Doctor
+
+INSERT  INTO Person (Name, DateOfBirth, Gender, Address)
+VALUES             (@Name, @Date, @Gender, @Address);
+
+INSERT  INTO Doctor (DoctorPersonId , DSpecialization)
+VALUES              ( ( SELECT Person.PersonId
+                      FROM   Person
+                      WHERE  Person.Name = @Name
+                             AND Person.Address = @Address
+                             AND Person.DateOfBirth = @Date
+                             AND Person.Gender = @Gender )    ,  @Specialization );
+
+INSERT  INTO Email (Email, PersonId)
+VALUES            (@Email, (SELECT Person.PersonId
+                            FROM   Person
+                            WHERE  Person.Name = @Name
+                                   AND Person.Address = @Address
+                                   AND Person.DateOfBirth = @Date
+                                   AND Person.Gender = @Gender));
+
+INSERT  INTO Phone (PhoneNumber,PersonId)
+VALUES            (@Phone, (SELECT Person.PersonId
+                            FROM   Person
+                            WHERE  Person.Name = @Name
+                                   AND Person.Address = @Address
+                                   AND Person.DateOfBirth = @Date
+                                   AND Person.Gender = @Gender));
+
+SELECT SCOPE_IDENTITY();
+
+
+------
+    
+
+ 
