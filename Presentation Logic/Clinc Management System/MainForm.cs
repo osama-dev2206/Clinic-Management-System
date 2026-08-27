@@ -22,10 +22,7 @@ namespace Clinc_Management_System_Presentation_Layer
 
         private void StartDashboard()
         {
-
-            dgvListAllAppointments.DataSource = clsAppointment.ListAllAppointments();
-
-            P1NumOfAppointements.Text = clsAppointment.GetNumOfAppointments().ToString();
+            RefreshAppointments();
 
         }
 
@@ -49,6 +46,12 @@ namespace Clinc_Management_System_Presentation_Layer
             Doctors.Dispose();
         }
 
+        void RefreshAppointments()
+        {
+            dgvListAllAppointments.DataSource = clsAppointment.ListAllAppointments();
+
+            P1NumOfAppointements.Text = clsAppointment.GetNumOfAppointments().ToString();
+        }
 
         /// / /////////////////// Handle The Appointments Context Menu Strip /////////////////////////////////
 
@@ -58,17 +61,22 @@ namespace Clinc_Management_System_Presentation_Layer
             fmManageAppointments manageAppointments = new fmManageAppointments(-1);
             manageAppointments.ShowDialog();
             manageAppointments.Dispose();
+
+            RefreshAppointments();
         }
 
         void EditAppointment()
         {
-          
             fmManageAppointments manageAppointments = new fmManageAppointments(this.AppointmentID);
             manageAppointments.ShowDialog();
             manageAppointments.Dispose();
+            RefreshAppointments();
         }
 
+        void DeleteAppointemts()
+        {
 
+        }
 
         private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -80,9 +88,11 @@ namespace Clinc_Management_System_Presentation_Layer
                     break;
 
                 case "Edit Appointment":
+                    EditAppointment();
                     break;
 
                 case "Delete Appointment":
+                    DeleteAppointemts();
                     break;
             }
 

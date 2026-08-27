@@ -22,6 +22,7 @@ namespace Clinc_Management_System_Presentation_Layer
         public fmManageAppointments(int AppointmentID)
         {
             InitializeComponent();
+            this.dtDateTime.Value = DateTime.Now;
 
             if (AppointmentID == -1)
             {
@@ -121,7 +122,10 @@ namespace Clinc_Management_System_Presentation_Layer
                     if (appointment.Save())
                     {
                         MessageBox.Show("Appointment Added Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        this.Close();
                     }
+
                     else
                     {
                         MessageBox.Show("Failed to Add Appointment", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -143,6 +147,8 @@ namespace Clinc_Management_System_Presentation_Layer
 
 
         }
+
+
 
 
     }

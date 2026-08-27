@@ -139,7 +139,7 @@
             btnAddEdit.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 128, 128);
             btnAddEdit.FlatStyle = FlatStyle.Flat;
             btnAddEdit.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAddEdit.Location = new Point(290, 266);
+            btnAddEdit.Location = new Point(289, 257);
             btnAddEdit.Name = "btnAddEdit";
             btnAddEdit.Size = new Size(155, 46);
             btnAddEdit.TabIndex = 10;
