@@ -35,7 +35,8 @@ from Person
 Inner Join Patient  On Patient.PatientPersonId = PersonId
 Where Patient.PatientPersonId = @ID ) ;";
 
-
+        // the person cann't be deleted at first as all tables are related to it 
+        // so we will delete the person that is related to the patient after deleting the patient and all related records
         private static int GetThePersonOfPatient(int PersonPatinetId)
         {
             string query = @" Select Person.PersonId 
@@ -71,7 +72,7 @@ Where Patient.PatientPersonId = @ID ) ;";
 
         private static bool DeletePerson(int PersonPatinetId)
         {
-            string quert = @" Delete Person 
+            string query = @" Delete Person 
             where PersonId = @ID; ";
 
             SqlConnection connection = dbSettings.DbConnection();
@@ -79,7 +80,7 @@ Where Patient.PatientPersonId = @ID ) ;";
             try
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand(quert, connection);
+                SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@ID", PersonPatinetId);
 
                 AffectedRows = command.ExecuteNonQuery();

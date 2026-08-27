@@ -276,7 +276,7 @@
             btnSaveEditing.FlatAppearance.MouseOverBackColor = Color.Red;
             btnSaveEditing.FlatStyle = FlatStyle.Flat;
             btnSaveEditing.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSaveEditing.Location = new Point(40, 220);
+            btnSaveEditing.Location = new Point(47, 220);
             btnSaveEditing.Name = "btnSaveEditing";
             btnSaveEditing.Size = new Size(153, 42);
             btnSaveEditing.TabIndex = 6;
@@ -287,7 +287,7 @@
             // 
             // tbSearchDoctorByPersonId
             // 
-            tbSearchDoctorByPersonId.Location = new Point(35, 312);
+            tbSearchDoctorByPersonId.Location = new Point(38, 312);
             tbSearchDoctorByPersonId.Name = "tbSearchDoctorByPersonId";
             tbSearchDoctorByPersonId.Size = new Size(162, 27);
             tbSearchDoctorByPersonId.TabIndex = 5;
@@ -297,7 +297,7 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label13.Location = new Point(33, 289);
+            label13.Location = new Point(38, 289);
             label13.Name = "label13";
             label13.Size = new Size(167, 20);
             label13.TabIndex = 4;

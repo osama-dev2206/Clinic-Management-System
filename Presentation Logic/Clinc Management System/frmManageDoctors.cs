@@ -219,7 +219,7 @@ namespace Clinc_Management_System_Presentation_Layer
                 this.labFormName.Text = "Manage Doctors";
                 this.pbAddDoctor.Visible = true;
                 this.btnSaveEditing.Visible = false;
-
+                RestForm();
             }
       
 

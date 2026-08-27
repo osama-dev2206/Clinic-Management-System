@@ -168,6 +168,7 @@ namespace Clinc_Management_System_Presentation_Layer
             this.pbAddPatient.Visible = true;
             this.btnSaveEditing.Visible = false;
             RefreshGrid();
+          
         }
 
         ////////////////////////

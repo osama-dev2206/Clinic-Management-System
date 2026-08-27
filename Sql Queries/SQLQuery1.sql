@@ -28,7 +28,6 @@ where UserName= 'Admin12' And AdminPassword = '123' ;
 
 alter table AdminLogin
 add
-AdminPersonId int  null ,
 Constraint FK_AdminPerson 
 Foreign Key (AdminPersonId)
  References Person(PersonId);
@@ -232,6 +231,60 @@ SELECT SCOPE_IDENTITY();
 
 
 ------
-    
+---- update doctor    
 
- 
+-- person 
+Update Person Set
+Person.Name = '@Name' , Person.Gender = '@Gender' ,
+Person.Address = '@Address', Person.DateOfBirth = '@DateOfBirth' 
+where Person.PersonId = '@ID'
+
+-- Email
+Update Email Set
+Email.Email = '@Email'
+Where Email.PersonId = '@ID'
+-- Phone
+Update Phone Set 
+PhoneNumber = '@Phone'
+Where Phone.PersonId = '@ID' 
+
+-- Specialization
+Update Doctor Set
+Specialization = '@Specialization'
+Where Doctor.DoctorPersonId = '@ID'
+
+ ---- Delete Doctor -----
+ -- # program will pass the person id to delete the doctor and all related data
+Delete Phone
+Where 
+Phone.PersonId =
+(Select DoctorPersonID.DocID 
+from DoctorPersonID
+Where DocID = '@ID');
+
+
+Delete Email 
+Where Email.PersonId = 
+(Select DoctorPersonID.DocID 
+from DoctorPersonID
+Where DocID = '@ID');
+
+
+Delete Appointment
+where Appointment.APatientId = 
+(Select DoctorPersonID.DocID 
+from DoctorPersonID
+Where DocID = '@ID');
+
+Delete Doctor
+Where Doctor.DoctorPersonId = 
+(Select DoctorPersonID.DocID 
+from DoctorPersonID
+Where DocID = '@ID' );
+
+-- we will store the person id before deleting in data access logic
+Delete Person
+Where Person.PersonId =
+(Select DoctorPersonID.DocID 
+from DoctorPersonID
+Where DocID = '@ID' );

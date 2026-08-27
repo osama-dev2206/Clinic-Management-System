@@ -49,6 +49,7 @@ Where Doctor.DoctorPersonId = @ID  ;"  ;
             bool result = false;
             try
             {
+                connection.Open();
                 SqlCommand cmd = new SqlCommand(Query, connection);
                 cmd.Parameters.AddWithValue("@ID", PersonId);
                 cmd.Parameters.AddWithValue("@Name", info.Name);
