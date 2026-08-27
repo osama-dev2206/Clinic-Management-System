@@ -68,7 +68,6 @@ namespace Clinc_Management_System_Presentation_Layer
             if (cbPatient != null && cbPatient.SelectedIndex != -1 && !String.IsNullOrEmpty(cbPatient.SelectedItem.ToString()))
             {
                 Patient = clsPatient.FindPatientByName(cbPatient.Text);
-
             }
 
         }
@@ -78,7 +77,6 @@ namespace Clinc_Management_System_Presentation_Layer
             if (cbDoctor != null && cbDoctor.SelectedIndex != -1 && !String.IsNullOrEmpty(cbDoctor.SelectedItem.ToString()))
             {
                 this.doctor = clsDoctor.FindDoctorByName(cbDoctor.Text);
-         
             }
 
         }

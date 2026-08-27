@@ -35,6 +35,24 @@ namespace Bussiness_Logic_Layer
             this.Status = enObjectStatus.enUpdate;
         }
 
+        public int DoctorId {  get; private set; }
+        // To Get Object Which Has Doctor Id Instead Of PersonId 
+        private clsDoctor( string Name, int DoctorId, DateOnly DateOfBirth, string Gender, string Address, string Specialization, string Email, string Phone) // Constructor for Updating Doctor
+        {
+            this.DoctorId = DoctorId;
+            this.Name = Name;
+            this.DateOfBirth = DateOfBirth;
+            this.Gender = Gender;
+            this.Address = Address;
+            this.Email = Email;
+            this.Phone = Phone;
+            this.Specialization = Specialization;
+
+            this.Status = enObjectStatus.enUpdate;
+        }
+
+
+
         public static DataTable ListAllDoctors()
         {
           return clsListAllDoctors.ListAllDoctors();
@@ -129,7 +147,7 @@ namespace Bussiness_Logic_Layer
                 DateTime datetime = Convert.ToDateTime(R["DateOfBirth"]);
                 DateOnly dateonly = DateOnly.FromDateTime(datetime);
 
-                doctor = new clsDoctor(Convert.ToInt32(R["PersonId"]), R["DoctorName"].ToString(),
+                doctor = new clsDoctor( R["DoctorName"].ToString(), Convert.ToInt32(R["DoctorId"]),
                     dateonly,
                     R["Gender"].ToString(), R["Address"].ToString(), R["Specialization"].ToString(), R["Email"].ToString(),
                     R["PhoneNumber"].ToString());
@@ -138,6 +156,8 @@ namespace Bussiness_Logic_Layer
             return doctor;
 
         }
+
+
 
     }
 

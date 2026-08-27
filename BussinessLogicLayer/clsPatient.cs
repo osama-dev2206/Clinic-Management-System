@@ -16,8 +16,11 @@ namespace Bussiness_Logic_Layer
         }
 
         // To Get Patient As DataTable  From Db 
-        private clsPatient(int PersonID,string Name , string Email ,string Phone , string Gender , DateOnly dateOfBirth , string Address)
+        public int PatinetId {  get; set; }
+
+        private clsPatient(int PatinetId , int PersonID,string Name , string Email ,string Phone , string Gender , DateOnly dateOfBirth , string Address)
         {
+            this.PatinetId = PatinetId;
             this.Id = PersonID;
             this.Name = Name;
             this.Email = Email;
@@ -41,7 +44,7 @@ namespace Bussiness_Logic_Layer
                 DateTime datetime = Convert.ToDateTime(R["DateOfBirth"]);
                 DateOnly dateonly  = DateOnly.FromDateTime(datetime);
 
-                patient = new clsPatient(
+                patient = new clsPatient(Convert.ToInt32(R["PatientId"]) ,
                 Convert.ToInt32(R["PersonId"]),R["Name"].ToString(), R["Email"].ToString(), R["PhoneNumber"].ToString(), R["Gender"].ToString(), 
                 dateonly, R["Address"].ToString());
             }
@@ -121,7 +124,7 @@ namespace Bussiness_Logic_Layer
                 DateTime datetime = Convert.ToDateTime(R["DateOfBirth"]);
                 DateOnly dateonly = DateOnly.FromDateTime(datetime);
 
-                patient = new clsPatient(
+                patient = new clsPatient(Convert.ToInt32(R["PatientId"]), 
                 Convert.ToInt32(R["PersonId"]), R["Name"].ToString(), R["Email"].ToString(), R["PhoneNumber"].ToString(), R["Gender"].ToString(),
                 dateonly, R["Address"].ToString());
             }
