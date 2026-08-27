@@ -57,7 +57,7 @@ namespace Bussiness_Logic_Layer
 
                 doctor = new clsDoctor(Convert.ToInt32(R["PersonId"]), R["DoctorName"].ToString(),
                     dateonly ,
-                    R["Gender"].ToString(), R["Address"].ToString(), R["Specializtion"].ToString(),  R["Email"].ToString(),
+                    R["Gender"].ToString(), R["Address"].ToString(), R["Specialization"].ToString(),  R["Email"].ToString(),
                     R["PhoneNumber"].ToString());
             }
 
@@ -79,7 +79,10 @@ namespace Bussiness_Logic_Layer
 
         bool UpdateDoctor()
         {
-            return false; //
+            return ( clsUpdateDoctor.UpdateDoctor(this.Id, 
+                new clsUpdateDoctor.DoctorInfo { Name=this.Name , Gender = this.Gender ,
+                    Address = this.Address , DateOfBirth= this.DateOfBirth , 
+                    Email = this.Email , Phone=this.Phone , Specialization = this.Specialization} )  );
         }
 
         public bool Save()

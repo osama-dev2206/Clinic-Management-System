@@ -176,7 +176,7 @@
             // 
             labFormName.AutoSize = true;
             labFormName.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labFormName.Location = new Point(402, 9);
+            labFormName.Location = new Point(393, 0);
             labFormName.Name = "labFormName";
             labFormName.Size = new Size(277, 46);
             labFormName.TabIndex = 3;

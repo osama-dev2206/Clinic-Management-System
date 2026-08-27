@@ -197,7 +197,7 @@ namespace Clinc_Management_System_Presentation_Layer
                 FillFormForEditing();
                 this.pbAddDoctor.Visible = false;
                 this.btnSaveEditing.Visible = true;
-                this.labFormName.Text = "Editing Exist Patient";
+                this.labFormName.Text = "Editing Exist Doctor";
             }
         }
 
@@ -215,6 +215,10 @@ namespace Clinc_Management_System_Presentation_Layer
                 {
                     MessageBox.Show("Failed to update doctor. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
+                this.labFormName.Text = "Manage Doctors";
+                this.pbAddDoctor.Visible = true;
+                this.btnSaveEditing.Visible = false;
 
             }
       

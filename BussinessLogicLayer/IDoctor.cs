@@ -8,7 +8,6 @@ namespace Bussiness_Logic_Layer
     // Interface for Doctor Entity
     public interface IDoctor
     {
-        public abstract bool DeleteDoctor(int PersonDoctorId);
 
         public abstract bool Save();
 
