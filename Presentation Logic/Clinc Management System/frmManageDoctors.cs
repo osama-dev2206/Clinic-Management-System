@@ -87,7 +87,8 @@ namespace Clinc_Management_System_Presentation_Layer
         }
         private void dtDatefBirth_ValueChanged(object sender, EventArgs e)
         {
-            if (dtDateOfBirth != null && !(this.dtDateOfBirth.Value > DateTime.Now))
+            if (dtDateOfBirth != null && !(this.dtDateOfBirth.Value >= DateTime.Now)
+                && ! (this.dtDateOfBirth.Value ==DateTime.MinValue) )
             {
                 DateOnly dateOfBirth = DateOnly.FromDateTime(dtDateOfBirth.Value);
                 doctor.DateOfBirth = dateOfBirth;
@@ -107,7 +108,9 @@ namespace Clinc_Management_System_Presentation_Layer
 
         bool CheckBeforeSave()
         {
-            return !((String.IsNullOrEmpty(doctor.Name) || String.IsNullOrEmpty(this.doctor.Address) || String.IsNullOrEmpty(this.doctor.Gender) || (this.doctor.DateOfBirth == null)
+            return !((String.IsNullOrEmpty(doctor.Name) || String.IsNullOrEmpty(this.doctor.Address) || String.IsNullOrEmpty(this.doctor.Gender) || 
+                (this.doctor.DateOfBirth == null || this.dtDateOfBirth.Value == dtDateOfBirth.MinDate || 
+                this.dtDateOfBirth.Value ==DateTime.Now)
   || String.IsNullOrEmpty(doctor.Email) || String.IsNullOrEmpty(doctor.Phone)));
 
         }
@@ -181,7 +184,7 @@ namespace Clinc_Management_System_Presentation_Layer
             {
                 if (clsDoctor.DeleteDoctor(this.SelectedPersonId) && SelectedPersonId != -1)
                 {
-                    MessageBox.Show("Patient deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Doctor deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     this.RefershDoctorGridView();
                 }

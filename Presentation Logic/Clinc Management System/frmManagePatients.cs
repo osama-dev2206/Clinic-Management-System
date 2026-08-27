@@ -69,10 +69,10 @@ namespace Clinc_Management_System_Presentation_Layer
         // return true if there is error 
         bool CheckObjBeforeSave()
         {
-            if (String.IsNullOrEmpty(Patient.Name) || String.IsNullOrEmpty(this.Patient.Address) || String.IsNullOrEmpty(this.Patient.Gender) || (this.Patient.DateOfBirth == null)
-               || String.IsNullOrEmpty(mtbEmail.Text) || String.IsNullOrEmpty(tbPhone.Text))
-                return true;
-            else return false;
+            return !(String.IsNullOrEmpty(Patient.Name) || String.IsNullOrEmpty(this.Patient.Address) || String.IsNullOrEmpty(this.Patient.Gender) 
+                || (this.Patient.DateOfBirth == null || this.Patient.DateOfBirth== DateOnly.FromDateTime(DateTime.MinValue) || this.dtDatefBirth.Value == this.dtDatefBirth.MinDate || this.dtDatefBirth.Value == DateTime.Now )
+               || String.IsNullOrEmpty(mtbEmail.Text) || String.IsNullOrEmpty(tbPhone.Text));
+           
         }
 
         void RefreshGrid()
@@ -97,10 +97,6 @@ namespace Clinc_Management_System_Presentation_Layer
         {
             if (CheckObjBeforeSave())
             {
-                MessageBox.Show("Please fill all the required fields before saving.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
                 if (Patient.Save())
                 {
                     MessageBox.Show("Patient added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -111,6 +107,13 @@ namespace Clinc_Management_System_Presentation_Layer
                 {
                     MessageBox.Show("Failed to add patient. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
+            }
+            else
+            {
+
+
+             MessageBox.Show("Please fill all the required fields before saving.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
 

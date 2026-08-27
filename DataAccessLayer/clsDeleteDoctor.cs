@@ -44,12 +44,7 @@ namespace Data_Access_Layer
         {
             SqlConnection connection = dbSettings.DbConnection();
             const string Query = @"Delete Person
-Where Person.PersonId =
-(
-Select DoctorPersonID.DocID 
-from DoctorPersonID
-Where DocID = @ID
-);";
+            Where Person.PersonId = @ID ;";
 
             bool res = false;
             try
@@ -112,6 +107,7 @@ Where DocID = @ID  );";
 
             try
             {
+                connection.Open();
                 SqlCommand command = new SqlCommand(QueryDeleteDoctorRelatedRecords, connection);
                 command.Parameters.AddWithValue("@ID", PersonID);
 
