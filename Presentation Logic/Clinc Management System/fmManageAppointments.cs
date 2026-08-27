@@ -106,12 +106,41 @@ namespace Clinc_Management_System_Presentation_Layer
         private bool CheckBeforeSaving()
         {
             return !(
-                ()
+                (this.appointment.ADoctorId ==0 || this.appointment.APatientId ==0 || this.appointment.AppointmentDateTime == null 
+                ||  this.appointment.AppointmentStatus == string.Empty )
                 );
         }
 
         private void btnAddEdit_Click(object sender, EventArgs e)
         {
+
+            if (CheckBeforeSaving())
+            {
+                if (this.Status == enFormOption.AddNewAppointment)
+                {
+                    if (appointment.Save())
+                    {
+                        MessageBox.Show("Appointment Added Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to Add Appointment", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+
+                }
+
+                if(this.Status== enFormOption.EditAppointment)
+                {
+
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Please Fill All Required Fields", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
 
         }
 
