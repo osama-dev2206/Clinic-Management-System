@@ -15,6 +15,7 @@ namespace Clinc_Management_System_Presentation_Layer
         {
             InitializeComponent();
             this.GrdPatient.DataSource = clsPatient.ListAllPatients();
+            this.dtDatefBirth.MaxDate = DateTime.Now; // set the max date to today
         }
 
         private clsPatient Patient = new clsPatient(); // add new patient 

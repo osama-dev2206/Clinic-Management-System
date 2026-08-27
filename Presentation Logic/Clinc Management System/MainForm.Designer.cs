@@ -37,6 +37,7 @@
             P1ListAllAppointments = new DataGridView();
             P1gb = new GroupBox();
             P1NumOfAppointements = new Label();
+            btnAssignAppointment = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)P1ListAllAppointments).BeginInit();
             P1gb.SuspendLayout();
@@ -45,6 +46,7 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.FromArgb(102, 163, 191);
+            groupBox1.Controls.Add(btnAssignAppointment);
             groupBox1.Controls.Add(button1);
             groupBox1.Controls.Add(btnManageDoctors);
             groupBox1.Controls.Add(btnManagePatients);
@@ -78,7 +80,7 @@
             btnManageDoctors.FlatStyle = FlatStyle.Flat;
             btnManageDoctors.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnManageDoctors.ForeColor = Color.FromArgb(246, 231, 188);
-            btnManageDoctors.Location = new Point(30, 118);
+            btnManageDoctors.Location = new Point(30, 131);
             btnManageDoctors.Name = "btnManageDoctors";
             btnManageDoctors.Size = new Size(191, 40);
             btnManageDoctors.TabIndex = 4;
@@ -167,6 +169,21 @@
             P1NumOfAppointements.TabIndex = 1;
             P1NumOfAppointements.Text = "0";
             // 
+            // btnAssignAppointment
+            // 
+            btnAssignAppointment.BackColor = Color.Transparent;
+            btnAssignAppointment.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 192, 128);
+            btnAssignAppointment.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 128, 255);
+            btnAssignAppointment.FlatStyle = FlatStyle.Flat;
+            btnAssignAppointment.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAssignAppointment.ForeColor = Color.FromArgb(246, 231, 188);
+            btnAssignAppointment.Location = new Point(30, 205);
+            btnAssignAppointment.Name = "btnAssignAppointment";
+            btnAssignAppointment.Size = new Size(191, 40);
+            btnAssignAppointment.TabIndex = 6;
+            btnAssignAppointment.Text = "Assign Appointment";
+            btnAssignAppointment.UseVisualStyleBackColor = false;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -198,5 +215,6 @@
         private Button btnManagePatients;
         private Button btnManageDoctors;
         private Button button1;
+        private Button btnAssignAppointment;
     }
 }

@@ -83,7 +83,16 @@ namespace Bussiness_Logic_Layer
 
         public bool Save()
         {
-            switch(this.Status)
+
+            if (((String.IsNullOrEmpty(this.Name) || String.IsNullOrEmpty(this.Address) || String.IsNullOrEmpty(this.Gender) ||
+(this.DateOfBirth == null || this.DateOfBirth == DateOnly.FromDateTime(DateTime.MinValue) ||
+ this.DateOfBirth == DateOnly.FromDateTime(DateTime.Now))
+ || String.IsNullOrEmpty(this.Email) || String.IsNullOrEmpty(this.Phone))))
+            {
+                return false;
+            }
+
+            switch (this.Status)
             {
                 case  enObjectStatus.enAdd:
                     if (AddNewPatient()) return true;

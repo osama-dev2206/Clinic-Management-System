@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Text;
 
@@ -66,6 +67,7 @@ namespace Bussiness_Logic_Layer
 
          bool AddNewDoctor()
         {
+
             return (clsInsertNewDoctor.InsertNewDoctor (   new clsInsertNewDoctor.DoctorInfo
             { Name= this.Name ,  DateOfBirth = this.DateOfBirth , Gender = this.Gender ,
                 Address = this.Address , Email = this.Email, Phone = this.Phone , Specialization = this.Specialization }  )  != -1  );
@@ -87,7 +89,16 @@ namespace Bussiness_Logic_Layer
 
         public bool Save()
         {
-            switch(this.Status)
+            if (((String.IsNullOrEmpty(this.Name) || String.IsNullOrEmpty(this.Address) || String.IsNullOrEmpty(this.Gender) ||
+         (this.DateOfBirth == null || this.DateOfBirth == DateOnly.FromDateTime(DateTime.MinValue) ||
+             this.DateOfBirth==  DateOnly.FromDateTime(DateTime.Now)  )
+             || String.IsNullOrEmpty(this.Email) || String.IsNullOrEmpty(this.Phone))))
+            {
+                return false;
+            }
+
+
+            switch (this.Status)
             {
                 case enObjectStatus.enAdd:
                     if(AddNewDoctor())

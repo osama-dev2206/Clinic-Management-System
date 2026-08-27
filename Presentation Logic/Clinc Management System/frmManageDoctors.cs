@@ -17,6 +17,8 @@ namespace Clinc_Management_System_Presentation_Layer
         {
             InitializeComponent();
             this.dgvDoctor.DataSource = clsDoctor.ListAllDoctors();
+         
+            this.dtDateOfBirth.MaxDate = DateTime.Now ; // set the max date to today
         }
 
         clsDoctor doctor = new clsDoctor();
@@ -109,7 +111,7 @@ namespace Clinc_Management_System_Presentation_Layer
         bool CheckBeforeSave()
         {
             return !((String.IsNullOrEmpty(doctor.Name) || String.IsNullOrEmpty(this.doctor.Address) || String.IsNullOrEmpty(this.doctor.Gender) || 
-                (this.doctor.DateOfBirth == null || this.dtDateOfBirth.Value == dtDateOfBirth.MinDate || 
+                (this.doctor.DateOfBirth == null || this.doctor.DateOfBirth == DateOnly.FromDateTime(DateTime.MinValue) || this.dtDateOfBirth.Value == dtDateOfBirth.MinDate || 
                 this.dtDateOfBirth.Value ==DateTime.Now)
   || String.IsNullOrEmpty(doctor.Email) || String.IsNullOrEmpty(doctor.Phone)));
 
