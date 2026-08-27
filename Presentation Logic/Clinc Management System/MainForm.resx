@@ -124,7 +124,7 @@
   <data name="tsAddNewAppointment.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADHGSURBVHhe7d15
+        wAAADsABataJCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADHGSURBVHhe7d15
         mBxXeajxkfcNGxMIwQFsIECC2RV2cAYiZHWdqvPVjGlM4gVsQAECmJgkTgIxY1Yn9yZcY5YoJBG2WZLO
         1KkZSQwIsAXGsjEIzOINg22M90WSF2xto+n7nNEgxFclaZaunq6q932e3z+eUU9vdc7nme7qvj4i6un6
         1/Tvd3wy+AQ7bJ8bOPta42zTpPHSMI3/Nkjij5rEfto4+0XjZNSk8nXj5HLjZJ1J5GcmkZuMkw3KVuOk
@@ -343,7 +343,7 @@
   <data name="tsEditAppointment.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAABzXSURBVHhe7d1r
+        wAAADsABataJCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAABzXSURBVHhe7d1r
         zG1bWR/wBw5WFM6RGi8cKG0/cKmXpoiA2KTRXiCAqY2WphW1lcZb+kFspRpNE2gTivUoLek1KRolBAtN
         P6GVJpomxQJSqFDBSwwSghREDxbIQQTBZh7edc4+z57vfte71pzPHGPM3y/5f9n7XOZaY+zxjL33ev9v
         BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -473,7 +473,7 @@
   <data name="tsDeleteAppointment.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAABo4SURBVHhe7d17
+        vwAADr8BOAVTJAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAABo4SURBVHhe7d17
         sHZXQR7wBwhyDcFLLZZwUXuTa7gM1hlbMVg6DIIIQSpVOlMMEXBgpEAQxKF1FARqZNQ6QEBMISgKBBHl
         UiAIYludcgnXgtAKhJtTKiTQXNvZeo6YxfrOPt/3nXftvdb+/WaefwhD1t77sJ717ne/eyUAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA

@@ -11,6 +11,8 @@ namespace Clinc_Management_System_Presentation_Layer
 {
     public partial class MainForm : Form
     {
+        int AppointmentID = -1;
+
         public MainForm()
         {
             InitializeComponent();
@@ -21,7 +23,7 @@ namespace Clinc_Management_System_Presentation_Layer
         private void StartDashboard()
         {
 
-            P1ListAllAppointments.DataSource = clsDasboard.ListAllAppointments();
+            dgvListAllAppointments.DataSource = clsDasboard.ListAllAppointments();
 
             P1NumOfAppointements.Text = clsDasboard.GetNumOfAppointments().ToString();
 
@@ -48,6 +50,25 @@ namespace Clinc_Management_System_Presentation_Layer
         }
 
 
+        /// / /////////////////// Handle The Appointments Context Menu Strip /////////////////////////////////
+
+        void AddNewAppointment()
+        {
+            // -1 means that we are adding a new appointment, not editing an existing one
+            fmManageAppointments manageAppointments = new fmManageAppointments(-1);
+            manageAppointments.ShowDialog();
+            manageAppointments.Dispose();
+        }
+
+        void EditAppointment()
+        {
+          
+            fmManageAppointments manageAppointments = new fmManageAppointments(this.AppointmentID);
+            manageAppointments.ShowDialog();
+            manageAppointments.Dispose();
+        }
+
+
 
         private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -64,13 +85,20 @@ namespace Clinc_Management_System_Presentation_Layer
                     break;
             }
 
-            // 'NoShow'  , 
-            //    'Reschduled',
-            //    'Cancelled',
-            //    'Completed',
-            //    'Confrimed',
-            //    'Pending'
 
         }
+
+        // Assign the selected appointment ID to the AppointmentID property when a row is selected in the DataGridView
+        private void P1ListAllAppointments_SelectionChanged(object sender, EventArgs e)
+        {
+            if (this.dgvListAllAppointments != null && dgvListAllAppointments.CurrentRow.Cells[0].Value != null
+                && int.TryParse(dgvListAllAppointments.CurrentRow.Cells[0].Value.ToString(), out int ID))
+            {
+                this.AppointmentID = ID;
+            }
+        }
+
+
+
     }
 }

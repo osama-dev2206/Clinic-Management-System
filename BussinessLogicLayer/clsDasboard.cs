@@ -14,7 +14,7 @@ namespace Bussiness_Logic_Layer
 
         public static int GetNumOfAppointments()
         {
-            return clsGetNumOfSpecific.GetNumOfAppointments();
+            return clsGetNumOfAppointments.GetNumOfAppointments();
         }
 
     }

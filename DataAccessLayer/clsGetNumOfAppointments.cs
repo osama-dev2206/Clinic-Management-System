@@ -6,9 +6,9 @@ using System.Text;
 
 namespace Data_Access_Layer
 {
-    public static class clsGetNumOfSpecific
+    public static class clsGetNumOfAppointments
     {
-        static string query = @"Select Count(*) As NumOfAppointments From Appointment;";
+        static string query = @"Select Count(*) As NumOfAppointments From AppointmentDetails;";
 
       public static int GetNumOfAppointments()
         {
@@ -31,4 +31,6 @@ namespace Data_Access_Layer
         }
 
     }
+
+
 }

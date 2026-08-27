@@ -36,7 +36,7 @@
             btnManagePatients = new Button();
             label2 = new Label();
             labDashboard = new Label();
-            P1ListAllAppointments = new DataGridView();
+            dgvListAllAppointments = new DataGridView();
             P1gb = new GroupBox();
             P1NumOfAppointements = new Label();
             contextMenuStrip1 = new ContextMenuStrip(components);
@@ -44,7 +44,7 @@
             tsEditAppointment = new ToolStripMenuItem();
             tsDeleteAppointment = new ToolStripMenuItem();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)P1ListAllAppointments).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvListAllAppointments).BeginInit();
             P1gb.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
             SuspendLayout();
@@ -135,19 +135,20 @@
             labDashboard.Text = "Dashboard";
             labDashboard.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // P1ListAllAppointments
+            // dgvListAllAppointments
             // 
-            P1ListAllAppointments.AllowUserToAddRows = false;
-            P1ListAllAppointments.AllowUserToDeleteRows = false;
-            P1ListAllAppointments.BackgroundColor = Color.FromArgb(242, 239, 231);
-            P1ListAllAppointments.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            P1ListAllAppointments.Dock = DockStyle.Bottom;
-            P1ListAllAppointments.Location = new Point(250, 232);
-            P1ListAllAppointments.Name = "P1ListAllAppointments";
-            P1ListAllAppointments.ReadOnly = true;
-            P1ListAllAppointments.RowHeadersWidth = 51;
-            P1ListAllAppointments.Size = new Size(550, 218);
-            P1ListAllAppointments.TabIndex = 2;
+            dgvListAllAppointments.AllowUserToAddRows = false;
+            dgvListAllAppointments.AllowUserToDeleteRows = false;
+            dgvListAllAppointments.BackgroundColor = Color.FromArgb(242, 239, 231);
+            dgvListAllAppointments.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvListAllAppointments.Dock = DockStyle.Bottom;
+            dgvListAllAppointments.Location = new Point(250, 232);
+            dgvListAllAppointments.Name = "dgvListAllAppointments";
+            dgvListAllAppointments.ReadOnly = true;
+            dgvListAllAppointments.RowHeadersWidth = 51;
+            dgvListAllAppointments.Size = new Size(550, 218);
+            dgvListAllAppointments.TabIndex = 2;
+            dgvListAllAppointments.SelectionChanged += P1ListAllAppointments_SelectionChanged;
             // 
             // P1gb
             // 
@@ -179,7 +180,7 @@
             contextMenuStrip1.ImageScalingSize = new Size(20, 20);
             contextMenuStrip1.Items.AddRange(new ToolStripItem[] { tsAddNewAppointment, tsEditAppointment, tsDeleteAppointment });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(240, 110);
+            contextMenuStrip1.Size = new Size(240, 82);
             contextMenuStrip1.ItemClicked += contextMenuStrip1_ItemClicked;
             // 
             // tsAddNewAppointment
@@ -213,14 +214,14 @@
             BackColor = Color.FromArgb(200, 223, 208);
             ClientSize = new Size(800, 450);
             Controls.Add(P1gb);
-            Controls.Add(P1ListAllAppointments);
+            Controls.Add(dgvListAllAppointments);
             Controls.Add(labDashboard);
             Controls.Add(groupBox1);
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
             groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)P1ListAllAppointments).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvListAllAppointments).EndInit();
             P1gb.ResumeLayout(false);
             P1gb.PerformLayout();
             contextMenuStrip1.ResumeLayout(false);
@@ -232,7 +233,7 @@
         private GroupBox groupBox1;
         private Label labDashboard;
         private Label label2;
-        private DataGridView P1ListAllAppointments;
+        private DataGridView dgvListAllAppointments;
         private GroupBox P1gb;
         private Label P1NumOfAppointements;
         private Button btnManagePatients;
