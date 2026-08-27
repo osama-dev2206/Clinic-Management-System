@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             groupBox1 = new GroupBox();
             button1 = new Button();
             btnManageDoctors = new Button();
@@ -37,16 +39,19 @@
             P1ListAllAppointments = new DataGridView();
             P1gb = new GroupBox();
             P1NumOfAppointements = new Label();
-            btnAssignAppointment = new Button();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            tsAddNewAppointment = new ToolStripMenuItem();
+            tsEditAppointment = new ToolStripMenuItem();
+            tsDeleteAppointment = new ToolStripMenuItem();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)P1ListAllAppointments).BeginInit();
             P1gb.SuspendLayout();
+            contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
             groupBox1.BackColor = Color.FromArgb(102, 163, 191);
-            groupBox1.Controls.Add(btnAssignAppointment);
             groupBox1.Controls.Add(button1);
             groupBox1.Controls.Add(btnManageDoctors);
             groupBox1.Controls.Add(btnManagePatients);
@@ -169,20 +174,36 @@
             P1NumOfAppointements.TabIndex = 1;
             P1NumOfAppointements.Text = "0";
             // 
-            // btnAssignAppointment
+            // contextMenuStrip1
             // 
-            btnAssignAppointment.BackColor = Color.Transparent;
-            btnAssignAppointment.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 192, 128);
-            btnAssignAppointment.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 128, 255);
-            btnAssignAppointment.FlatStyle = FlatStyle.Flat;
-            btnAssignAppointment.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAssignAppointment.ForeColor = Color.FromArgb(246, 231, 188);
-            btnAssignAppointment.Location = new Point(30, 205);
-            btnAssignAppointment.Name = "btnAssignAppointment";
-            btnAssignAppointment.Size = new Size(191, 40);
-            btnAssignAppointment.TabIndex = 6;
-            btnAssignAppointment.Text = "Assign Appointment";
-            btnAssignAppointment.UseVisualStyleBackColor = false;
+            contextMenuStrip1.ImageScalingSize = new Size(20, 20);
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { tsAddNewAppointment, tsEditAppointment, tsDeleteAppointment });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(240, 110);
+            // 
+            // tsAddNewAppointment
+            // 
+            tsAddNewAppointment.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            tsAddNewAppointment.Image = (Image)resources.GetObject("tsAddNewAppointment.Image");
+            tsAddNewAppointment.Name = "tsAddNewAppointment";
+            tsAddNewAppointment.Size = new Size(239, 26);
+            tsAddNewAppointment.Text = "Add New Appointment";
+            // 
+            // tsEditAppointment
+            // 
+            tsEditAppointment.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            tsEditAppointment.Image = (Image)resources.GetObject("tsEditAppointment.Image");
+            tsEditAppointment.Name = "tsEditAppointment";
+            tsEditAppointment.Size = new Size(239, 26);
+            tsEditAppointment.Text = "Edit Appointment";
+            // 
+            // tsDeleteAppointment
+            // 
+            tsDeleteAppointment.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            tsDeleteAppointment.Image = (Image)resources.GetObject("tsDeleteAppointment.Image");
+            tsDeleteAppointment.Name = "tsDeleteAppointment";
+            tsDeleteAppointment.Size = new Size(239, 26);
+            tsDeleteAppointment.Text = "Delete Appointment";
             // 
             // MainForm
             // 
@@ -201,6 +222,7 @@
             ((System.ComponentModel.ISupportInitialize)P1ListAllAppointments).EndInit();
             P1gb.ResumeLayout(false);
             P1gb.PerformLayout();
+            contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -215,6 +237,9 @@
         private Button btnManagePatients;
         private Button btnManageDoctors;
         private Button button1;
-        private Button btnAssignAppointment;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem tsAddNewAppointment;
+        private ToolStripMenuItem tsEditAppointment;
+        private ToolStripMenuItem tsDeleteAppointment;
     }
 }
