@@ -282,9 +282,17 @@ Where Doctor.DoctorPersonId =
 from DoctorPersonID
 Where DocID = '@ID' );
 
--- we will store the person id before deleting in data access logic
-Delete Person
-Where Person.PersonId =
-(Select DoctorPersonID.DocID 
-from DoctorPersonID
-Where DocID = '@ID' );
+
+
+Select * from DoctorsFullDetails;
+
+Select * From AppointmentDetails;
+
+alter Table AppointmentDoctorPatient
+Add Constraint DefaultAppointmentStatus
+Default 'NoShow'  FOR AppoitmentStatus;
+
+
+
+
+Select * from Person;

@@ -180,6 +180,7 @@
             contextMenuStrip1.Items.AddRange(new ToolStripItem[] { tsAddNewAppointment, tsEditAppointment, tsDeleteAppointment });
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(240, 110);
+            contextMenuStrip1.ItemClicked += contextMenuStrip1_ItemClicked;
             // 
             // tsAddNewAppointment
             // 

@@ -49,6 +49,28 @@ namespace Clinc_Management_System_Presentation_Layer
 
 
 
+        private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            string SelectedItem = e.ClickedItem.Text;
+            switch (SelectedItem)
+            {
+                case "Add New Appointment":
+                    break;
 
+                case "Edit Appointment":
+                    break;
+
+                case "Delete Appointment":
+                    break;
+            }
+
+            // 'NoShow'  , 
+            //    'Reschduled',
+            //    'Cancelled',
+            //    'Completed',
+            //    'Confrimed',
+            //    'Pending'
+
+        }
     }
 }
