@@ -12,11 +12,12 @@ namespace Clinc_Management_System_Presentation_Layer
 {
     public partial class fmManageAppointments : Form
     {
-        int AppointmentID { set; get; }
+
         enum enFormOption : byte { AddNewAppointment = 1, EditAppointment = 2, }
+
         enFormOption Status;
-        clsPatient Patient;
-        clsDoctor doctor;
+
+        clsAppointment appointment = new clsAppointment(); // paramter-less constructor = add new 
 
         public fmManageAppointments(int AppointmentID)
         {
@@ -63,11 +64,12 @@ namespace Clinc_Management_System_Presentation_Layer
 
         }
 
+        // Form Changes 
         private void cbPatient_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbPatient != null && cbPatient.SelectedIndex != -1 && !String.IsNullOrEmpty(cbPatient.SelectedItem.ToString()))
             {
-                Patient = clsPatient.FindPatientByName(cbPatient.Text);
+                this.appointment.APatientId = clsPatient.FindPatientByName(cbPatient.Text).PatinetId;
             }
 
         }
@@ -76,12 +78,42 @@ namespace Clinc_Management_System_Presentation_Layer
         {
             if (cbDoctor != null && cbDoctor.SelectedIndex != -1 && !String.IsNullOrEmpty(cbDoctor.SelectedItem.ToString()))
             {
-                this.doctor = clsDoctor.FindDoctorByName(cbDoctor.Text);
+                this.appointment.ADoctorId = clsDoctor.FindDoctorByName(cbDoctor.Text).DoctorId;
             }
 
         }
 
+        private void cbAppointmentStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbAppointmentStatus != null && !String.IsNullOrEmpty(cbAppointmentStatus.SelectedItem.ToString()))
+            {
+                appointment.AppointmentStatus = cbAppointmentStatus.Text;
+            }
 
+        }
+
+        private void dtDateTime_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtDateTime != null && dtDateTime.Value != dtDateTime.MinDate)
+            {
+                this.appointment.AppointmentDateTime = this.dtDateTime.Value;
+            }
+        }
+
+
+        /// ///// /// /////v /// ///// /// /////v /// /////v /// ///// /// ///// /// ///// /// ///// /// ///// /// /////
+
+        private bool CheckBeforeSaving()
+        {
+            return !(
+                ()
+                );
+        }
+
+        private void btnAddEdit_Click(object sender, EventArgs e)
+        {
+
+        }
 
 
     }

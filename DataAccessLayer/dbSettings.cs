@@ -12,7 +12,8 @@ namespace DataAccessLayer
 
         public static SqlConnection DbConnection()
         {
-            return new SqlConnection(ConnectionString);
+            try { return new SqlConnection(ConnectionString); }
+            catch { return null;  }
         }
 
 

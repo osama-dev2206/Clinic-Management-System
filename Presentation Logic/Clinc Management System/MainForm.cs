@@ -23,9 +23,9 @@ namespace Clinc_Management_System_Presentation_Layer
         private void StartDashboard()
         {
 
-            dgvListAllAppointments.DataSource = clsDasboard.ListAllAppointments();
+            dgvListAllAppointments.DataSource = clsAppointment.ListAllAppointments();
 
-            P1NumOfAppointements.Text = clsDasboard.GetNumOfAppointments().ToString();
+            P1NumOfAppointements.Text = clsAppointment.GetNumOfAppointments().ToString();
 
         }
 

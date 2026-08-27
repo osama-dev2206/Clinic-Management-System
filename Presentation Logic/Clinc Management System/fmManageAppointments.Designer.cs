@@ -112,6 +112,7 @@
             cbAppointmentStatus.Name = "cbAppointmentStatus";
             cbAppointmentStatus.Size = new Size(192, 28);
             cbAppointmentStatus.TabIndex = 5;
+            cbAppointmentStatus.SelectedIndexChanged += cbAppointmentStatus_SelectedIndexChanged;
             // 
             // dtDateTime
             // 
@@ -120,6 +121,7 @@
             dtDateTime.Name = "dtDateTime";
             dtDateTime.Size = new Size(248, 27);
             dtDateTime.TabIndex = 7;
+            dtDateTime.ValueChanged += dtDateTime_ValueChanged;
             // 
             // label4
             // 
@@ -143,6 +145,7 @@
             btnAddEdit.TabIndex = 10;
             btnAddEdit.Text = "Add";
             btnAddEdit.UseVisualStyleBackColor = true;
+            btnAddEdit.Click += btnAddEdit_Click;
             // 
             // fmManageAppointments
             // 
