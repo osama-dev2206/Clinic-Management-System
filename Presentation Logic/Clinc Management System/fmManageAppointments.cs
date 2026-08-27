@@ -119,7 +119,7 @@ namespace Clinc_Management_System_Presentation_Layer
 
                 // WRONG - You MUST Get Person id
                this.cbDoctor.Text = clsDoctor.GetDoctorRecordFromDbAsObjByDoctorID(this.appointment.ADoctorId).Name;
-              // this.cbPatient.Text = clsPatient.FindPatientByPersonID(this.appointment.PatientPersonId).Name;
+               this.cbPatient.Text = clsPatient.FindPatinetByPatientID(this.appointment.APatientId).Name;
             }
             else
             {

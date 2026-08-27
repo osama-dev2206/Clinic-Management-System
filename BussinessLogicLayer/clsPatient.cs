@@ -52,6 +52,26 @@ namespace Bussiness_Logic_Layer
             return patient;
         }
 
+        public static clsPatient FindPatinetByPatientID(int PatientID)
+        {
+            if (!int.TryParse(PatientID.ToString(), out _)) return null;
+
+            DataTable dt = clsFindPatientByID.FindPatinetByPatientID(PatientID); // get record of patient from database as DataTable
+
+            clsPatient patient = null;
+            foreach (DataRow R in dt.Rows)
+            {
+                DateTime datetime = Convert.ToDateTime(R["DateOfBirth"]);
+                DateOnly dateonly = DateOnly.FromDateTime(datetime);
+
+                patient = new clsPatient(Convert.ToInt32(R["PatientId"]),
+                Convert.ToInt32(R["PersonId"]), R["Name"].ToString(), R["Email"].ToString(), R["PhoneNumber"].ToString(), R["Gender"].ToString(),
+                dateonly, R["Address"].ToString());
+            }
+
+            return patient;
+        }
+
         public static  DataTable GetPatientRecordFromDb(int PersonID)
         {
             return clsFindPatientByID.FindPatinetByPersonID(PersonID);
