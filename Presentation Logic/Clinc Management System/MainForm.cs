@@ -76,6 +76,7 @@ namespace Clinc_Management_System_Presentation_Layer
             switch (SelectedItem)
             {
                 case "Add New Appointment":
+                    AddNewAppointment();
                     break;
 
                 case "Edit Appointment":

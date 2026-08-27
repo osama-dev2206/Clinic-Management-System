@@ -286,6 +286,9 @@ Where DocID = '@ID' );
 
 Select * from DoctorsFullDetails;
 
+----------------- Appointment Table ----------------------------
+
+----- Modify Appointment Table 
 Select * From AppointmentDetails;
 
 alter Table AppointmentDoctorPatient
@@ -293,6 +296,38 @@ Add Constraint DefaultAppointmentStatus
 Default 'NoShow'  FOR AppoitmentStatus;
 
 
+alter Table AppointmentDoctorPatient
+Add Constraint DefaultDateTime
+Default GetDate() FOR AppointmentDateTime;
 
 
-Select * from Person;
+-- add sample appointment
+Select * From AppointmentDetails; -- data view 
+Select * from  DoctorsFullDetails;
+Select * from PatientFullDetails;
+
+select * from AppointmentDoctorPatient;
+
+-- How To Get Age Of Patient By His Date Of Birth
+Select ABS (DATEDIFF(YEAR , GETDATE() , 
+(Select DoctorsFullDetails.DateOfBirth from DoctorsFullDetails where DoctorsFullDetails.PersonId=10)
+) )
+as DaysDifference;
+
+
+
+insert into AppointmentDoctorPatient(ADoctorId,APatientId,
+AppointmentDateTime)
+values 
+(
+
+( Select DoctorsFullDetails.DoctorId from DoctorsFullDetails where DoctorsFullDetails.PersonId=10) ,
+(Select PatientFullDetails.PatientId from PatientFullDetails where PatientFullDetails.PersonId=6) ,
+GetDate() 
+
+);
+
+
+select * from AppointmentDoctorPatient;
+Select * from AppointmentIDDetails; -- ids only 
+

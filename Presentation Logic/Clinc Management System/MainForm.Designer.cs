@@ -213,6 +213,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(200, 223, 208);
             ClientSize = new Size(800, 450);
+            ContextMenuStrip = contextMenuStrip1;
             Controls.Add(P1gb);
             Controls.Add(dgvListAllAppointments);
             Controls.Add(labDashboard);

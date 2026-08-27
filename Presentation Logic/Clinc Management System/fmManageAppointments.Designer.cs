@@ -60,6 +60,7 @@
             cbPatient.Name = "cbPatient";
             cbPatient.Size = new Size(198, 28);
             cbPatient.TabIndex = 1;
+            cbPatient.SelectedIndexChanged += cbPatient_SelectedIndexChanged;
             // 
             // cbDoctor
             // 
@@ -161,6 +162,7 @@
             Name = "fmManageAppointments";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Manage Appointments";
+            Load += fmManageAppointments_Load;
             ResumeLayout(false);
             PerformLayout();
         }

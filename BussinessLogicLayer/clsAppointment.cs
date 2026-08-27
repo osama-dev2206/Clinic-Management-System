@@ -4,8 +4,10 @@ using System.Text;
 
 namespace Bussiness_Logic_Layer
 {
-    public static class clsAppointment
+    public  class clsAppointment
     {
+
+
 
     }
 
