@@ -28,9 +28,11 @@ namespace Clinc_Management_System
                 if (loginForm.DialogResult == DialogResult.Cancel) break; 
                 
                 else if (loginForm.DialogResult == DialogResult.OK)
-                { 
+                {
+                    Main.CurrentLoggedInUserName = loginForm.GetUserName();
+                    loginForm.Dispose(); // free memory from unused form 
                     Main.ShowDialog();
-                    loginForm.Dispose();
+        
                 }
 
             }

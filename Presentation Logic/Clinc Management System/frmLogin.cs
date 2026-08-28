@@ -22,6 +22,8 @@ namespace Clinc_Management_System
         private string UserName { get; set; }
         private string Password { get; set; }
 
+  
+
         private void frmLogin_TextChanged(object sender, EventArgs e)
         {
             TextBox tb = sender as TextBox;
@@ -59,7 +61,10 @@ namespace Clinc_Management_System
         }
 
 
-
+        internal string GetUserName()
+        {
+            return UserName;
+        }
    
     }
 }

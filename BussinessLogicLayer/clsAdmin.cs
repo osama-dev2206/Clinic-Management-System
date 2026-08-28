@@ -8,11 +8,11 @@ using System.Text;
 
 namespace BussinessLogicLayer
 {
-    public   class clsAdmin  : abPerson
+    public  class clsAdmin  : abPerson
     {
 
-        enum enPersmissions : byte
-        { none = 1, ManagePatients = 2, ManageDoctors = 4, ManageAppointments = 8 }
+      public  enum enPersmissions : byte
+        { none = 1, ManagePatients = 2, ManageDoctors = 4, ManageAppointments = 8 , ManageAdmins=16 }
 
         public int Permissions { get; set; }
         public string UserName { get; set; }
@@ -27,6 +27,7 @@ namespace BussinessLogicLayer
         public clsAdmin()
         {
             status = enObjectStatus.enAdd;
+            Permissions = 0; // none permission 
         }
 
         private clsAdmin(int PersonId, string Username, string Pass, int Permissions, string Name, int Age, string Gender,
@@ -46,7 +47,6 @@ namespace BussinessLogicLayer
 
             this.status = enObjectStatus.enUpdate;
         }
-
 
         public static clsAdmin GetAdminByAdminId(int AdminId)
         {
@@ -142,6 +142,15 @@ namespace BussinessLogicLayer
         }
 
 
+        public void AssignPermissionToAdmin(enPersmissions persmission)
+        {
+            this.Permissions |=(int)persmission;
+        }
+        
+        public  bool CheckPermission(enPersmissions persmission)
+        {
+            return (this.Permissions & (int)persmission) == (int)persmission; 
+        }
 
 
     }

@@ -26,11 +26,11 @@ namespace Data_Access_Layer
 
                 case enFindAdminBy.ByAdminId:
                     return @"   select * from AdminFullInfo
-              where AdminFullInfo.PersonId = @AdminId; ";
+              where AdminFullInfo.AdminId = @AdminId; ";
 
                     case enFindAdminBy.ByUserName:
                     return @"      select * from AdminFullInfo
-                where AdminFullInfo.PersonId = @UserName ; ";
+                where AdminFullInfo.UserName = @UserName ; ";
 
             }
 

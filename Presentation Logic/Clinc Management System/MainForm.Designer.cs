@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             groupBox1 = new GroupBox();
+            btnManageAdmins = new Button();
             button1 = new Button();
             btnManageDoctors = new Button();
             btnManagePatients = new Button();
@@ -43,7 +44,7 @@
             tsAddNewAppointment = new ToolStripMenuItem();
             tsEditAppointment = new ToolStripMenuItem();
             tsDeleteAppointment = new ToolStripMenuItem();
-            btnManageAdmins = new Button();
+            labCurrentLoggedUser = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvListAllAppointments).BeginInit();
             P1gb.SuspendLayout();
@@ -64,6 +65,22 @@
             groupBox1.Size = new Size(250, 450);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
+            // 
+            // btnManageAdmins
+            // 
+            btnManageAdmins.BackColor = Color.Transparent;
+            btnManageAdmins.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 192, 128);
+            btnManageAdmins.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 128, 255);
+            btnManageAdmins.FlatStyle = FlatStyle.Flat;
+            btnManageAdmins.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnManageAdmins.ForeColor = Color.FromArgb(246, 231, 188);
+            btnManageAdmins.Location = new Point(30, 205);
+            btnManageAdmins.Name = "btnManageAdmins";
+            btnManageAdmins.Size = new Size(191, 40);
+            btnManageAdmins.TabIndex = 6;
+            btnManageAdmins.Text = "Manage Admins";
+            btnManageAdmins.UseVisualStyleBackColor = false;
+            btnManageAdmins.Click += btnManageAdmins_Click;
             // 
             // button1
             // 
@@ -126,16 +143,16 @@
             // 
             // labDashboard
             // 
+            labDashboard.AutoSize = true;
             labDashboard.BackColor = Color.Transparent;
-            labDashboard.Dock = DockStyle.Top;
             labDashboard.Font = new Font("Segoe UI Semibold", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labDashboard.ForeColor = Color.Black;
-            labDashboard.Location = new Point(250, 0);
+            labDashboard.Location = new Point(347, 29);
             labDashboard.Name = "labDashboard";
-            labDashboard.Size = new Size(550, 85);
+            labDashboard.Size = new Size(329, 81);
             labDashboard.TabIndex = 1;
             labDashboard.Text = "Dashboard";
-            labDashboard.TextAlign = ContentAlignment.MiddleCenter;
+            labDashboard.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // dgvListAllAppointments
             // 
@@ -158,7 +175,7 @@
             P1gb.FlatStyle = FlatStyle.Flat;
             P1gb.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             P1gb.ForeColor = Color.Black;
-            P1gb.Location = new Point(436, 101);
+            P1gb.Location = new Point(437, 118);
             P1gb.Name = "P1gb";
             P1gb.Size = new Size(149, 108);
             P1gb.TabIndex = 3;
@@ -209,20 +226,17 @@
             tsDeleteAppointment.Size = new Size(239, 26);
             tsDeleteAppointment.Text = "Delete Appointment";
             // 
-            // btnManageAdmins
+            // labCurrentLoggedUser
             // 
-            btnManageAdmins.BackColor = Color.Transparent;
-            btnManageAdmins.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 192, 128);
-            btnManageAdmins.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 128, 255);
-            btnManageAdmins.FlatStyle = FlatStyle.Flat;
-            btnManageAdmins.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnManageAdmins.ForeColor = Color.FromArgb(246, 231, 188);
-            btnManageAdmins.Location = new Point(30, 205);
-            btnManageAdmins.Name = "btnManageAdmins";
-            btnManageAdmins.Size = new Size(191, 40);
-            btnManageAdmins.TabIndex = 6;
-            btnManageAdmins.Text = "Manage Admins";
-            btnManageAdmins.UseVisualStyleBackColor = false;
+            labCurrentLoggedUser.AutoSize = true;
+            labCurrentLoggedUser.FlatStyle = FlatStyle.Popup;
+            labCurrentLoggedUser.Font = new Font("Unispace", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labCurrentLoggedUser.ForeColor = Color.FromArgb(25, 55, 85);
+            labCurrentLoggedUser.Location = new Point(253, 9);
+            labCurrentLoggedUser.Name = "labCurrentLoggedUser";
+            labCurrentLoggedUser.Size = new Size(153, 21);
+            labCurrentLoggedUser.TabIndex = 4;
+            labCurrentLoggedUser.Text = "Hello Admin:@";
             // 
             // MainForm
             // 
@@ -231,6 +245,7 @@
             BackColor = Color.FromArgb(200, 223, 208);
             ClientSize = new Size(800, 450);
             ContextMenuStrip = contextMenuStrip1;
+            Controls.Add(labCurrentLoggedUser);
             Controls.Add(P1gb);
             Controls.Add(dgvListAllAppointments);
             Controls.Add(labDashboard);
@@ -238,12 +253,14 @@
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
+            Load += MainForm_Load;
             groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvListAllAppointments).EndInit();
             P1gb.ResumeLayout(false);
             P1gb.PerformLayout();
             contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -262,5 +279,6 @@
         private ToolStripMenuItem tsEditAppointment;
         private ToolStripMenuItem tsDeleteAppointment;
         private Button btnManageAdmins;
+        private Label labCurrentLoggedUser;
     }
 }
