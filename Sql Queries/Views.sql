@@ -24,3 +24,36 @@ Inner Join Phone On Phone.PersonId = Person.PersonId;
 
 
 
+------------
+create view DoctorPersonID
+As
+Select Doctor.DoctorPersonId
+from Person
+Inner Join Doctor  On Doctor.DoctorPersonId = Person.PersonId
+
+----------------------
+create view AppointmentDetails
+AS 
+Select AppointmentDoctorPatient.AppointmentId,AppointmentDoctorPatient.AppointmentDateTime AS DateAndTime ,
+
+DoctorsFullDetails.DoctorName ,DoctorsFullDetails.Specialization,
+DoctorsFullDetails.PhoneNumber AS DoctorPhoneNum ,DoctorsFullDetails.Gender As DoctorGender,
+
+PatientFullDetails.Name AS PatientName ,PatientFullDetails.PhoneNumber AS PatientPhoneNum  ,
+PatientAge = Year(GetDate() - CAST (PatientFullDetails.DateOfBirth  As datetime) ) 
+,AppointmentDoctorPatient.AppoitmentStatus
+
+From AppointmentDoctorPatient
+Inner Join DoctorsFullDetails On DoctorsFullDetails.DoctorId = AppointmentDoctorPatient.ADoctorId
+Inner Join PatientFullDetails on PatientFullDetails.PatientId = AppointmentDoctorPatient.APatientId
+
+--------
+Create View AppointmentIDDetails
+As
+Select AppointmentDoctorPatient.AppointmentId , AppointmentDoctorPatient.APatientId As PatientId
+,AppointmentDoctorPatient.ADoctorId AS DoctorId
+From AppointmentDoctorPatient;
+
+
+----- -------------------
+-- As AppointmentDoctorPatient Leaks Of PersonID 

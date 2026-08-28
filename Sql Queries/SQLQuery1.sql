@@ -283,8 +283,18 @@ from DoctorPersonID
 Where DocID = '@ID' );
 
 
+Alter Table Person
+Add Constraint UQ_Name
+UNIQUE(Name);
+
 
 Select * from DoctorsFullDetails;
+
+Select * from PatientFullDetails;
+
+Select * from DoctorsFullDetails
+Where DoctorName = 'Lily Ahmed';
+
 
 ----------------- Appointment Table ----------------------------
 
@@ -299,6 +309,12 @@ Default 'NoShow'  FOR AppoitmentStatus;
 alter Table AppointmentDoctorPatient
 Add Constraint DefaultDateTime
 Default GetDate() FOR AppointmentDateTime;
+
+Select *  from Person;
+
+Alter Table Person
+Add Constraint UQ_PersonRecord
+Unique(Name,DateOfBirth,Gender,Address);
 
 
 -- add sample appointment
@@ -328,6 +344,58 @@ GetDate()
 );
 
 
-select * from AppointmentDoctorPatient;
+select * from AppointmentDoctorPatient; -- Main table 
 Select * from AppointmentIDDetails; -- ids only 
 
+Select * From PatientFullDetails;
+Select * From DoctorsFullDetails;
+
+Alter Table AppointmentDoctorPatient
+Add Constraint UQ_Record
+Unique (ADoctorId,APatientId,AppointmentDateTime,AppoitmentStatus);
+
+
+--- Insert New Appointment
+Insert Into AppointmentDoctorPatient(ADoctorId,APatientId,AppointmentDateTime,AppoitmentStatus)
+values 
+('@DoctorId' ,'@PatientId' , '@DateTime' , 'Status'  )
+Select SCOPE_IDENTITY();
+
+-- Delete Appointment 
+Delete AppointmentDoctorPatient
+Where AppointmentDoctorPatient.AppointmentId ='@ID';
+
+-- Delete Appointment
+Update AppointmentDoctorPatient
+Set AppointmentId ='AId' ,
+ADoctorId = '@DoctorId' ,
+APatientId = '@PatientId' ,
+AppointmentDateTime = '@AppointmentDT' ,
+AppoitmentStatus = '@Status' ;
+
+--- Find by id 
+select * from AppointmentDoctorPatient   -- Main table
+where AppointmentId = '@ID' ;  
+
+
+Select * From DoctorsFullDetails
+      where DoctorsFullDetails.PersonId = 2
+
+
+ 
+      Select * from AppointmentDetails ;
+      Select * from Doctor;
+
+      Select * From AppointmentDoctorPatient;
+
+
+
+
+      Select * from AppointmentIDDetails;
+
+
+      Select * From DoctorsFullDetails
+      where DoctorId = 2 ;
+
+      Select * From PatientFullDetails
+      where PatientId = 5;
