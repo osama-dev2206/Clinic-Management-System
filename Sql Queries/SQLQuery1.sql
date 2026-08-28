@@ -378,6 +378,19 @@ select * from AppointmentDoctorPatient   -- Main table
 where AppointmentId = '@ID' ;  
 
 
+create Index indx_PatientId
+On AppointmentDoctorPatient(APatientId)
+
+
+create Index indx_DoctorId
+On AppointmentDoctorPatient(ADoctorId)
+
+create Index Indx_PatientIDForPatientTable
+On Patient(PatientPersonId)
+
+Create Index Indx_DoctorIDForDoctorTable
+On Doctor(DoctorPersonId)
+
 Select * From DoctorsFullDetails
       where DoctorsFullDetails.PersonId = 2
 
@@ -395,7 +408,20 @@ Select * From DoctorsFullDetails
 
 
       Select * From DoctorsFullDetails
-      where DoctorId = 2 ;
+      where DoctorId = 12 ;
 
       Select * From PatientFullDetails
-      where PatientId = 5;
+      where PatientId = 7;
+
+      -- Update Appointment
+      Update AppointmentDoctorPatient
+      Set ADoctorId = 2 , 
+      APatientId = 5 ,
+      AppointmentDateTime = '11/2/2026',
+      AppoitmentStatus = 'Completed' 
+      where AppointmentId = 1;
+
+      ----------------- Admins 
+
+      select * from AdminFullInfo
+      where AdminFullInfo.PersonId ='@PersonId';

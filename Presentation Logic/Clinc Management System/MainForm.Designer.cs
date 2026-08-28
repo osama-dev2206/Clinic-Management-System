@@ -43,6 +43,7 @@
             tsAddNewAppointment = new ToolStripMenuItem();
             tsEditAppointment = new ToolStripMenuItem();
             tsDeleteAppointment = new ToolStripMenuItem();
+            btnManageAdmins = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvListAllAppointments).BeginInit();
             P1gb.SuspendLayout();
@@ -52,6 +53,7 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.FromArgb(102, 163, 191);
+            groupBox1.Controls.Add(btnManageAdmins);
             groupBox1.Controls.Add(button1);
             groupBox1.Controls.Add(btnManageDoctors);
             groupBox1.Controls.Add(btnManagePatients);
@@ -180,7 +182,7 @@
             contextMenuStrip1.ImageScalingSize = new Size(20, 20);
             contextMenuStrip1.Items.AddRange(new ToolStripItem[] { tsAddNewAppointment, tsEditAppointment, tsDeleteAppointment });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(240, 110);
+            contextMenuStrip1.Size = new Size(240, 82);
             contextMenuStrip1.ItemClicked += contextMenuStrip1_ItemClicked;
             // 
             // tsAddNewAppointment
@@ -206,6 +208,21 @@
             tsDeleteAppointment.Name = "tsDeleteAppointment";
             tsDeleteAppointment.Size = new Size(239, 26);
             tsDeleteAppointment.Text = "Delete Appointment";
+            // 
+            // btnManageAdmins
+            // 
+            btnManageAdmins.BackColor = Color.Transparent;
+            btnManageAdmins.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 192, 128);
+            btnManageAdmins.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 128, 255);
+            btnManageAdmins.FlatStyle = FlatStyle.Flat;
+            btnManageAdmins.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnManageAdmins.ForeColor = Color.FromArgb(246, 231, 188);
+            btnManageAdmins.Location = new Point(30, 205);
+            btnManageAdmins.Name = "btnManageAdmins";
+            btnManageAdmins.Size = new Size(191, 40);
+            btnManageAdmins.TabIndex = 6;
+            btnManageAdmins.Text = "Manage Admins";
+            btnManageAdmins.UseVisualStyleBackColor = false;
             // 
             // MainForm
             // 
@@ -244,5 +261,6 @@
         private ToolStripMenuItem tsAddNewAppointment;
         private ToolStripMenuItem tsEditAppointment;
         private ToolStripMenuItem tsDeleteAppointment;
+        private Button btnManageAdmins;
     }
 }

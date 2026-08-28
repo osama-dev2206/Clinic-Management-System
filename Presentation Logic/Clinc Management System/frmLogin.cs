@@ -41,7 +41,7 @@ namespace Clinc_Management_System
 
         private void CheckLoginInfo()
         {
-            if (!String.IsNullOrEmpty(Password) && !String.IsNullOrEmpty(UserName) && clsLogin.CheckLogin(UserName, Password))
+            if (!String.IsNullOrEmpty(Password) && !String.IsNullOrEmpty(UserName) && clsLogin.CheckLoginInfo(UserName, Password))
             {
                 DialogResult = DialogResult.OK;
             }
