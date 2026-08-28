@@ -69,6 +69,11 @@ namespace Bussiness_Logic_Layer
 
         }
 
+        private bool UpdateAppointment()
+        {
+            return clsUpdateAppointment.UpdateAppointment(this.AppointmentId, this.ADoctorId, this.APatientId, this.AppointmentDateTime, this.AppointmentStatus);
+        }
+
         public bool Save()
         {
             switch (this.Status)
@@ -83,9 +88,10 @@ namespace Bussiness_Logic_Layer
                     else return false;
                 }
 
-                    case enMode.Update: // not implemented yet
+                    case enMode.Update: 
                     {
-                       throw  new Exception ("Not Implemented Yet") ; 
+                        if (UpdateAppointment()) return true;
+                        else return false;
                     }
             }
 

@@ -206,7 +206,7 @@ namespace Clinc_Management_System_Presentation_Layer
 
         private void GrdPatient_SelectionChanged(object sender, EventArgs e)
         {
-            if (GrdPatient != null && GrdPatient.CurrentRow.Cells[0].Value != null && int.TryParse(GrdPatient.CurrentRow.Cells[0].Value.ToString(), out int Res))
+            if (GrdPatient != null && GrdPatient.CurrentRow != null && int.TryParse(GrdPatient.CurrentRow.Cells[0].Value.ToString(), out int Res))
             {
                 SelectedPersonId = Res;
             }

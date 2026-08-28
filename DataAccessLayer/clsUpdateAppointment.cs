@@ -8,7 +8,7 @@ namespace Data_Access_Layer
 {
     public static class clsUpdateAppointment
     {
-        readonly static string Query = @"      Update Appointment
+        readonly static string Query = @"      Update AppointmentDoctorPatient
       Set ADoctorId = @DoctorID , 
       APatientId = @PatientID ,
       AppointmentDateTime = @AppointmentDateTime ,
@@ -31,8 +31,8 @@ namespace Data_Access_Layer
                 cmd.Parameters.AddWithValue("@AppointmentDateTime", AppointmentDateTime);
                 cmd.Parameters.AddWithValue("@Status", AppointmentStatus);
 
-              object Exec =  cmd.ExecuteNonQuery();
-                if (Exec!=null && int.TryParse(Exec.ToString() , out int NumOfAffectedRows) && NumOfAffectedRows >0 )
+           
+                if ( int.TryParse(cmd.ExecuteNonQuery().ToString() , out int NumOfAffectedRows) && NumOfAffectedRows >0 )
                 {
                     res = true;
                 }

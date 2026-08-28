@@ -147,7 +147,7 @@ namespace Clinc_Management_System_Presentation_Layer
 
         private void dgvDoctor_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgvDoctor != null && dgvDoctor.CurrentRow.Cells[0].Value != null && int.TryParse(dgvDoctor.CurrentRow.Cells[0].Value.ToString(), out int Res))
+            if (dgvDoctor != null && dgvDoctor.CurrentRow != null && int.TryParse(dgvDoctor.CurrentRow.Cells[0].Value.ToString(), out int Res))
             {
                 SelectedPersonId = Res;
             }

@@ -22,7 +22,7 @@ namespace Data_Access_Layer
             {
                 connection.Open();
                 SqlCommand cmd = new SqlCommand(Query, connection);
-                cmd.Parameters.AddWithValue("@Name", Name);
+                cmd.Parameters.AddWithValue("@Name", Name.Trim());
 
                 SqlDataReader DataReader = cmd.ExecuteReader();
                if(DataReader.HasRows) dataTable.Load(DataReader);

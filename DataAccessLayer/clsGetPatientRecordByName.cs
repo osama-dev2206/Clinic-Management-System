@@ -21,7 +21,7 @@ namespace Data_Access_Layer
             {
                 connection.Open();
                 SqlCommand cmd = new SqlCommand(Quert, connection);
-                cmd.Parameters.AddWithValue("@Name", Name);
+                cmd.Parameters.AddWithValue("@Name", Name.Trim());
 
                 SqlDataReader dataReader = cmd.ExecuteReader();
                if(dataReader.HasRows) dt.Load(dataReader);

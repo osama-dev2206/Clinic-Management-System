@@ -36,7 +36,7 @@ namespace Clinc_Management_System_Presentation_Layer
                 this.appointment = clsAppointment.FindAppointmentByID(AppointmentID); // the mode of object wil be  update 
                 FillFormWithAppointmentData();
                 this.labManageFormMainText.Text = "Edit Appointment";
-                this.btnAddEdit.Text = "Save Changes";
+                this.btnAddEdit.Text = "Save";
             }
 
         }

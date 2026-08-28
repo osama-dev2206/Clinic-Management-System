@@ -48,7 +48,9 @@ namespace Clinc_Management_System_Presentation_Layer
 
         void RefreshAppointments()
         {
-            dgvListAllAppointments.DataSource = clsAppointment.ListAllAppointments();
+            DataView dataView = clsAppointment.ListAllAppointments().DefaultView;
+            dataView.Sort = "AppointmentId ASC"; 
+            dgvListAllAppointments.DataSource = dataView;
 
             P1NumOfAppointements.Text = clsAppointment.GetNumOfAppointments().ToString();
         }
@@ -75,6 +77,7 @@ namespace Clinc_Management_System_Presentation_Layer
 
         void DeleteAppointemts()
         {
+            this.contextMenuStrip1.Visible = false;
             if (DialogResult.OK == MessageBox.Show("Are you sure you want to delete this appointment?", "Delete Appointment", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning))
             {
                 if (clsAppointment.DeleteAppointment(this.AppointmentID))
@@ -89,6 +92,9 @@ namespace Clinc_Management_System_Presentation_Layer
 
                 }
             }
+
+            this.contextMenuStrip1.Visible = true;
+
         }
 
         private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -115,11 +121,15 @@ namespace Clinc_Management_System_Presentation_Layer
         // Assign the selected appointment ID to the AppointmentID property when a row is selected in the DataGridView
         private void P1ListAllAppointments_SelectionChanged(object sender, EventArgs e)
         {
-            if (this.dgvListAllAppointments != null && dgvListAllAppointments.CurrentRow.Cells[0].Value != null
+            
+            
+                if (this.dgvListAllAppointments != null && dgvListAllAppointments.CurrentRow != null
                 && int.TryParse(dgvListAllAppointments.CurrentRow.Cells[0].Value.ToString(), out int ID))
-            {
-                this.AppointmentID = ID;
-            }
+                {
+                    this.AppointmentID = ID;
+                }
+            
+        
         }
 
 
