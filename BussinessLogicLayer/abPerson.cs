@@ -19,6 +19,8 @@ namespace Bussiness_Logic_Layer
 
         public string Email { get; set; }
 
+        public int Age { get; set; }
+
         protected enum enObjectStatus : byte { enAdd = 1, enUpdate = 2 }
         
     }
