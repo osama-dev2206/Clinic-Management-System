@@ -62,13 +62,13 @@
             chkManageAppointments = new CheckBox();
             chkManageDoctors = new CheckBox();
             chkManagePatients = new CheckBox();
-            dataGridView1 = new DataGridView();
+            dgvAdmins = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)pbAddAdmin).BeginInit();
             contextMenuStrip1.SuspendLayout();
             groupBox4.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvAdmins).BeginInit();
             SuspendLayout();
             // 
             // label2
@@ -125,6 +125,7 @@
             pbAddAdmin.SizeMode = PictureBoxSizeMode.Zoom;
             pbAddAdmin.TabIndex = 2;
             pbAddAdmin.TabStop = false;
+            pbAddAdmin.Click += pbAddAdmin_Click;
             // 
             // contextMenuStrip1
             // 
@@ -173,6 +174,7 @@
             tbPhone.Name = "tbPhone";
             tbPhone.Size = new Size(251, 28);
             tbPhone.TabIndex = 13;
+            tbPhone.TextChanged += tbPhone_TextChanged;
             // 
             // mtbEmail
             // 
@@ -182,6 +184,7 @@
             mtbEmail.Name = "mtbEmail";
             mtbEmail.Size = new Size(251, 28);
             mtbEmail.TabIndex = 12;
+            mtbEmail.TextChanged += mtbEmail_TextChanged;
             // 
             // label7
             // 
@@ -210,6 +213,7 @@
             tbUserName.PlaceholderText = "Enter Username";
             tbUserName.Size = new Size(251, 28);
             tbUserName.TabIndex = 7;
+            tbUserName.TextChanged += tbUserName_TextChanged;
             // 
             // label1
             // 
@@ -263,6 +267,7 @@
             tbPassword.PlaceholderText = "Enter Password";
             tbPassword.Size = new Size(251, 27);
             tbPassword.TabIndex = 16;
+            tbPassword.TextChanged += tbPassword_TextChanged;
             // 
             // label8
             // 
@@ -301,6 +306,7 @@
             cbGender.Name = "cbGender";
             cbGender.Size = new Size(251, 30);
             cbGender.TabIndex = 2;
+            cbGender.SelectedIndexChanged += cbGender_SelectedIndexChanged;
             // 
             // dtDateOfBirth
             // 
@@ -309,6 +315,7 @@
             dtDateOfBirth.Name = "dtDateOfBirth";
             dtDateOfBirth.Size = new Size(251, 27);
             dtDateOfBirth.TabIndex = 1;
+            dtDateOfBirth.ValueChanged += dtDateOfBirth_ValueChanged;
             // 
             // tbAddress
             // 
@@ -317,6 +324,7 @@
             tbAddress.PlaceholderText = "Enter Address";
             tbAddress.Size = new Size(251, 27);
             tbAddress.TabIndex = 0;
+            tbAddress.TextChanged += tbAddress_TextChanged;
             // 
             // tbFullName
             // 
@@ -327,6 +335,7 @@
             tbFullName.PlaceholderText = "Enter Patient Full Name";
             tbFullName.Size = new Size(251, 28);
             tbFullName.TabIndex = 0;
+            tbFullName.TextChanged += tbFullName_TextChanged;
             // 
             // groupBox1
             // 
@@ -371,6 +380,7 @@
             chkManageAdmins.TabIndex = 3;
             chkManageAdmins.Text = "Manage Admins ?";
             chkManageAdmins.UseVisualStyleBackColor = true;
+            chkManageAdmins.Click += chkManagePatients_Click;
             // 
             // chkManageAppointments
             // 
@@ -383,6 +393,7 @@
             chkManageAppointments.TabIndex = 2;
             chkManageAppointments.Text = "Manage Appointments ?";
             chkManageAppointments.UseVisualStyleBackColor = true;
+            chkManageAppointments.Click += chkManagePatients_Click;
             // 
             // chkManageDoctors
             // 
@@ -395,6 +406,7 @@
             chkManageDoctors.TabIndex = 1;
             chkManageDoctors.Text = "Manage Doctors ?";
             chkManageDoctors.UseVisualStyleBackColor = true;
+            chkManageDoctors.Click += chkManagePatients_Click;
             // 
             // chkManagePatients
             // 
@@ -407,26 +419,27 @@
             chkManagePatients.TabIndex = 0;
             chkManagePatients.Text = "Manage Patients ?";
             chkManagePatients.UseVisualStyleBackColor = true;
+            chkManagePatients.Click += chkManagePatients_Click;
             // 
-            // dataGridView1
+            // dgvAdmins
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.BackgroundColor = SystemColors.MenuBar;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(1009, 208);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(757, 242);
-            dataGridView1.TabIndex = 13;
+            dgvAdmins.AllowUserToAddRows = false;
+            dgvAdmins.AllowUserToDeleteRows = false;
+            dgvAdmins.BackgroundColor = SystemColors.MenuBar;
+            dgvAdmins.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvAdmins.Location = new Point(1009, 208);
+            dgvAdmins.Name = "dgvAdmins";
+            dgvAdmins.ReadOnly = true;
+            dgvAdmins.RowHeadersWidth = 51;
+            dgvAdmins.Size = new Size(757, 242);
+            dgvAdmins.TabIndex = 13;
             // 
             // frmManageAdmins
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1764, 450);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvAdmins);
             Controls.Add(groupBox2);
             Controls.Add(labFormName);
             Controls.Add(groupBox4);
@@ -434,7 +447,6 @@
             Name = "frmManageAdmins";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmManageAdmins";
-            Load += frmManageAdmins_Load;
             ((System.ComponentModel.ISupportInitialize)pbAddAdmin).EndInit();
             contextMenuStrip1.ResumeLayout(false);
             groupBox4.ResumeLayout(false);
@@ -443,7 +455,7 @@
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvAdmins).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -482,6 +494,6 @@
         private CheckBox chkManageAdmins;
         private CheckBox chkManageAppointments;
         private CheckBox chkManageDoctors;
-        private DataGridView dataGridView1;
+        private DataGridView dgvAdmins;
     }
 }

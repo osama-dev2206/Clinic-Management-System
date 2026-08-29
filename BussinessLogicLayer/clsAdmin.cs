@@ -147,6 +147,11 @@ namespace BussinessLogicLayer
             this.Permissions |=(int)persmission;
         }
         
+        public void RemovePermissionFromAdmin(enPersmissions enpersmission)
+        {
+            this.Permissions = this.Permissions & ~(int)enpersmission;
+        }
+
         public  bool CheckPermission(enPersmissions persmission)
         {
             return (this.Permissions & (int)persmission) == (int)persmission; 
@@ -156,6 +161,12 @@ namespace BussinessLogicLayer
         public static DataTable ListAllAdmins()
         {
             return clsListAllAdmins.ListAllAdmins();
+        }
+
+
+        private bool AddAdmin()
+        {
+
         }
 
     }
