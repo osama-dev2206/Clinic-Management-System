@@ -30,6 +30,8 @@ namespace BussinessLogicLayer
             Permissions = 0; // none permission 
         }
 
+        // Please Note : Age Comes From DataView and not from the database because the age is calculated from the date of birth
+
         private clsAdmin(int PersonId, string Username, string Pass, int Permissions, string Name, int Age, string Gender,
             string Address, string Email, string Phone, int AdminId)
         {
@@ -166,8 +168,45 @@ namespace BussinessLogicLayer
 
         private bool AddAdmin()
         {
-
+            return clsAddNewAdmin.AddNewAdmin(new clsAddNewAdmin.AdminInfo { Name = this.Name , DateOfBirth = this.DateOfBirth , Gender=this.Gender
+           , Address = this.Address , Email = this.Email , AdminPermission = this.Permissions , AdminPassword= this.AdminPassword 
+            , Phone = this.Phone , UserName = this.UserName }) != -1;
         }
+
+        private bool UpdateAdmin()
+        {
+            return false; // not implemented yet
+        }
+
+        public bool SaveAdmin()
+        {
+            switch(this.status)
+            {
+                case enObjectStatus.enAdd:
+                    {
+                        if (AddAdmin())
+                        {
+                            this.status = enObjectStatus.enUpdate;
+                            return true;
+                        }
+                        else
+                            return false;
+                        
+                    }
+
+
+                    case enObjectStatus.enUpdate:
+                    {
+                        if (UpdateAdmin()) return true;
+                        else
+                            return false;
+                    }
+
+            }
+
+            return false;
+        }
+
 
     }
 

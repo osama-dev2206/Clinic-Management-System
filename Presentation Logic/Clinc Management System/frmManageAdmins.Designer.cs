@@ -332,7 +332,7 @@
             tbFullName.Location = new Point(20, 44);
             tbFullName.MaxLength = 100;
             tbFullName.Name = "tbFullName";
-            tbFullName.PlaceholderText = "Enter Patient Full Name";
+            tbFullName.PlaceholderText = "Enter Admin Full Name";
             tbFullName.Size = new Size(251, 28);
             tbFullName.TabIndex = 0;
             tbFullName.TextChanged += tbFullName_TextChanged;
@@ -364,7 +364,7 @@
             groupBox2.ForeColor = Color.FromArgb(192, 0, 0);
             groupBox2.Location = new Point(1007, 64);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(744, 134);
+            groupBox2.Size = new Size(710, 134);
             groupBox2.TabIndex = 12;
             groupBox2.TabStop = false;
             groupBox2.Text = "Set Admin Permissions :";
@@ -374,7 +374,7 @@
             chkManageAdmins.AutoSize = true;
             chkManageAdmins.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 178);
             chkManageAdmins.ForeColor = Color.FromArgb(192, 0, 0);
-            chkManageAdmins.Location = new Point(278, 101);
+            chkManageAdmins.Location = new Point(278, 91);
             chkManageAdmins.Name = "chkManageAdmins";
             chkManageAdmins.Size = new Size(168, 23);
             chkManageAdmins.TabIndex = 3;
@@ -387,7 +387,7 @@
             chkManageAppointments.AutoSize = true;
             chkManageAppointments.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 178);
             chkManageAppointments.ForeColor = Color.FromArgb(0, 64, 0);
-            chkManageAppointments.Location = new Point(517, 36);
+            chkManageAppointments.Location = new Point(17, 91);
             chkManageAppointments.Name = "chkManageAppointments";
             chkManageAppointments.Size = new Size(219, 23);
             chkManageAppointments.TabIndex = 2;
@@ -431,14 +431,15 @@
             dgvAdmins.Name = "dgvAdmins";
             dgvAdmins.ReadOnly = true;
             dgvAdmins.RowHeadersWidth = 51;
-            dgvAdmins.Size = new Size(757, 242);
+            dgvAdmins.Size = new Size(708, 242);
             dgvAdmins.TabIndex = 13;
             // 
             // frmManageAdmins
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1764, 450);
+            ClientSize = new Size(1721, 450);
+            ContextMenuStrip = contextMenuStrip1;
             Controls.Add(dgvAdmins);
             Controls.Add(groupBox2);
             Controls.Add(labFormName);

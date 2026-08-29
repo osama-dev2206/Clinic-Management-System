@@ -152,9 +152,18 @@ namespace Clinc_Management_System_Presentation_Layer
 
         private void pbAddAdmin_Click(object sender, EventArgs e)
         {
-            if(CheckBeforeSave())
+            if (CheckBeforeSave())
             {
+                if (admin.SaveAdmin())
+                {
+                    MessageBox.Show("Admin Saved Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshAdminsDataGrid();
 
+                }
+                else
+                {
+                    MessageBox.Show("Failed To Save The Admin", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {

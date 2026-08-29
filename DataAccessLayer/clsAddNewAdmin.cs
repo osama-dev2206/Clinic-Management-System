@@ -20,8 +20,8 @@ values(@AdminPassword , @AdminPermission , @UserName ,
                             WHERE  Person.Name = @Name
                                    AND Person.Address = @Address
                                    AND Person.DateOfBirth = @Date
-                                   AND Person.Gender = @Gender)    )
-); 
+                                   AND Person.Gender = @Gender)    );
+ 
 
 INSERT  INTO Email (Email, PersonId)
 VALUES            (@Email, (SELECT Person.PersonId
