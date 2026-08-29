@@ -8,92 +8,87 @@ namespace Data_Access_Layer
 {
     public static class clsDeleteDoctor
     {
-        private static int GetPersonIDAsDoctor(int PersonId)
-        {
-            SqlConnection connection = dbSettings.DbConnection();
-            const string query = @"
-             Select DoctorPersonID.DocID 
-            from DoctorPersonID
-             Where DocID = @ID ";
+        //private static int GetPersonIDAsDoctor(int PersonId)
+        //{
+        //    SqlConnection connection = dbSettings.DbConnection();
+        //    const string query = @"
+        //     Select DoctorPersonID.DocID 
+        //    from DoctorPersonID
+        //     Where DocID = @ID ";
 
-            int res = -1;
-            try
-            {
-                connection.Open();
-                SqlCommand cmd = new SqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("@ID", PersonId);
-                object id = cmd.ExecuteScalar(); // as the res will be single value 
+        //    int res = -1;
+        //    try
+        //    {
+        //        connection.Open();
+        //        SqlCommand cmd = new SqlCommand(query, connection);
+        //        cmd.Parameters.AddWithValue("@ID", PersonId);
+        //        object id = cmd.ExecuteScalar(); // as the res will be single value 
 
-                if (id != null && int.TryParse(id.ToString(), out int ValidID))
-                {
-                    res = ValidID;
-                }
+        //        if (id != null && int.TryParse(id.ToString(), out int ValidID))
+        //        {
+        //            res = ValidID;
+        //        }
 
-            }
-            catch
-            { }
-            finally
-            {
-                connection.Close();
-            }
+        //    }
+        //    catch
+        //    { }
+        //    finally
+        //    {
+        //        connection.Close();
+        //    }
 
-            return res;
-        }
+        //    return res;
+        //}
 
-        private static bool DeletePersonAsDoctor(int PersonId)
-        {
-            SqlConnection connection = dbSettings.DbConnection();
-            const string Query = @"Delete Person
-            Where Person.PersonId = @ID ;";
+        //private static bool DeletePersonAsDoctor(int PersonId)
+        //{
+        //    SqlConnection connection = dbSettings.DbConnection();
+        //    const string Query = @"Delete Person
+        //    Where Person.PersonId = @ID ;";
 
-            bool res = false;
-            try
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(Query, connection);
-                command.Parameters.AddWithValue("@ID", PersonId);
+        //    bool res = false;
+        //    try
+        //    {
+        //        connection.Open();
+        //        SqlCommand command = new SqlCommand(Query, connection);
+        //        command.Parameters.AddWithValue("@ID", PersonId);
 
 
-                if (int.TryParse(command.ExecuteNonQuery().ToString(), out int numberOfRowsAffected))
-                {
-                    res = (numberOfRowsAffected > 0);
-                }
+        //        if (int.TryParse(command.ExecuteNonQuery().ToString(), out int numberOfRowsAffected))
+        //        {
+        //            res = (numberOfRowsAffected > 0);
+        //        }
 
-            }
-            catch { }
-            finally { connection.Close(); }
+        //    }
+        //    catch { }
+        //    finally { connection.Close(); }
 
-            return res;
-        }
+        //    return res;
+        //}
 
 
         readonly static string QueryDeleteDoctorRelatedRecords = @"
+
+Delete AppointmentDoctorPatient
+where AppointmentDoctorPatient.ADoctorId = 
+(Select DoctorsFullDetails.DoctorId 
+from DoctorsFullDetails
+Where PersonId = @ID );
+
 Delete Phone
 Where 
-Phone.PersonId =
-(Select DoctorPersonID.DocID 
-from DoctorPersonID
-Where DocID = @ID );
+Phone.PersonId = @ID;
 
 
 Delete Email 
-Where Email.PersonId = 
-(Select DoctorPersonID.DocID 
-from DoctorPersonID
-Where DocID = @ID );
-
-
-Delete Appointment
-where Appointment.APatientId = 
-(Select DoctorPersonID.DocID 
-from DoctorPersonID
-Where DocID = @ID );
+Where Email.PersonId = @ID;
 
 Delete Doctor
-Where Doctor.DoctorPersonId = 
-(Select DoctorPersonID.DocID 
-from DoctorPersonID
-Where DocID = @ID  );";
+Where Doctor.DoctorPersonId = @ID ;
+
+
+    Delete Person
+            Where Person.PersonId = @ID   ; "; 
 
 
         //1.we will delete all the records related to this doctor in the database(Email,Phone,etc... )
@@ -103,8 +98,7 @@ Where DocID = @ID  );";
         {
             SqlConnection connection = dbSettings.DbConnection();
             bool res = false;
-            int PersonAsDoctorID = GetPersonIDAsDoctor(PersonID);
-
+            
             try
             {
                 connection.Open();
@@ -116,7 +110,7 @@ Where DocID = @ID  );";
                 if(ExecutionResult!=null && int.TryParse(ExecutionResult.ToString() , out int NumOfAffectedRows) 
                     && NumOfAffectedRows >0)
                 {
-                    res = DeletePersonAsDoctor(PersonAsDoctorID);
+                    res = true; 
                 }
 
             }

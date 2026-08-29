@@ -101,7 +101,7 @@ namespace Bussiness_Logic_Layer
 
         public static bool DeleteDoctor(int PersonId)
         {
-            return clsDeleteDoctor.DeleteDoctor(PersonId) ; // Not Implemented Yet
+            return clsDeleteDoctor.DeleteDoctor(PersonId) ; 
         }
 
         bool UpdateDoctor()

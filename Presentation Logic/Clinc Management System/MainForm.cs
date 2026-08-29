@@ -52,6 +52,7 @@ namespace Clinc_Management_System_Presentation_Layer
                 frmManagePatients frmManagePatients = new frmManagePatients();
                 frmManagePatients.ShowDialog();
                 frmManagePatients.Dispose();
+                RefreshAppointments(); // patient maybe deleted
             }
             else
             {
@@ -67,6 +68,7 @@ namespace Clinc_Management_System_Presentation_Layer
                 frmManageDoctors Doctors = new frmManageDoctors();
                 Doctors.ShowDialog();
                 Doctors.Dispose();
+                RefreshAppointments(); // doctor or patient maybe deleted 
             }
             else
             {
@@ -82,9 +84,21 @@ namespace Clinc_Management_System_Presentation_Layer
         //Appointment Management 
         void RefreshAppointments()
         {
-            DataView dataView = clsAppointment.ListAllAppointments().DefaultView;
-            dataView.Sort = "AppointmentId ASC";
-            dgvListAllAppointments.DataSource = dataView;
+            DataTable dt = clsAppointment.ListAllAppointments();
+            if (!(dt.Rows.Count > 0) )
+            {
+                dgvListAllAppointments.DataSource = null;
+                dgvListAllAppointments.Rows.Clear();
+                dgvListAllAppointments.Columns.Clear();
+            }
+            else 
+            {
+                DataView dataView = dt.DefaultView;
+                if (dataView != null)
+                    dataView.Sort = "AppointmentId ASC";
+
+                dgvListAllAppointments.DataSource = dataView;
+            }
 
             P1NumOfAppointements.Text = clsAppointment.GetNumOfAppointments().ToString();
         }
