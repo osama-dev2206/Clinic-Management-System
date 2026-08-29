@@ -768,9 +768,4 @@ PersonId=9 is designated as the super admin. The BLL rejects any update targetin
 
 All sub-forms are explicitly disposed after use to release resources. The main dashboard form is reused across login sessions rather than being recreated each time, keeping the logout/re-login cycle fast.
 
----
-
-*This documentation covers all files in:*
-- `d:\Self-Study\C#\Projects (Windows Forms)\Clinc Management System\`
-- `d:\Self-Study\Db\Db Projects\Project 1 – Simple Clinic\`
-
+----
