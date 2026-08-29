@@ -306,6 +306,12 @@ namespace Clinc_Management_System_Presentation_Layer
 
             else if (SelectedItem.Trim() == "Edit")
             {
+                if(this.CurrentSelectedPersonId == 9)
+                {
+                    MessageBox.Show("This Is Super Admin And CANNOT BE EDITED!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 this.admin = clsAdmin.GetAdminByPersonID(this.CurrentSelectedPersonId);
                 FillAdminForm();
                 this.btnSaveEditing.Visible = true;
@@ -330,5 +336,7 @@ namespace Clinc_Management_System_Presentation_Layer
 
 
         }
+
+
     }
 }

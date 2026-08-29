@@ -182,6 +182,7 @@ namespace BussinessLogicLayer
 
         private bool UpdateAdmin()
         {
+            if (this.PersonID == 9) return false;  // this id the super admin id and it should not be updated
             return clsUpdateAdmin.UpdateAdmin(this.PersonID, new clsUpdateAdmin.AdminInfo
             {
                 Name = this.Name ,

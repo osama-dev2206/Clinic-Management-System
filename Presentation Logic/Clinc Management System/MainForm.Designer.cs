@@ -74,7 +74,7 @@
             btnManageAdmins.FlatStyle = FlatStyle.Flat;
             btnManageAdmins.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnManageAdmins.ForeColor = Color.FromArgb(246, 231, 188);
-            btnManageAdmins.Location = new Point(30, 205);
+            btnManageAdmins.Location = new Point(28, 276);
             btnManageAdmins.Name = "btnManageAdmins";
             btnManageAdmins.Size = new Size(191, 40);
             btnManageAdmins.TabIndex = 6;
@@ -104,7 +104,7 @@
             btnManageDoctors.FlatStyle = FlatStyle.Flat;
             btnManageDoctors.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnManageDoctors.ForeColor = Color.FromArgb(246, 231, 188);
-            btnManageDoctors.Location = new Point(30, 131);
+            btnManageDoctors.Location = new Point(28, 178);
             btnManageDoctors.Name = "btnManageDoctors";
             btnManageDoctors.Size = new Size(191, 40);
             btnManageDoctors.TabIndex = 4;
@@ -120,7 +120,7 @@
             btnManagePatients.FlatStyle = FlatStyle.Flat;
             btnManagePatients.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnManagePatients.ForeColor = Color.FromArgb(246, 231, 188);
-            btnManagePatients.Location = new Point(30, 57);
+            btnManagePatients.Location = new Point(28, 80);
             btnManagePatients.Name = "btnManagePatients";
             btnManagePatients.Size = new Size(191, 40);
             btnManagePatients.TabIndex = 3;

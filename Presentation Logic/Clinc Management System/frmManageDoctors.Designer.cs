@@ -99,7 +99,7 @@
             cbGender.Location = new Point(357, 99);
             cbGender.Name = "cbGender";
             cbGender.Size = new Size(251, 30);
-            cbGender.TabIndex = 2;
+            cbGender.TabIndex = 3;
             cbGender.SelectedIndexChanged += cbGender_SelectedIndexChanged;
             // 
             // dtDateOfBirth
@@ -117,7 +117,7 @@
             tbAddress.Name = "tbAddress";
             tbAddress.PlaceholderText = "Enter Address";
             tbAddress.Size = new Size(251, 27);
-            tbAddress.TabIndex = 0;
+            tbAddress.TabIndex = 4;
             tbAddress.TextChanged += tbAddress_TextChanged;
             // 
             // groupBox4
@@ -170,7 +170,7 @@
             tbPhone.MaxLength = 11;
             tbPhone.Name = "tbPhone";
             tbPhone.Size = new Size(251, 28);
-            tbPhone.TabIndex = 13;
+            tbPhone.TabIndex = 6;
             tbPhone.TextChanged += tbPhone_TextChanged;
             // 
             // mtbEmail
@@ -180,7 +180,7 @@
             mtbEmail.Mask = "AAAAAAAAAA@AAaaa.com";
             mtbEmail.Name = "mtbEmail";
             mtbEmail.Size = new Size(211, 28);
-            mtbEmail.TabIndex = 12;
+            mtbEmail.TabIndex = 5;
             mtbEmail.TextChanged += mtbEmail_TextChanged;
             // 
             // label7
@@ -199,7 +199,7 @@
             tbSpecialization.Name = "tbSpecialization";
             tbSpecialization.PlaceholderText = "Enter Specialization";
             tbSpecialization.Size = new Size(227, 28);
-            tbSpecialization.TabIndex = 7;
+            tbSpecialization.TabIndex = 2;
             tbSpecialization.TextChanged += tbSpecialization_TextChanged;
             // 
             // label1
@@ -290,7 +290,7 @@
             tbSearchDoctorByPersonId.Location = new Point(38, 312);
             tbSearchDoctorByPersonId.Name = "tbSearchDoctorByPersonId";
             tbSearchDoctorByPersonId.Size = new Size(162, 27);
-            tbSearchDoctorByPersonId.TabIndex = 5;
+            tbSearchDoctorByPersonId.TabIndex = 7;
             tbSearchDoctorByPersonId.TextChanged += tbSearchDoctorByPersonId_TextChanged;
             // 
             // label13
