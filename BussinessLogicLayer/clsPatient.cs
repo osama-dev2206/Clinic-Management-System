@@ -88,13 +88,13 @@ namespace Bussiness_Logic_Layer
             return (ID != -1); 
         }
 
-        public static bool Delete(int PersonPatinetId)
+        public static bool Delete(int PersonId)
         {
-            if(!int.TryParse(PersonPatinetId.ToString(), out int id))
+            if(!int.TryParse(PersonId.ToString(), out int id))
             {
                 return false; 
             }
-            return clsDeletePatient.DeletePatient(PersonPatinetId);
+            return clsDeletePatient.DeletePatient(PersonId);
         }
 
          private  bool UpdatePatient()
