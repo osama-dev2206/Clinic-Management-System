@@ -64,7 +64,7 @@ namespace Clinc_Management_System_Presentation_Layer
         {
             if (dtDateOfBirth != null && dtDateOfBirth.Value != DateTime.MinValue)
             {
-                admin.Age = Math.Abs(DateTime.Now.Year - dtDateOfBirth.Value.Year);
+                admin.DateOfBirth = DateOnly.FromDateTime(dtDateOfBirth.Value);
             }
         }
 
