@@ -300,7 +300,7 @@ Every query in the DAL uses **parameterized commands** — values are never conc
 
 ### 4.1 Original Schema (Project 1 — Simple Clinic)
 
-**Project location:** `d:\Self-Study\Db\Db Projects\Project 1 – Simple Clinic\`
+**Project Link:** https://github.com/osama-dev2206/Database_Projects/tree/main/Project%201%20%E2%80%93%20Simple%20Clinic 
 
 The database was originally designed as a complete clinic data model. The design files are:
 
