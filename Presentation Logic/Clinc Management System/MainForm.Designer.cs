@@ -250,6 +250,7 @@
             Controls.Add(dgvListAllAppointments);
             Controls.Add(labDashboard);
             Controls.Add(groupBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";

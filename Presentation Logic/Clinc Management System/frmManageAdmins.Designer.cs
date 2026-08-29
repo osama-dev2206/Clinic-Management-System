@@ -449,6 +449,7 @@
             Controls.Add(labFormName);
             Controls.Add(groupBox4);
             Controls.Add(groupBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmManageAdmins";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmManageAdmins";

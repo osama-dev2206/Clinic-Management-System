@@ -354,6 +354,7 @@
             Controls.Add(labFormName);
             Controls.Add(dgvDoctor);
             Controls.Add(groupBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmManageDoctors";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Manage Doctors";

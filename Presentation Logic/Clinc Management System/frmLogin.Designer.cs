@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             groupBox1 = new GroupBox();
+            label3 = new Label();
             label1 = new Label();
             tbUser = new TextBox();
             tbPassword = new TextBox();
             label2 = new Label();
             label4 = new Label();
             btnLogin = new Button();
-            label3 = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -50,6 +51,19 @@
             groupBox1.Size = new Size(289, 383);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
+            // 
+            // label3
+            // 
+            label3.BackColor = Color.Transparent;
+            label3.Dock = DockStyle.Top;
+            label3.Font = new Font("Georgia", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.MidnightBlue;
+            label3.Location = new Point(3, 18);
+            label3.Name = "label3";
+            label3.Size = new Size(283, 24);
+            label3.TabIndex = 1;
+            label3.Text = "Clinic Management";
+            label3.TextAlign = ContentAlignment.TopCenter;
             // 
             // label1
             // 
@@ -121,19 +135,6 @@
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
             // 
-            // label3
-            // 
-            label3.BackColor = Color.Transparent;
-            label3.Dock = DockStyle.Top;
-            label3.Font = new Font("Georgia", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.MidnightBlue;
-            label3.Location = new Point(3, 18);
-            label3.Name = "label3";
-            label3.Size = new Size(283, 24);
-            label3.TabIndex = 1;
-            label3.Text = "Clinic Management";
-            label3.TextAlign = ContentAlignment.TopCenter;
-            // 
             // frmLogin
             // 
             AcceptButton = btnLogin;
@@ -148,6 +149,7 @@
             Controls.Add(tbUser);
             Controls.Add(groupBox1);
             Font = new Font("Microsoft Sans Serif", 7.8F);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";

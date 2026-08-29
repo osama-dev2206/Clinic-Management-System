@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmManageAppointments));
             labManageFormMainText = new Label();
             cbPatient = new ComboBox();
             cbDoctor = new ComboBox();
@@ -163,6 +164,7 @@
             Controls.Add(cbDoctor);
             Controls.Add(cbPatient);
             Controls.Add(labManageFormMainText);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "fmManageAppointments";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Manage Appointments";

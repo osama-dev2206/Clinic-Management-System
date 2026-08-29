@@ -329,6 +329,7 @@
             Controls.Add(labFormName);
             Controls.Add(GrdPatient);
             Controls.Add(groupBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmManagePatients";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ManagePatients";
