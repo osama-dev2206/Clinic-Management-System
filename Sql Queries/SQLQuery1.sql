@@ -510,3 +510,63 @@ where AdminPersonId = '@ID' ;
 
 Select * from AdminFullInfo;
 Select * from PatientFullDetails;
+
+------------- 
+Select * from AppointmentDoctorPatient
+
+Select  * from AppointmentDetails
+
+Select DoctorsFullDetails.PersonId 
+from DoctorsFullDetails
+Select * From DoctorsFullDetails ;
+
+Select * from AppointmentDetails;
+
+Select * from AppointmentDoctorPatient; 
+-----------------------------
+-- Fix Appointment With Doctor 
+Delete AppointmentDoctorPatient
+where AppointmentDoctorPatient.ADoctorId = 
+(Select DoctorsFullDetails.DoctorId 
+from DoctorsFullDetails
+Where PersonId = @ID );
+
+Delete Phone
+Where 
+Phone.PersonId = @ID;
+
+
+Delete Email 
+Where Email.PersonId = @ID;
+
+Delete Doctor
+Where Doctor.DoctorPersonId = @ID ;
+
+
+    Delete Person
+            Where Person.PersonId = @ID;
+
+            --- Fix Appointment With Patient 
+            Select * from AppointmentDoctorPatient;
+            Select * from  PatientFullDetails ;
+
+Delete AppointmentDoctorPatient
+where AppointmentDoctorPatient.APatientId = 
+(Select PatientFullDetails.PatientId 
+from PatientFullDetails
+Where PersonId = @ID );
+
+Delete Phone
+Where 
+Phone.PersonId = @ID;
+
+
+Delete Email 
+Where Email.PersonId = @ID;
+
+Delete Patient
+Where Patient.PatientPersonId = @ID ;
+
+
+    Delete Person
+            Where Person.PersonId = @ID;

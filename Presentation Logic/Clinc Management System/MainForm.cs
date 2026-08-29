@@ -27,7 +27,7 @@ namespace Clinc_Management_System_Presentation_Layer
 
         private void MainForm_Load(object sender, EventArgs e) // this event will be called after the form is loaded 
         {
-            this.labCurrentLoggedUser.Text = "Hello Admin:@ " + CurrentLoggedInUserName;
+            this.labCurrentLoggedUser.Text = "Hello Admin: @" + CurrentLoggedInUserName;
             admin = clsAdmin.GetAdminByUserName(CurrentLoggedInUserName.Trim()); // fill the object with admin info 
         }
 
