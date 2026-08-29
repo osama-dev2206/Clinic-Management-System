@@ -382,7 +382,7 @@
             chkManageAdmins.TabIndex = 11;
             chkManageAdmins.Text = "Manage Admins ?";
             chkManageAdmins.UseVisualStyleBackColor = true;
-            chkManageAdmins.Click += chkManagePatients_Click;
+            chkManageAdmins.Click += chkPermissions_Click;
             // 
             // chkManageAppointments
             // 
@@ -395,7 +395,7 @@
             chkManageAppointments.TabIndex = 10;
             chkManageAppointments.Text = "Manage Appointments ?";
             chkManageAppointments.UseVisualStyleBackColor = true;
-            chkManageAppointments.Click += chkManagePatients_Click;
+            chkManageAppointments.Click += chkPermissions_Click;
             // 
             // chkManageDoctors
             // 
@@ -408,7 +408,7 @@
             chkManageDoctors.TabIndex = 9;
             chkManageDoctors.Text = "Manage Doctors ?";
             chkManageDoctors.UseVisualStyleBackColor = true;
-            chkManageDoctors.Click += chkManagePatients_Click;
+            chkManageDoctors.Click += chkPermissions_Click;
             // 
             // chkManagePatients
             // 
@@ -421,7 +421,7 @@
             chkManagePatients.TabIndex = 8;
             chkManagePatients.Text = "Manage Patients ?";
             chkManagePatients.UseVisualStyleBackColor = true;
-            chkManagePatients.Click += chkManagePatients_Click;
+            chkManagePatients.Click += chkPermissions_Click;
             // 
             // dgvAdmins
             // 

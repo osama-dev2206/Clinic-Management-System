@@ -109,7 +109,7 @@ namespace Clinc_Management_System_Presentation_Layer
 
 
         // to manage the permissions of the admin
-        private void chkManagePatients_Click(object sender, EventArgs e)
+        private void chkPermissions_Click(object sender, EventArgs e)
         {
             if (chkManagePatients.Checked)
             {
@@ -175,7 +175,7 @@ namespace Clinc_Management_System_Presentation_Layer
                 {
                     MessageBox.Show("Admin Saved Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RefreshAdminsDataGrid();
-
+                    RestAdminForm();
                 }
                 else
                 {
@@ -198,7 +198,79 @@ namespace Clinc_Management_System_Presentation_Layer
 
         }
 
+        // Manage Form when You Edit It 
 
+        void FillChkPermissions()
+        {
+            if( admin.CheckPermission(clsAdmin.enPersmissions.ManagePatients) )
+            {
+                this.chkManagePatients.Checked = true;
+            }
+
+            if(admin.CheckPermission(clsAdmin.enPersmissions.ManageDoctors))
+            {
+                this.chkManageDoctors.Checked = true;
+            }
+
+            if (admin.CheckPermission(clsAdmin.enPersmissions.ManageAppointments))
+            {
+                this.chkManageAppointments.Checked = true;
+            }
+
+            if(admin.CheckPermission(clsAdmin.enPersmissions.ManageAdmins))
+            {
+                this.chkManageAdmins.Checked = true;
+            }
+
+        }
+
+        void RestChkPermissions()
+        {
+            this.chkManagePatients.Checked = false;
+            this.chkManageDoctors.Checked = false;
+            this.chkManageAppointments.Checked = false;
+            this.chkManageAdmins.Checked = false;
+        }
+
+        void FillAdminForm()
+        {
+            if (this.admin != null)
+            {
+                this.Name = this.admin.Name;
+                this.dtDateOfBirth.Text = this.admin.DateOfBirth.ToString();
+                this.cbGender.Text = this.admin.Gender;
+                this.tbAddress.Text = this.admin.Address;
+                this.tbPhone.Text = this.admin.Phone;
+                this.mtbEmail.Text = this.admin.Email;
+
+                this.tbUserName.Text = this.admin.UserName;
+                this.tbPassword.Text = this.admin.AdminPassword;
+
+                // Permissions
+                FillChkPermissions();
+
+
+            }
+
+        }
+
+        void RestAdminForm()
+        {
+            this.Name = "";
+            this.dtDateOfBirth.Text = "";
+            this.cbGender.Text = "";
+            this.tbAddress.Text = "";
+            this.tbPhone.Text = "";
+            this.mtbEmail.Text = "";
+
+            this.tbUserName.Text = "";
+            this.tbPassword.Text = "";
+
+            RestChkPermissions();
+
+        }
+
+        // Context Menu 
         private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             string? SelectedItem = e.ClickedItem.Text;
