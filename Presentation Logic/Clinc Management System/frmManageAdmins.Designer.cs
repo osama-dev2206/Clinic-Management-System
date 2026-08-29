@@ -94,7 +94,7 @@
             btnSaveEditing.Location = new Point(38, 216);
             btnSaveEditing.Name = "btnSaveEditing";
             btnSaveEditing.Size = new Size(153, 42);
-            btnSaveEditing.TabIndex = 6;
+            btnSaveEditing.TabIndex = 13;
             btnSaveEditing.Text = "Save Changes ?";
             btnSaveEditing.UseVisualStyleBackColor = false;
             btnSaveEditing.Visible = false;
@@ -104,7 +104,7 @@
             tbSearchAdminByPersonId.Location = new Point(38, 312);
             tbSearchAdminByPersonId.Name = "tbSearchAdminByPersonId";
             tbSearchAdminByPersonId.Size = new Size(162, 27);
-            tbSearchAdminByPersonId.TabIndex = 5;
+            tbSearchAdminByPersonId.TabIndex = 12;
             tbSearchAdminByPersonId.TextChanged += tbSearchAdminByPersonId_TextChanged;
             // 
             // label13
@@ -134,6 +134,7 @@
             contextMenuStrip1.Items.AddRange(new ToolStripItem[] { tsEdit, tsDelete });
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(127, 56);
+            contextMenuStrip1.ItemClicked += contextMenuStrip1_ItemClicked;
             // 
             // tsEdit
             // 
@@ -174,7 +175,7 @@
             tbPhone.MaxLength = 11;
             tbPhone.Name = "tbPhone";
             tbPhone.Size = new Size(251, 28);
-            tbPhone.TabIndex = 13;
+            tbPhone.TabIndex = 7;
             tbPhone.TextChanged += tbPhone_TextChanged;
             // 
             // mtbEmail
@@ -184,7 +185,7 @@
             mtbEmail.Mask = "AAAAAAAAAA@AAaaa.com";
             mtbEmail.Name = "mtbEmail";
             mtbEmail.Size = new Size(251, 28);
-            mtbEmail.TabIndex = 12;
+            mtbEmail.TabIndex = 5;
             mtbEmail.TextChanged += mtbEmail_TextChanged;
             // 
             // label7
@@ -213,7 +214,7 @@
             tbUserName.Name = "tbUserName";
             tbUserName.PlaceholderText = "Enter Username";
             tbUserName.Size = new Size(251, 28);
-            tbUserName.TabIndex = 7;
+            tbUserName.TabIndex = 2;
             tbUserName.TextChanged += tbUserName_TextChanged;
             // 
             // label1
@@ -267,7 +268,7 @@
             tbPassword.Name = "tbPassword";
             tbPassword.PlaceholderText = "Enter Password";
             tbPassword.Size = new Size(251, 27);
-            tbPassword.TabIndex = 16;
+            tbPassword.TabIndex = 4;
             tbPassword.TextChanged += tbPassword_TextChanged;
             // 
             // label8
@@ -306,7 +307,7 @@
             cbGender.Location = new Point(357, 114);
             cbGender.Name = "cbGender";
             cbGender.Size = new Size(251, 30);
-            cbGender.TabIndex = 2;
+            cbGender.TabIndex = 3;
             cbGender.SelectedIndexChanged += cbGender_SelectedIndexChanged;
             // 
             // dtDateOfBirth
@@ -324,7 +325,7 @@
             tbAddress.Name = "tbAddress";
             tbAddress.PlaceholderText = "Enter Address";
             tbAddress.Size = new Size(251, 27);
-            tbAddress.TabIndex = 0;
+            tbAddress.TabIndex = 6;
             tbAddress.TextChanged += tbAddress_TextChanged;
             // 
             // tbFullName
@@ -378,7 +379,7 @@
             chkManageAdmins.Location = new Point(278, 91);
             chkManageAdmins.Name = "chkManageAdmins";
             chkManageAdmins.Size = new Size(168, 23);
-            chkManageAdmins.TabIndex = 3;
+            chkManageAdmins.TabIndex = 11;
             chkManageAdmins.Text = "Manage Admins ?";
             chkManageAdmins.UseVisualStyleBackColor = true;
             chkManageAdmins.Click += chkManagePatients_Click;
@@ -391,7 +392,7 @@
             chkManageAppointments.Location = new Point(17, 91);
             chkManageAppointments.Name = "chkManageAppointments";
             chkManageAppointments.Size = new Size(219, 23);
-            chkManageAppointments.TabIndex = 2;
+            chkManageAppointments.TabIndex = 10;
             chkManageAppointments.Text = "Manage Appointments ?";
             chkManageAppointments.UseVisualStyleBackColor = true;
             chkManageAppointments.Click += chkManagePatients_Click;
@@ -404,7 +405,7 @@
             chkManageDoctors.Location = new Point(278, 36);
             chkManageDoctors.Name = "chkManageDoctors";
             chkManageDoctors.Size = new Size(174, 23);
-            chkManageDoctors.TabIndex = 1;
+            chkManageDoctors.TabIndex = 9;
             chkManageDoctors.Text = "Manage Doctors ?";
             chkManageDoctors.UseVisualStyleBackColor = true;
             chkManageDoctors.Click += chkManagePatients_Click;
@@ -417,7 +418,7 @@
             chkManagePatients.Location = new Point(17, 36);
             chkManagePatients.Name = "chkManagePatients";
             chkManagePatients.Size = new Size(175, 23);
-            chkManagePatients.TabIndex = 0;
+            chkManagePatients.TabIndex = 8;
             chkManagePatients.Text = "Manage Patients ?";
             chkManagePatients.UseVisualStyleBackColor = true;
             chkManagePatients.Click += chkManagePatients_Click;
@@ -434,6 +435,7 @@
             dgvAdmins.RowHeadersWidth = 51;
             dgvAdmins.Size = new Size(708, 242);
             dgvAdmins.TabIndex = 13;
+            dgvAdmins.SelectionChanged += dgvAdmins_SelectionChanged;
             // 
             // frmManageAdmins
             // 

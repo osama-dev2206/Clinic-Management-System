@@ -13,6 +13,7 @@ namespace Clinc_Management_System_Presentation_Layer
     public partial class frmManageAdmins : Form
     {
         clsAdmin admin = new clsAdmin(); // add new admin status
+        int CurrentSelectedPersonId = -1; // to store the current selected admin id from the datagridview
 
         public frmManageAdmins()
         {
@@ -187,6 +188,50 @@ namespace Clinc_Management_System_Presentation_Layer
             }
 
         }
+
+        private void dgvAdmins_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvAdmins != null && dgvAdmins.CurrentRow != null && int.TryParse(dgvAdmins.CurrentRow.Cells[0].Value.ToString(), out int ID))
+            {
+                CurrentSelectedPersonId = ID;
+            }
+
+        }
+
+
+        private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            string? SelectedItem = e.ClickedItem.Text;
+
+            if (SelectedItem.Trim() == "Delete")
+            {
+                DialogResult res =
+                    MessageBox.Show("Are you sure you want to delete this admin?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (res == DialogResult.Yes)
+                {
+                    if (clsAdmin.DeleteAdmin(CurrentSelectedPersonId))
+                    {
+                        MessageBox.Show("Admin Deleted Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.RefreshAdminsDataGrid();
+                    }
+                    else 
+                        MessageBox.Show("Failed To Delete The Admin", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+
+            }
+
+            else if(SelectedItem.Trim() == "Edit")
+            {
+                // Not Implemented Yet
+            }
+
+        }
+
+
+
+
 
 
     }

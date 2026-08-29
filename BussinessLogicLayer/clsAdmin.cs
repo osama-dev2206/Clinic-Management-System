@@ -185,6 +185,12 @@ namespace BussinessLogicLayer
             return false; // not implemented yet
         }
 
+        public static bool DeleteAdmin(int PersonId)
+        {
+           if (!int.TryParse(PersonId.ToString(), out _)) return false;
+            return clsDeleteAdmin.DeleteAdmin(PersonId);
+        }
+
         public bool SaveAdmin()
         {
             switch(this.status)
