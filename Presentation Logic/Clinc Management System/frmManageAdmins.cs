@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Clinc_Management_System_Presentation_Layer
 {
@@ -202,12 +203,12 @@ namespace Clinc_Management_System_Presentation_Layer
 
         void FillChkPermissions()
         {
-            if( admin.CheckPermission(clsAdmin.enPersmissions.ManagePatients) )
+            if (admin.CheckPermission(clsAdmin.enPersmissions.ManagePatients))
             {
                 this.chkManagePatients.Checked = true;
             }
 
-            if(admin.CheckPermission(clsAdmin.enPersmissions.ManageDoctors))
+            if (admin.CheckPermission(clsAdmin.enPersmissions.ManageDoctors))
             {
                 this.chkManageDoctors.Checked = true;
             }
@@ -217,7 +218,7 @@ namespace Clinc_Management_System_Presentation_Layer
                 this.chkManageAppointments.Checked = true;
             }
 
-            if(admin.CheckPermission(clsAdmin.enPersmissions.ManageAdmins))
+            if (admin.CheckPermission(clsAdmin.enPersmissions.ManageAdmins))
             {
                 this.chkManageAdmins.Checked = true;
             }
@@ -237,8 +238,17 @@ namespace Clinc_Management_System_Presentation_Layer
             if (this.admin != null)
             {
                 this.Name = this.admin.Name;
-                this.dtDateOfBirth.Text = this.admin.DateOfBirth.ToString();
-                this.cbGender.Text = this.admin.Gender;
+                this.dtDateOfBirth.Text = DateTime.Today.AddYears(-(admin.Age)).ToString(); // note the date of birth stored as age in object , you insert dt and i show age only 
+
+                if (this.admin.Gender == "M")
+                {
+                    this.cbGender.Text = "Male";
+                }
+                else if(this.admin.Gender == "F")
+                {
+                    this.cbGender.Text = "Female";
+                }
+
                 this.tbAddress.Text = this.admin.Address;
                 this.tbPhone.Text = this.admin.Phone;
                 this.mtbEmail.Text = this.admin.Email;
@@ -256,7 +266,7 @@ namespace Clinc_Management_System_Presentation_Layer
 
         void RestAdminForm()
         {
-            this.Name = "";
+            this.tbFullName.Text = "";
             this.dtDateOfBirth.Text = "";
             this.cbGender.Text = "";
             this.tbAddress.Text = "";
@@ -287,24 +297,38 @@ namespace Clinc_Management_System_Presentation_Layer
                         MessageBox.Show("Admin Deleted Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.RefreshAdminsDataGrid();
                     }
-                    else 
+                    else
                         MessageBox.Show("Failed To Delete The Admin", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
 
             }
 
-            else if(SelectedItem.Trim() == "Edit")
+            else if (SelectedItem.Trim() == "Edit")
             {
-                // Not Implemented Yet
+                this.admin = clsAdmin.GetAdminByPersonID(this.CurrentSelectedPersonId);
+                FillAdminForm();
+                this.btnSaveEditing.Visible = true;
             }
 
         }
 
+        private void btnSaveEditing_Click(object sender, EventArgs e)
+        {
+           
+            if(admin.SaveAdmin())
+            {
+                MessageBox.Show("Admin Updated Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information); 
+                RefreshAdminsDataGrid();
+                RestAdminForm();
+                this.btnSaveEditing.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Failed To Update The Admin", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
 
-
-
-
+        }
     }
 }

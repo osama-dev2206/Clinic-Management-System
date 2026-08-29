@@ -182,7 +182,19 @@ namespace BussinessLogicLayer
 
         private bool UpdateAdmin()
         {
-            return false; // not implemented yet
+            return clsUpdateAdmin.UpdateAdmin(this.PersonID, new clsUpdateAdmin.AdminInfo
+            {
+                Name = this.Name ,
+                Gender = this.Gender ,
+                Address = this.Address,
+                DateOfBirth = this.DateOfBirth ,
+                Email = this.Email ,
+                Phone = this.Phone,
+                UserName = this.UserName,
+                AdminPassword = this.AdminPassword,
+                AdminPermission = this.Permissions
+            }
+            );
         }
 
         public static bool DeleteAdmin(int PersonId)
