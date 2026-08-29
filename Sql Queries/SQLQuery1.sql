@@ -365,7 +365,6 @@ Select SCOPE_IDENTITY();
 Delete AppointmentDoctorPatient
 Where AppointmentDoctorPatient.AppointmentId ='@ID';
 
--- Delete Appointment
 Update AppointmentDoctorPatient
 Set AppointmentId ='AId' ,
 ADoctorId = '@DoctorId' ,
@@ -422,7 +421,7 @@ Select * From DoctorsFullDetails
       where AppointmentId = 1;
 
       ----------------- Admins 
-
+      Select * From Person;
       select * from AdminFullInfo
       where AdminFullInfo.PersonId ='@UserName';
       
@@ -435,3 +434,79 @@ Select * From DoctorsFullDetails
       Add Constraint UQ_Username
       Unique(UserName);
 
+--- Insert New Admin
+
+INSERT  INTO Person (Name, DateOfBirth, Gender, Address)
+VALUES             (@Name, @Date, @Gender, @Address);
+
+insert Into AdminLogin(AdminPassword , AdminPermissions , UserName , AdminPersonId)
+values(@AdminPassword , @AdminPermission , @UserName , 
+ (SELECT Person.PersonId
+                            FROM   Person
+                            WHERE  Person.Name = @Name
+                                   AND Person.Address = @Address
+                                   AND Person.DateOfBirth = @Date
+                                   AND Person.Gender = @Gender)    )
+); 
+
+INSERT  INTO Email (Email, PersonId)
+VALUES            (@Email, (SELECT Person.PersonId
+                            FROM   Person
+                            WHERE  Person.Name = @Name
+                                   AND Person.Address = @Address
+                                   AND Person.DateOfBirth = @Date
+                                   AND Person.Gender = @Gender));
+
+INSERT  INTO Phone (PhoneNumber,PersonId)
+VALUES            (@Phone, (SELECT Person.PersonId
+                            FROM   Person
+                            WHERE  Person.Name = @Name
+                                   AND Person.Address = @Address
+                                   AND Person.DateOfBirth = @Date
+                                   AND Person.Gender = @Gender));
+
+SELECT SCOPE_IDENTITY();
+
+--- Delete Admin ( i will pass person id) 
+
+Delete Phone
+Where 
+Phone.PersonId = '@ID';
+
+
+Delete Email 
+Where Email.PersonId = 'ID';
+
+Delete AdminLogin
+where AdminLogin.AdminPersonId ='@ID';
+
+Delete Person
+where Person.PersonId = '@ID' ;
+
+--- Update Admin
+
+-- person 
+Update Person Set
+Person.Name = '@Name' , Person.Gender = '@Gender' ,
+Person.Address = '@Address', Person.DateOfBirth = '@DateOfBirth' 
+where Person.PersonId = '@ID'
+
+
+-- Email
+Update Email Set
+Email.Email = '@Email'
+Where Email.PersonId = '@ID'
+-- Phone
+Update Phone Set 
+PhoneNumber = '@Phone'
+Where Phone.PersonId = '@ID' 
+
+-- Admin
+Update AdminLogin
+Set UserName = '@UserName' ,
+AdminPassword ='@Pass' ,
+AdminPermissions = '@Permission' 
+where AdminPersonId = '@ID' ;
+
+Select * from AdminFullInfo;
+Select * from PatientFullDetails;
