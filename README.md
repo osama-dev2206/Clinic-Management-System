@@ -53,9 +53,122 @@ This scoping decision is documented in the project's `note.txt`:
 
 ## 2. Architecture Diagram
 
-![Clinic Management System Architecture](C:\Users\MSI\.gemini\antigravity-ide\brain\1e6bfab2-a9b2-4ea0-8d04-77e3a078f1b4\clinic_architecture_diagram.jpg)
+```mermaid
+flowchart TD
+    subgraph PL["🖥️  Presentation Layer — Windows Forms"]
+        direction LR
+        P0(["Program.cs\nEntry Point"])
+        P1["frmLogin\nCredential entry"]
+        P2["MainForm\nDashboard + Appointments"]
+        P3["frmManagePatients"]
+        P4["frmManageDoctors"]
+        P5["frmManageAdmins"]
+        P6["fmManageAppointments\nAdd / Edit"]
+        P0 --> P1 --> P2
+        P2 --> P3
+        P2 --> P4
+        P2 --> P5
+        P2 --> P6
+    end
 
-The diagram shows the three-tier flow: Windows Forms UI at the top, the Business Logic object model in the middle, the per-operation Data Access classes at the bottom, all communicating with a single SQL Server `Simple_Clinic` database on the right.
+    subgraph BLL["⚙️  Business Logic Layer — Class Library"]
+        direction TB
+        AB1(["abPerson\n— abstract base —\nName · DOB · Gender · Address\nPhone · Email · Age · PersonID\nenObjectStatus"])
+        AB2(["abAppointment\n— abstract base —\nAppointmentId · DoctorId\nPatientId · DateTime · Status"])
+        IF(["«interface»\nIDoctor\nSave()"])
+
+        CP["clsPatient\nCRUD · Find · List\nCascade Delete"]
+        CD["clsDoctor\nCRUD · Find · List\nCascade Delete"]
+        CA["clsAdmin\nCRUD · Login check\nBitmask Permissions\nSuper-admin guard"]
+        CAP["clsAppointment\nCRUD · Find · List\nCount"]
+
+        AB1 --> CP
+        AB1 --> CD
+        AB1 --> CA
+        AB2 --> CAP
+        IF -.implements.- CD
+    end
+
+    subgraph DAL["🗄️  Data Access Layer — Class Library"]
+        direction LR
+        DS(["dbSettings\nConnection factory\nParameterized queries"])
+
+        subgraph DAL_P["Patient"]
+            direction TB
+            DP1["Insert"] 
+            DP2["FindByID"]
+            DP3["Update"]
+            DP4["CascadeDelete"]
+            DP5["ListAll"]
+            DP6["FindByName"]
+        end
+        subgraph DAL_D["Doctor"]
+            direction TB
+            DD1["Insert"]
+            DD2["GetRecord"]
+            DD3["FindByName"]
+            DD4["Update"]
+            DD5["CascadeDelete"]
+            DD6["ListAll"]
+        end
+        subgraph DAL_A["Admin"]
+            direction TB
+            DA1["Insert"]
+            DA2["Find ×3"]
+            DA3["Update"]
+            DA4["CascadeDelete"]
+            DA5["ListAll"]
+            DA6["LoginCheck"]
+        end
+        subgraph DAL_AP["Appointment"]
+            direction TB
+            DAP1["Insert"]
+            DAP2["FindByID"]
+            DAP3["Update"]
+            DAP4["Delete"]
+            DAP5["ListAll"]
+            DAP6["Count"]
+        end
+
+        DAL_P --> DS
+        DAL_D --> DS
+        DAL_A --> DS
+        DAL_AP --> DS
+    end
+
+    subgraph DB["🏛️  SQL Server — Simple_Clinic"]
+        direction TB
+        subgraph TABLES["Tables"]
+            T1[Person] 
+            T2[Doctor]
+            T3[Patient]
+            T4[Phone]
+            T5[Email]
+            T6[AdminLogin]
+            T7[AppointmentDoctorPatient]
+        end
+        subgraph VIEWS["Views"]
+            V1[PatientFullDetails]
+            V2[DoctorsFullDetails]
+            V3[AdminFullInfo]
+            V4[AppointmentDetails]
+            V5[AppointmentIDDetails]
+            V6[DoctorPersonID]
+        end
+        subgraph IDX["Indexes"]
+            I1[INDX_NameOfPerson]
+            I2[INDX_DoctorSpecialization]
+            I3[indx_PatientId]
+            I4[indx_DoctorId]
+        end
+    end
+
+    PL -->|"calls BLL only\n(no direct DB access)"| BLL
+    BLL -->|"delegates to DAL\n(no direct SQL)"| DAL
+    DS -->|"parameterized queries\nWindows Auth"| DB
+```
+
+The diagram shows the strict three-tier flow: the **Presentation Layer** only calls the BLL; the **BLL** owns all rules and lifecycle logic and calls the DAL; the **DAL** executes parameterized SQL against the database. No layer ever bypasses the one below it.
 
 ---
 
