@@ -237,7 +237,7 @@ namespace Clinc_Management_System_Presentation_Layer
         {
             if (this.admin != null)
             {
-                this.Name = this.admin.Name;
+                this.tbFullName.Text = admin.Name;
                 this.dtDateOfBirth.Text = DateTime.Today.AddYears(-(admin.Age)).ToString(); // note the date of birth stored as age in object , you insert dt and i show age only 
 
                 if (this.admin.Gender == "M")

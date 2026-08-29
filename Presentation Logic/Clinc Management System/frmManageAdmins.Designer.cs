@@ -91,7 +91,7 @@
             btnSaveEditing.FlatAppearance.MouseOverBackColor = Color.Red;
             btnSaveEditing.FlatStyle = FlatStyle.Flat;
             btnSaveEditing.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSaveEditing.Location = new Point(38, 216);
+            btnSaveEditing.Location = new Point(52, 216);
             btnSaveEditing.Name = "btnSaveEditing";
             btnSaveEditing.Size = new Size(153, 42);
             btnSaveEditing.TabIndex = 13;
@@ -102,7 +102,7 @@
             // 
             // tbSearchAdminByPersonId
             // 
-            tbSearchAdminByPersonId.Location = new Point(38, 312);
+            tbSearchAdminByPersonId.Location = new Point(47, 312);
             tbSearchAdminByPersonId.Name = "tbSearchAdminByPersonId";
             tbSearchAdminByPersonId.Size = new Size(162, 27);
             tbSearchAdminByPersonId.TabIndex = 12;
@@ -112,7 +112,7 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label13.Location = new Point(38, 289);
+            label13.Location = new Point(45, 289);
             label13.Name = "label13";
             label13.Size = new Size(167, 20);
             label13.TabIndex = 4;
@@ -121,7 +121,7 @@
             // pbAddAdmin
             // 
             pbAddAdmin.Image = (Image)resources.GetObject("pbAddAdmin.Image");
-            pbAddAdmin.Location = new Point(38, 64);
+            pbAddAdmin.Location = new Point(50, 64);
             pbAddAdmin.Name = "pbAddAdmin";
             pbAddAdmin.Size = new Size(156, 114);
             pbAddAdmin.SizeMode = PictureBoxSizeMode.Zoom;

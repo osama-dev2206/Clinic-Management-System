@@ -40,9 +40,9 @@ Where Phone.PersonId = @ID ;" ;
                 cmd.Parameters.AddWithValue("@Email", Email);
                 cmd.Parameters.AddWithValue("@Phone", Phone);
 
-              Object result=   cmd.ExecuteNonQuery();
 
-                if (result != null)
+
+                if (int.TryParse(cmd.ExecuteNonQuery().ToString() , out int NumOfAffectedRows) && NumOfAffectedRows>0 )
                     Res = true;
             }
             catch
