@@ -92,6 +92,21 @@ namespace Clinc_Management_System_Presentation_Layer
             }
         }
 
+
+        private void tbSearchAdminByPersonId_TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(tbSearchAdminByPersonId.Text) && int.TryParse(tbSearchAdminByPersonId.Text, out int ID))
+            {
+                this.dgvAdmins.DataSource = clsAdmin.GetDTAdminByPersonId(ID);
+            }
+            else if (String.IsNullOrEmpty(tbSearchAdminByPersonId.Text))
+            {
+                RefreshAdminsDataGrid();
+            }
+
+        }
+
+
         // to manage the permissions of the admin
         private void chkManagePatients_Click(object sender, EventArgs e)
         {
@@ -137,6 +152,7 @@ namespace Clinc_Management_System_Presentation_Layer
 
         }
 
+        // Save Changes to the database
 
         private bool CheckBeforeSave()
         {
@@ -171,7 +187,6 @@ namespace Clinc_Management_System_Presentation_Layer
             }
 
         }
-
 
 
     }

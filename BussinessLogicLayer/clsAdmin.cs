@@ -135,6 +135,13 @@ namespace BussinessLogicLayer
             return admin;
         }
 
+
+        public static DataTable GetDTAdminByPersonId(int PersonId)
+        {
+            if (!int.TryParse(PersonId.ToString(), out _)) return null;
+            return  clsFindAdmin.FindAdminByPersonID(PersonId);
+        }
+
         public static bool CheckAdminLoginInfo(string UserName , string Password)
         {
             if(String.IsNullOrEmpty(UserName) && String.IsNullOrEmpty(Password)) 

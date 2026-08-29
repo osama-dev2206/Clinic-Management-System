@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManageAdmins));
             label2 = new Label();
             btnSaveEditing = new Button();
-            tbSearchDoctorByPersonId = new TextBox();
+            tbSearchAdminByPersonId = new TextBox();
             label13 = new Label();
             pbAddAdmin = new PictureBox();
             contextMenuStrip1 = new ContextMenuStrip(components);
@@ -91,7 +91,7 @@
             btnSaveEditing.FlatAppearance.MouseOverBackColor = Color.Red;
             btnSaveEditing.FlatStyle = FlatStyle.Flat;
             btnSaveEditing.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSaveEditing.Location = new Point(47, 220);
+            btnSaveEditing.Location = new Point(38, 216);
             btnSaveEditing.Name = "btnSaveEditing";
             btnSaveEditing.Size = new Size(153, 42);
             btnSaveEditing.TabIndex = 6;
@@ -99,12 +99,13 @@
             btnSaveEditing.UseVisualStyleBackColor = false;
             btnSaveEditing.Visible = false;
             // 
-            // tbSearchDoctorByPersonId
+            // tbSearchAdminByPersonId
             // 
-            tbSearchDoctorByPersonId.Location = new Point(38, 312);
-            tbSearchDoctorByPersonId.Name = "tbSearchDoctorByPersonId";
-            tbSearchDoctorByPersonId.Size = new Size(162, 27);
-            tbSearchDoctorByPersonId.TabIndex = 5;
+            tbSearchAdminByPersonId.Location = new Point(38, 312);
+            tbSearchAdminByPersonId.Name = "tbSearchAdminByPersonId";
+            tbSearchAdminByPersonId.Size = new Size(162, 27);
+            tbSearchAdminByPersonId.TabIndex = 5;
+            tbSearchAdminByPersonId.TextChanged += tbSearchAdminByPersonId_TextChanged;
             // 
             // label13
             // 
@@ -342,7 +343,7 @@
             groupBox1.BackColor = Color.FromArgb(102, 163, 191);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(btnSaveEditing);
-            groupBox1.Controls.Add(tbSearchDoctorByPersonId);
+            groupBox1.Controls.Add(tbSearchAdminByPersonId);
             groupBox1.Controls.Add(label13);
             groupBox1.Controls.Add(pbAddAdmin);
             groupBox1.Dock = DockStyle.Left;
@@ -465,7 +466,7 @@
 
         private Label label2;
         private Button btnSaveEditing;
-        private TextBox tbSearchDoctorByPersonId;
+        private TextBox tbSearchAdminByPersonId;
         private Label label13;
         private PictureBox pbAddAdmin;
         private ContextMenuStrip contextMenuStrip1;
