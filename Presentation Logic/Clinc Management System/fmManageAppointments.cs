@@ -1,5 +1,5 @@
 ﻿using Bussiness_Logic_Layer;
-using Data_Access_Layer;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,7 +49,7 @@ namespace Clinc_Management_System_Presentation_Layer
 
         void FillCbWithPatientsNames()
         {
-            DataTable dt = clsListAllPatients.ListAllPatients();
+            DataTable dt = clsPatient.ListAllPatients();
 
             foreach (DataRow R in dt.Rows)
             {
@@ -59,7 +59,7 @@ namespace Clinc_Management_System_Presentation_Layer
 
         void FillCbWithDoctorsNames()
         {
-            DataTable dt = clsListAllDoctors.ListAllDoctors();
+            DataTable dt = clsDoctor.ListAllDoctors();
             foreach (DataRow R in dt.Rows)
             {
                 cbDoctor.Items.Add(R["DoctorName"].ToString());

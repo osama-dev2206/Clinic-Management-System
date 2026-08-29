@@ -13,7 +13,7 @@ namespace Clinc_Management_System_Presentation_Layer
     public partial class MainForm : Form
     {
         int AppointmentID = -1;
-        clsAdmin admin; // in main form we need to get admin only (the admin already exists as i have successed to login ) 
+        clsAdmin admin; // in main form we need to get admin only (the admin already exists as i have successed to login ) used to check permission
 
         public MainForm()
         {
@@ -25,10 +25,10 @@ namespace Clinc_Management_System_Presentation_Layer
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal string CurrentLoggedInUserName { get; set; }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e) // this event will be called after the form is loaded 
         {
             this.labCurrentLoggedUser.Text += CurrentLoggedInUserName;
-            admin = clsAdmin.GetAdminByUserName(CurrentLoggedInUserName); // fill the object with admin info 
+            admin = clsAdmin.GetAdminByUserName(CurrentLoggedInUserName.Trim()); // fill the object with admin info 
         }
 
 

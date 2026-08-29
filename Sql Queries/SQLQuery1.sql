@@ -424,4 +424,14 @@ Select * From DoctorsFullDetails
       ----------------- Admins 
 
       select * from AdminFullInfo
-      where AdminFullInfo.PersonId ='@PersonId';
+      where AdminFullInfo.PersonId ='@UserName';
+      
+      select * from AdminLogin ;
+      Update AdminLogin
+      set AdminPermissions = 30
+      where AdminId=3;
+
+      alter Table AdminLogin
+      Add Constraint UQ_Username
+      Unique(UserName);
+

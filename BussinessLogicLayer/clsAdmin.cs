@@ -153,6 +153,11 @@ namespace BussinessLogicLayer
         }
 
 
+        public static DataTable ListAllAdmins()
+        {
+            return clsListAllAdmins.ListAllAdmins();
+        }
+
     }
 
 
