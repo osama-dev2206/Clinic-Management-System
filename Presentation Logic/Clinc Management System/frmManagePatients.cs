@@ -172,7 +172,8 @@ namespace Clinc_Management_System_Presentation_Layer
             this.pbAddPatient.Visible = true;
             this.btnSaveEditing.Visible = false;
             RefreshGrid();
-          
+            this.pbAddPatient.Enabled = true;
+
         }
 
         ////////////////////////
@@ -196,6 +197,7 @@ namespace Clinc_Management_System_Presentation_Layer
             }
             else if (e.ClickedItem.Text == "Edit") /// <---- 
             {
+                this.pbAddPatient.Enabled = false;
                 FillFormForEditing();
                 this.pbAddPatient.Visible = false;
                 this.btnSaveEditing.Visible = true;

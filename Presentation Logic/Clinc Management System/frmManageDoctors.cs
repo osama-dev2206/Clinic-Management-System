@@ -199,6 +199,7 @@ namespace Clinc_Management_System_Presentation_Layer
 
             else if (e.ClickedItem.Text == "Edit") /// <---- 
             {
+                this.pbAddDoctor.Enabled = false;
                 FillFormForEditing();
                 this.pbAddDoctor.Visible = false;
                 this.btnSaveEditing.Visible = true;
@@ -215,6 +216,7 @@ namespace Clinc_Management_System_Presentation_Layer
                     MessageBox.Show("The New Edits Applied Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RefershDoctorGridView();
                     RestForm();
+                    this.pbAddDoctor.Enabled = true;
                 }
                 else
                 {

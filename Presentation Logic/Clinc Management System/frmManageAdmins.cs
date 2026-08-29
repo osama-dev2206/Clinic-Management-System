@@ -312,6 +312,7 @@ namespace Clinc_Management_System_Presentation_Layer
                     return;
                 }
 
+                this.pbAddAdmin.Visible = false;
                 this.admin = clsAdmin.GetAdminByPersonID(this.CurrentSelectedPersonId);
                 FillAdminForm();
                 this.btnSaveEditing.Visible = true;
@@ -328,6 +329,7 @@ namespace Clinc_Management_System_Presentation_Layer
                 RefreshAdminsDataGrid();
                 RestAdminForm();
                 this.btnSaveEditing.Visible = false;
+                this.pbAddAdmin.Visible = true;
             }
             else
             {
