@@ -5,7 +5,13 @@
 > **Scope:** Person management (Doctors, Patients, Admins) and Appointment scheduling.
 
 ---
+# Demo :
 
+
+https://github.com/user-attachments/assets/ac951df7-68da-40d8-a1bf-2604fa8a1703
+
+
+---
 ## Table of Contents
 
 1. [Project Overview](#1-project-overview)
